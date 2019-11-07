@@ -55,23 +55,7 @@ public class Start2 extends AppCompatActivity {
 
                         Intent intent = new Intent(Start2.this, Start5.class);
                         editText.setText("");
-                        startActivityForResult(intent, RESULT_Start3);
-                    }
-                });
-
-                //↓呼び出したActivityにデータを返す
-                Button button = findViewById(R.id.button14);
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent();
-                        if(editText.getText() != null){
-                            String str = message + editText.getText().toString();
-                            intent.putExtra(Start4.EXTRA_MESSAGE,str);
-                        }
-                        editText.setText("");
-                        setResult(RESULT_OK,intent);
-                        finish();
+                        startActivity(intent);
                     }
                 });
     }
