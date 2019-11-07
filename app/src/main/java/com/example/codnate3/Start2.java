@@ -7,13 +7,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
 public class Start2 extends AppCompatActivity {
-
+    static final int RESULT_Start3 = 3;
+    private EditText editText;
+    private String message;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +52,27 @@ public class Start2 extends AppCompatActivity {
         //↓Activty3へ
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Start2.this,Start3.class);
-                startActivity(intent);
-            }
-        });
+
+                        Intent intent = new Intent(Start2.this, Start5.class);
+                        editText.setText("");
+                        startActivityForResult(intent, RESULT_Start3);
+                    }
+                });
+
+                //↓呼び出したActivityにデータを返す
+                Button button = findViewById(R.id.button14);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent();
+                        if(editText.getText() != null){
+                            String str = message + editText.getText().toString();
+                            intent.putExtra(Start4.EXTRA_MESSAGE,str);
+                        }
+                        editText.setText("");
+                        setResult(RESULT_OK,intent);
+                        finish();
+                    }
+                });
     }
 }
