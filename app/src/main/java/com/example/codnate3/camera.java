@@ -11,30 +11,37 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.media.Image;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.jar.Pack200;
 
 public class camera extends Activity {
     //取得する画像の大きさ
-    final int REQUEST_CAPTURE_IMAGE = 100;
+    final int REQUEST_CAPTURE_IMAGE = 150;
     private ImagePOST task;
     private int userNo = 1;
     private Bitmap capImage;
     Button cameraButton;
-    Button postButton;
-    ImageView cameraImage;
+    Button PostButton;
+    ImageButton cameraImage;
     TextView resText;
+    String cookie;
+    Param param;
+    String url;
+    String filename;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +49,9 @@ public class camera extends Activity {
 
         //ボタンの配置
         cameraButton = findViewById(R.id.cameraButton);
-        postButton = findViewById(R.id.PostButton);
-        //撮影した写真の表示する場所
+        //撮影した写真の表示する場所兼ボタン
         cameraImage = findViewById(R.id.cameraImage);
-        //POSTの結果を表示
-        resText = findViewById(R.id.textView);
+
 
 
         //現在のカメラの権限を取得
@@ -70,28 +75,22 @@ public class camera extends Activity {
                 startActivityForResult(intent,REQUEST_CAPTURE_IMAGE);
             }
         });
-        //画像の送信ボタン
-        postButton.setOnClickListener(new View.OnClickListener() {
+        cameraImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar calendar = Calendar.getInstance();
-                String now = new SimpleDateFormat().format(calendar.getTime());
-                String filename  = userNo + "_" + now;
-                Param param = new Param(filename,capImage);
-                task = new ImagePOST();
-                task.setListener(createListener());
-                task.execute(param);
+                //カメラのインテントを作成
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                //カメラのインテントを起動し結果を取得
+                startActivityForResult(intent,REQUEST_CAPTURE_IMAGE);
             }
         });
-
-
-
     }
-    private ImagePOST.Listener createListener(){
+
+    private ImagePOST.Listener createListener_POST(){
         return new ImagePOST.Listener() {
             @Override
             public void onSuccess(String result) {
-                resText.setText(result);
+
             }
         };
     }
@@ -101,7 +100,29 @@ public class camera extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(REQUEST_CAPTURE_IMAGE == requestCode && resultCode == Activity.RESULT_OK){
             capImage = (Bitmap) data.getExtras().get("data");
-            cameraImage.setImageBitmap(capImage);
+
+            int imageWidth = capImage.getWidth();
+            int imageHeight = capImage.getHeight();
+
+            Matrix matrix = new Matrix();
+            matrix.setRotate(90,imageWidth/2,imageHeight/2);
+
+            Bitmap bitmap_rotate = Bitmap.createBitmap(capImage,0,0,imageWidth,imageHeight,matrix,true);
+
+            cameraImage.setImageBitmap(bitmap_rotate);
+            //現在時刻を取得
+            Calendar calendar = Calendar.getInstance();
+            String now = new SimpleDateFormat().format(calendar.getTime());
+            Timestamp tm = new Timestamp(System.currentTimeMillis());
+            //userNoと現在時刻をファイル名とする
+            filename  = userNo + "_" + tm;
+            //URLを指定
+            url = "http://3.133.83.204/tanuki/imgInDB";
+            param = new Param(filename,capImage,url,cookie);
+            task = new ImagePOST();
+            task.setListener(createListener_POST());
+            task.execute(param);
+
         }
     }
 
