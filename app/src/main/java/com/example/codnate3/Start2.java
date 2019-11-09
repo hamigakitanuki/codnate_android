@@ -54,7 +54,6 @@ public class Start2 extends AppCompatActivity {
             public void onClick(View v) {
 
                         Intent intent = new Intent(Start2.this, Start5.class);
-                        editText.setText("");
                         startActivity(intent);
                     }
                 });
