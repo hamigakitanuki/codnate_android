@@ -11,15 +11,22 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import static android.nfc.NfcAdapter.EXTRA_DATA;
+
 public class Start3 extends AppCompatActivity {
     final int RESULT_Start4 = 4;
     String age_text ;
     private EditText editText;
     private String message;
+    private Object ExtraData = "com.example.testactivitytrasdata.DATA";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start3);
+
+        String data1 = null;
+        Intent intent = getIntent();
+        data1 = String.valueOf(intent.getIntExtra(EXTRA_DATA, 0));
 
         Spinner spinner = this.findViewById(R.id.spinner);
 

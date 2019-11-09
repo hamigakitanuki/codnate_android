@@ -18,6 +18,10 @@ public class Start2 extends AppCompatActivity {
     TextView error;
     private boolean check = false;
     String sex_text;
+    private EditText editText;
+    private Object ExtraData = "com.example.testactivitytrasdata.DATA";
+    private String text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +36,7 @@ public class Start2 extends AppCompatActivity {
                     RadioButton radiobutton = findViewById(checkedId);
 
                     //ラジオボタンのテキストを取得
-                    String text = radiobutton.getText().toString();
+                    text = radiobutton.getText().toString();
                     sex_text = text;
                     check = true;
                     Log log = null;
@@ -53,9 +57,11 @@ public class Start2 extends AppCompatActivity {
             public void onClick(View v) {
                 if(check){
                     Intent intent = new Intent(getApplication(), Start3.class);
+                    intent.putExtra((String) ExtraData,text);
                     startActivityForResult(intent,RESULT_Start3);
                     check = false;
                     error.setText("");
+
                 }else{
                     error.setText("性別を選択してください");
                 }
