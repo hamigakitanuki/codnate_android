@@ -19,6 +19,7 @@
     <string name="age">年齢</string>
     <string name="name">名前</string>
     <string name="finish">完了</string>
+    <string name="Mypage_bar">マイページ</string>
     <string name="start2_setumei">性別を選択</string>
     <string name="start3_setumei">年齢を選択</string>
     <string name="start4_setumei">名前を入力</string>
@@ -122,4 +123,20 @@
         <item>シャツ</item>
         <item>ポロシャツ</item>
     </string-array>
+    <string name="title_activity_my_page">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>

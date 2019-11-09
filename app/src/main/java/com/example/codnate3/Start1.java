@@ -34,20 +34,11 @@ public class Start1 extends AppCompatActivity {
         && requestCode == RESULT_Start2
         && intent != null){
 
-            //テスト用
-            SharedPreferences data = getSharedPreferences("DATA",MODE_PRIVATE);
-            SharedPreferences.Editor editor = data.edit();
-            editor.putInt("userNo",2);
-            editor.apply();
-            /*
+
             Account_data account_data = (Account_data)intent.getSerializableExtra("Account_data");
             new_account task = new new_account();
             task.setListener(create_Lithner());
             task.execute(account_data);
-
-
-             */
-
 
             finish();
         }
@@ -61,6 +52,7 @@ public class Start1 extends AppCompatActivity {
                 SharedPreferences.Editor editor = data.edit();
                 editor.putInt("userNo",Integer.parseInt(userNo));
                 editor.apply();
+                System.out.println(userNo+"登録完了");
             }
         };
     }
