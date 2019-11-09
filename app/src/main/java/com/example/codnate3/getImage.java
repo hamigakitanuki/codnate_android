@@ -73,7 +73,7 @@ public class getImage extends AsyncTask<String,Void,String[]>{
                 inReader.close();
                 in.close();
             }else {
-                System.out.println("コネクションできませんでしたーーー！！！！m9(^Д^)ﾌﾟｷﾞｬｰ");
+                System.out.println("not connection");
             }
         }catch (Exception e) {
             e.printStackTrace();

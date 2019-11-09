@@ -3,25 +3,31 @@ package com.example.codnate3;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class closet extends AppCompatActivity {
     getImage task;
     String[] Pathlist;
-    String url = "http://3.133.83.204/tanuki/getImage?UserNo=1";
+    String url = "http://3.133.83.204/tanuki/getImage?UserNo=";
     ImageView images[];
     private  int j;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences data = getSharedPreferences("DATA",MODE_PRIVATE);
+        int userNo = data.getInt("userNo",0);
+        url = url + userNo;
 
         setContentView(R.layout.activity_closet);
+        Button addButton = findViewById(R.id.addButton);
         ImageButton huku1 = findViewById(R.id.huku1);
         ImageButton huku2 = findViewById(R.id.huku2);
         ImageButton huku3 = findViewById(R.id.huku3);
@@ -46,10 +52,21 @@ public class closet extends AppCompatActivity {
                 }
             });
         }
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplication(),camera.class);
+                startActivity(intent);
+            }
+        });
         images = images2;
+
         task = new getImage();
         task.setListener(createListner());
         task.execute(url);
+
+
+
     }
 
     private getImage.Listener createListner(){

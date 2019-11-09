@@ -6,7 +6,23 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
+    <string name="kode">＼コーデネートはこうでねいと！／</string>
+    <string name="kode2">服選びをたぬきがします</string>
+    <string name="newAccount">新規に始める人はこちら</string>
+    <string name="loginAccount">すでに始めている人はこちら</string>
+    <string name="start2_bar">新規登録　＞　性別</string>
+    <string name="start3_bar">新規登録　＞　性別　＞　年齢</string>
+    <string name="start4_bar">新規登録　＞　性別　＞　年齢　＞　名前</string>
+    <string name="start5_bar">新規登録　＞　性別　＞　年齢　＞　名前　＞　タイプ</string>
+    <string name="next">次へ</string>
+    <string name="back">戻る</string>
+    <string name="age">年齢</string>
+    <string name="name">名前</string>
+    <string name="finish">完了</string>
+    <string name="start2_setumei">性別を選択</string>
+    <string name="start3_setumei">年齢を選択</string>
+    <string name="start4_setumei">名前を入力</string>
+    <string name="start5_setumei">タイプを選択</string>
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
@@ -36,7 +52,7 @@
         <item>女性</item>
     </string-array>
     <string-array name="age">
-        <item>7歳</item>
+        <item>7</item>
         <item>8</item>
         <item>9</item>
         <item>10</item>
@@ -60,6 +76,27 @@
         <item>28</item>
         <item>29</item>
         <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+        <item>51</item>
         <item>52</item>
         <item>53</item>
         <item>54</item>
@@ -84,6 +121,5 @@
         <item>Tシャツ/カットソー</item>
         <item>シャツ</item>
         <item>ポロシャツ</item>
-        <item>シューズ</item>
     </string-array>
 </resources>

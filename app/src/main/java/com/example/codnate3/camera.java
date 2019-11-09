@@ -32,7 +32,7 @@ public class camera extends Activity {
     //取得する画像の大きさ
     final int REQUEST_CAPTURE_IMAGE = 150;
     private ImagePOST task;
-    private int userNo = 1;
+    private int userNo = 2;
     private Bitmap capImage;
     Button cameraButton;
     Button PostButton;

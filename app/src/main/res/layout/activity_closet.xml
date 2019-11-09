@@ -150,7 +150,7 @@ tools:context=".closet2">
                 android:text="@string/closet"
                 android:textSize="45sp" />
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/New_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/button"

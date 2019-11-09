@@ -64,7 +64,7 @@ public class ImagePOST extends AsyncTask<Param,Void,String>{
             PrintStream printStream = new PrintStream(con.getOutputStream(),false, Xml.Encoding.UTF_8.name());
             printStream.print("--" + boundary);
             printStream.print(ENTER_STRING);
-            printStream.print("Content-Disposition: form-data; name=\"image\"; filename=\"1_" + System.currentTimeMillis() + ".png\"");
+            printStream.print("Content-Disposition: form-data; name=\"image\"; filename=\""+param.filename+".png\"");
             printStream.print(ENTER_STRING);
             printStream.print("Content-Type: " + "application/octet-stream");
             printStream.print(ENTER_STRING);
