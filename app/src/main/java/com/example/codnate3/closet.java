@@ -38,6 +38,7 @@ public class closet extends AppCompatActivity {
         ImageButton huku8 = findViewById(R.id.huku8);
         ImageButton huku9 = findViewById(R.id.huku9);
         ImageView[] images2 = {huku1,huku2,huku3,huku4,huku5,huku6,huku7,huku8,huku9};
+        images = images2;
         for(int i=0;i< images2.length;i++){
             j = i;
             images2[i].setOnClickListener(new View.OnClickListener() {
@@ -79,6 +80,18 @@ public class closet extends AppCompatActivity {
                     getimage2 task2 = new getimage2();
                     task2.setListener(createListner2());
                     task2.execute(path_set);
+                    j = i;
+                    images[i].setOnClickListener(new View.OnClickListener() {
+
+
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getApplicationContext(),detail.class);
+                            intent.putExtra("path",Pathlist[j]);
+                            System.out.println("Pathlist["+j+"]"+Pathlist[j]);
+                            startActivity(intent);
+                        }
+                    });
                 }
 
             }

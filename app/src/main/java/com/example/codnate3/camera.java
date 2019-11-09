@@ -9,6 +9,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
@@ -32,7 +33,7 @@ public class camera extends Activity {
     //取得する画像の大きさ
     final int REQUEST_CAPTURE_IMAGE = 150;
     private ImagePOST task;
-    private int userNo = 2;
+    private int userNo;
     private Bitmap capImage;
     Button cameraButton;
     Button PostButton;
@@ -52,12 +53,12 @@ public class camera extends Activity {
         //撮影した写真の表示する場所兼ボタン
         cameraImage = findViewById(R.id.cameraImage);
 
-
-
+        //保存しているデータからuserNoを持ってくる
+        SharedPreferences data = getSharedPreferences("DATA",MODE_PRIVATE);
+        userNo = data.getInt("userNo",0);
         //現在のカメラの権限を取得
         int permissionCheck = ContextCompat.checkSelfPermission(camera.this,Manifest.permission.CAMERA);
         //許可されているか確認
-
         if(permissionCheck != PackageManager.PERMISSION_GRANTED){
             //許可されていない場合
             final int REQUEST_CODE = 1;
