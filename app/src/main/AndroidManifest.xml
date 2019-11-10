@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.codnate3">
 
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,14 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Start_Mens"></activity>
         <activity android:name=".Start5" />
         <activity android:name=".Start4" />
         <activity android:name=".Start3" />
         <activity android:name=".Start2" />
         <activity android:name=".Start1" />
         <activity android:name=".camera" />
-        <activity android:name=".detail"/>
-        <activity android:name=".closet"/>
+        <activity android:name=".detail" />
+        <activity android:name=".closet" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

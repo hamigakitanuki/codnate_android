@@ -12,16 +12,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class Start5 extends AppCompatActivity {
+public class Start_Mens extends AppCompatActivity {
     private EditText editText;
     private String message;
     public static String text;
-    private String type_text;
+    private String type_text2;
     TextView error;
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start5);
+        setContentView(R.layout.activity_start__mens);
         error = findViewById(R.id.start_mens_error);
 
         Button back = findViewById(R.id.back_start5);
@@ -32,20 +32,20 @@ public class Start5 extends AppCompatActivity {
                 finish();
             }
         });
-    //ラジオボタンの処理
+        //ラジオボタンの処理
         RadioGroup radioGroup =  findViewById(R.id.RadioGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(RadioGroup group,int checkedId2){
 
-                    //選択されているラジオボタンの取得
-                    RadioButton radiobutton2 = findViewById(checkedId2);
+                //選択されているラジオボタンの取得
+                RadioButton radiobutton2 = findViewById(checkedId2);
 
-                    //ラジオボタンのテキストを取得
-                    String text = radiobutton2.getText().toString();
-                    type_text = text;
-                    Log log = null;
-                    log.v("checked",text);
+                //ラジオボタンのテキストを取得
+                String text2 = radiobutton2.getText().toString();
+                type_text2 = text2;
+                Log log = null;
+                log.v("checked",text2);
 
             }
         });
@@ -54,9 +54,9 @@ public class Start5 extends AppCompatActivity {
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(type_text != null){
+                if(type_text2 != null){
                     Account_data account_data = new Account_data();
-                    account_data.setType(type_text);
+                    account_data.setType(type_text2);
                     Intent intent = new Intent();
                     intent.putExtra("Account_data",account_data);
                     setResult(RESULT_OK,intent);

@@ -17,11 +17,13 @@ public class Start2 extends AppCompatActivity {
     final int RESULT_Start3 = 3;
     TextView error;
     private boolean check = false;
-    String sex_text;
+    public String sex_text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start2);
+
         error = findViewById(R.id.start2_error_message);
         RadioGroup radioGroup =  findViewById(R.id.RadioGroupOs);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
@@ -37,6 +39,7 @@ public class Start2 extends AppCompatActivity {
                     check = true;
                     Log log = null;
                     log.v("checked", text);
+
                 }
             }
         });
@@ -52,7 +55,9 @@ public class Start2 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(check){
+
                     Intent intent = new Intent(getApplication(), Start3.class);
+                    intent.putExtra("EXTRA_DATA", sex_text);
                     startActivityForResult(intent,RESULT_Start3);
                     check = false;
                     error.setText("");
@@ -66,11 +71,10 @@ public class Start2 extends AppCompatActivity {
     protected void onActivityResult(int ReqestCode,int ResponceCode,Intent intent){
         super.onActivityResult(ReqestCode, ResponceCode, intent);
 
-        if(ReqestCode == RESULT_Start3
-        && ResponceCode == RESULT_OK
-        && intent != null){
+        if(ReqestCode == RESULT_Start3 && ResponceCode == RESULT_OK && intent != null){
             Account_data account_data = (Account_data)intent.getSerializableExtra("Account_data");
             account_data.setSex(sex_text);
+
             intent.putExtra("Account_data",account_data);
             setResult(RESULT_OK,intent);
             finish();

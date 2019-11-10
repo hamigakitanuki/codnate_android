@@ -37,20 +37,20 @@
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="135dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/kajyuaru" />
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/m_kajyuaru" />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="135dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/feminin" />
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/m_sinnpuru" />
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="135dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/cool" />
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/s" />
         </LinearLayout>
 
         <RadioGroup
@@ -63,13 +63,13 @@
                 android:id="@+id/radioButton3"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
-                android:text="フェミニン" />
+                android:text="カジュアル" />
 
             <RadioButton
                 android:id="@+id/radioButton4"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
-                android:text="カジュアル" />
+                android:text="シンプル" />
 
             <RadioButton
                 android:id="@+id/radioButton6"
