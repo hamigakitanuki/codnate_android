@@ -16,6 +16,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MyPage"></activity>
+        <activity android:name=".Start_Mens"></activity>
         <activity android:name=".Start5" />
         <activity android:name=".Start4" />
         <activity android:name=".Start3" />

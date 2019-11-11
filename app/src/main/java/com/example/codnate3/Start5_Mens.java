@@ -7,23 +7,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class Start5 extends AppCompatActivity {
-    private EditText editText;
-    private String message;
-    public static String text;
+public class Start5_Mens extends AppCompatActivity {
     private String type_text;
     TextView error;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start5);
-        error = findViewById(R.id.start_mens_error);
-
+        setContentView(R.layout.activity_start5__mens);
         Button back = findViewById(R.id.back_start5);
         //↓前のActivityへ
         back.setOnClickListener(new View.OnClickListener() {
@@ -32,25 +26,25 @@ public class Start5 extends AppCompatActivity {
                 finish();
             }
         });
-    //ラジオボタンの処理
+        //ラジオボタンの処理
         RadioGroup radioGroup =  findViewById(R.id.RadioGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(RadioGroup group,int checkedId2){
 
-                    //選択されているラジオボタンの取得
-                    RadioButton radiobutton2 = findViewById(checkedId2);
+                //選択されているラジオボタンの取得
+                RadioButton radiobutton2 = findViewById(checkedId2);
 
-                    //ラジオボタンのテキストを取得
-                    String text = radiobutton2.getText().toString();
-                    type_text = text;
-                    Log log = null;
-                    log.v("checked",text);
+                //ラジオボタンのテキストを取得
+                String text = radiobutton2.getText().toString();
+                type_text = text;
+                Log log = null;
+                log.v("checked",text);
 
             }
         });
         //↓呼び出したActivityにデータを返す
-        Button finish = findViewById(R.id.next_start_mens);
+        Button finish = findViewById(R.id.next_start5);
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,5 +61,4 @@ public class Start5 extends AppCompatActivity {
             }
         });
     }
-
 }

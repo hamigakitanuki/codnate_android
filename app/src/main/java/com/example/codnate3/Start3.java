@@ -9,18 +9,25 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
 
 public class Start3 extends AppCompatActivity {
     final int RESULT_Start4 = 4;
     String age_text ;
     private EditText editText;
     private String message;
+    public static String text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start3);
 
+
+        Intent intent = getIntent();
+        text = intent.getStringExtra("EXTRA_DATA");
         Spinner spinner = this.findViewById(R.id.spinner);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -50,6 +57,7 @@ public class Start3 extends AppCompatActivity {
             public void onClick(View v) {
             if(age_text != null){
                 Intent intent = new Intent(getApplication(), Start4.class);
+                intent.putExtra("EXTRA_DATA", text);
                 startActivityForResult(intent,RESULT_Start4);
             }
             }

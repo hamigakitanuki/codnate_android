@@ -14,17 +14,16 @@ import android.widget.TextView;
 public class Start4 extends AppCompatActivity {
 
     final int RESULT_Start5 = 5;
-    public static final String EXTRA_MESSAGE = "YourPackageName.MESSAGE";
-    private TextView textView;
     private EditText editText;
-    private String message;
+    public static String text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start4);
         editText = findViewById(R.id.start4_edit_text);
-
+        Intent intent = getIntent();
+        text = intent.getStringExtra("EXTRA_DATA");
 
         //↓前のActivityへ
         Button back = findViewById(R.id.back_start4);
@@ -34,14 +33,21 @@ public class Start4 extends AppCompatActivity {
             }
         });
 
-
+        TextView test =  findViewById(R.id.test4);
+        test.setText(text);
         //次のActivityへ
         Button next = findViewById(R.id.next_start4);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(editText.toString() != null){
-                    Intent intent = new Intent(getApplication(), Start5.class);
-                    startActivityForResult(intent, RESULT_Start5);
+                if(editText.toString() != null) {
+                    if(text.equals("男性")) {
+                        Intent intent = new Intent(getApplication(), Start_Mens.class);
+                        startActivityForResult(intent, RESULT_Start5);
+                    }else{
+                        Intent intent = new Intent(getApplication(), Start5.class);
+                        startActivityForResult(intent, RESULT_Start5);
+                    }
+
                 }
 
             }
