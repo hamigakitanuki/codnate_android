@@ -3,13 +3,15 @@ package com.example.codnate3;
 
 
 import android.os.AsyncTask;
+import android.util.Xml;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.UUID;
 
 public class new_account extends AsyncTask<Account_data,Void,String>{
 
@@ -25,12 +27,7 @@ public class new_account extends AsyncTask<Account_data,Void,String>{
         StringBuffer sb = new StringBuffer();
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
-        String new_account_url = "http://3.133.83.204:8080/tanuki/newAccount";
-        String post_param = "name="+account.getName()+
-                            "&sex=" +account.getSex()+
-                            "&age=" +account.getAge()+
-                            "&type="+account.getType();
-        System.out.println(post_param);
+        String new_account_url = "http://3.133.83.204/tanuki/newAccount";
 
         int rescode;
         try {
@@ -45,22 +42,29 @@ public class new_account extends AsyncTask<Account_data,Void,String>{
             //レスポンスのボディ受信を許可する
             con.setDoInput(true);
 
-            con.setRequestProperty("Content-type","text/plain;charset=utf-8");
             con.setRequestProperty("User-Agent", "Android");
             // ヘッダーの設定(複数設定可能)
             con.setRequestProperty("Accept-Language", "jp");
             //コンテンツタイプを変更
 
+            final String boundary = UUID.randomUUID().toString();
+            con.setRequestProperty("Content-type","multipart/form-data; boundary="+boundary);
+            //リクエストボディを書き込んでいく
+            //一度コネクト
             con.connect();
-            OutputStream out = con.getOutputStream();
-            out.write(post_param.getBytes());
-            out.close();
+            PrintStream printStream = new PrintStream(con.getOutputStream(),false, Xml.Encoding.UTF_8.name());
+            Malt_part_post malt_part_post = new Malt_part_post();
+            malt_part_post.textPost(printStream,"name",account.getName(),boundary);
+            malt_part_post.textPost(printStream,"sex",account.getSex(),boundary);
+            malt_part_post.textPost(printStream,"age",account.getAge(),boundary);
+            malt_part_post.textPost(printStream,"type",account.getType(),boundary);
+            printStream.print("--" + boundary + "--");
+            printStream.close();
 
             rescode = con.getResponseCode();
             InputStream in = con.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
             readline = br.readLine();
-            System.out.println(readline);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e);

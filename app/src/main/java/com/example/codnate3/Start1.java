@@ -40,7 +40,6 @@ public class Start1 extends AppCompatActivity {
             task.setListener(create_Lithner());
             task.execute(account_data);
 
-            finish();
         }
 
     }
@@ -53,6 +52,8 @@ public class Start1 extends AppCompatActivity {
                 editor.putInt("userNo",Integer.parseInt(userNo));
                 editor.apply();
                 System.out.println(userNo+"登録完了");
+                finish();
+
             }
         };
     }
