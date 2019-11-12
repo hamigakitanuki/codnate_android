@@ -110,18 +110,128 @@
     </string-array>
 
     <string-array name="category">
+        <item></item>
         <item>トップス</item>
         <item>ボトムス</item>
         <item>ワンピース</item>
         <item>アウター</item>
         <item>シューズ</item>
+        <item>その他</item>
     </string-array>
 
-    <string-array name="topsub">
-        <item>キャミソール/タンクトップ</item>
-        <item>Tシャツ/カットソー</item>
-        <item>シャツ</item>
+    <string-array name ="tops_sub">
+        <item></item>
+        <item>ブラウス</item>
+        <item>ビスチェ</item>
+        <item>キャミソール</item>
+        <item>カットソー</item>
+        <item>インナー</item>
+        <item>ニット</item>
+        <item>オフショルダー</item>
+        <item>パーカー</item>
         <item>ポロシャツ</item>
+        <item>プルオーバー</item>
+        <item>シャツ</item>
+        <item>セーター</item>
+        <item>スウェット</item>
+        <item>Tシャツ</item>
+        <item>タンクトップ</item>
+        <item>チュニック</item>
+        <item>その他</item>
+    </string-array>
+
+    <string-array name="botoms_sub">
+        <item></item>
+        <item>カーゴパンツ</item>
+        <item>クロップドパンツ</item>
+        <item>デニム</item>
+        <item>デニムスカート</item>
+        <item>フレアスカート</item>
+        <item>ハーフパンツ</item>
+        <item>マキシ丈スカート</item>
+        <item>ミモレスカート</item>
+        <item>ミニスカート</item>
+        <item>プリーツスカート</item>
+        <item>スキニーパンツ</item>
+        <item>スウェットパンツ</item>
+        <item>タイトスカート</item>
+        <item>タックパンツ</item>
+        <item>チュールスカート</item>
+        <item>ワイドパンツ</item>
+        <item>その他</item>
+    </string-array>
+    <string-array name="onpeace_sub">
+        <item></item>
+        <item>オールインワン</item>
+        <item>キャミドレス</item>
+        <item>コンビニエンス</item>
+        <item>ドレス</item>
+        <item>ひざ丈スカート</item>
+        <item>マキシドレス</item>
+        <item>ミニドレス</item>
+        <item>ニットドレス</item>
+        <item>ワンピース</item>
+        <item>オーバーオール</item>
+        <item>サルペット</item>
+        <item>シャツドレス</item>
+        <item>その他</item>
+    </string-array>
+    <string-array name="outer_sub">
+        <item></item>
+        <item>ブルゾン</item>
+        <item>ポンチョ</item>
+        <item>カーディガン</item>
+        <item>チェスターコート</item>
+        <item>コート</item>
+        <item>カラーレスジャケット</item>
+        <item>デニムジャケット</item>
+        <item>ダウンコート</item>
+        <item>ダウンジャケット</item>
+        <item>ダウンベスト</item>
+        <item>ダッフルコート</item>
+        <item>ガウン</item>
+        <item>ファーコート</item>
+        <item>ジャケット</item>
+        <item>レザージャケット</item>
+        <item>MA_1</item>
+        <item>ミリタリージャケット</item>
+        <item>モッズコート</item>
+        <item>モンテインジャケット</item>
+        <item>ムートンコート</item>
+        <item>ピーコート</item>
+        <item>レインコート</item>
+        <item>その他</item>
+    </string-array>
+    <string-array name="shoese_sub">
+        <item></item>
+        <item>ビーチサンダル</item>
+        <item>ブーツ</item>
+        <item>ブーティー</item>
+        <item>ドレスシューズ</item>
+        <item>ローファー</item>
+        <item>モカシン</item>
+        <item>ミュール</item>
+        <item>パンプス</item>
+        <item>レインシューズ</item>
+        <item>サンダル</item>
+        <item>スリッポン</item>
+        <item>スニーカー</item>
+        <item>その他</item>
+    </string-array>
+    <string-array name="color">
+        <item></item>
+        <item>ブラック</item>
+        <item>ブルー</item>
+        <item>ブラウン</item>
+        <item>グレー</item>
+        <item>グリーン</item>
+        <item>オレンジ</item>
+        <item>ピンク</item>
+        <item>パープル</item>
+        <item>レッド</item>
+        <item>ホワイト</item>
+        <item>イエロー</item>
+        <item>その他</item>
     </string-array>
     <string name="title_activity_my_page">Settings</string>
 

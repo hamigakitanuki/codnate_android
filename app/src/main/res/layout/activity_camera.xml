@@ -165,7 +165,8 @@
                 <Spinner
                     android:id="@+id/cate_spiner"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp" />
+                    android:layout_height="20dp"
+                    android:entries="@array/category" />
 
             </LinearLayout>
         </LinearLayout>
@@ -248,7 +249,8 @@
                 <Spinner
                     android:id="@+id/color_spiner"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp" />
+                    android:layout_height="20dp"
+                    android:entries="@array/color" />
             </LinearLayout>
         </LinearLayout>
 

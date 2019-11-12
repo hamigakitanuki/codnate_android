@@ -5,13 +5,13 @@ import android.graphics.Bitmap;
 public class Param {
     String filename;
     Bitmap bmp;
-    String url;
-    String cookie;
+    String cate,sub,color;
 
-    Param(String filename,Bitmap bmp,String url,String cookie){
+    Param(String filename,Bitmap bmp,String cate,String sub,String color){
         this.filename = filename;
         this.bmp = bmp;
-        this.url = url;
-        this.cookie = cookie;
+        this.cate = cate;
+        this.sub = sub;
+        this.color = color;
     }
 }

@@ -16,7 +16,7 @@ import android.widget.ImageView;
 public class closet extends AppCompatActivity {
     getImage task;
     String[] Pathlist;
-    String url = "http://3.133.83.204/tanuki/getImage?UserNo=";
+    String url = "http://3.133.83.204:8080/tanuki/getImage?UserNo=";
     ImageView images[];
     private  int j;
     @Override

@@ -1,10 +1,5 @@
 package com.example.codnate3;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
@@ -13,21 +8,24 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-import android.media.Image;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.jar.Pack200;
 
 public class camera extends Activity {
     //取得する画像の大きさ
@@ -35,14 +33,12 @@ public class camera extends Activity {
     private ImagePOST task;
     private int userNo;
     private Bitmap capImage;
-    Button cameraButton;
-    Button PostButton;
-    ImageButton cameraImage;
-    TextView resText;
+    private Button cameraButton,addButton;
+    private ImageButton cameraImage;
+    Spinner cate ,sub,color;
     String cookie;
     Param param;
-    String url;
-    String filename;
+    String url,filename, cate_text,sub_text,color_text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +46,71 @@ public class camera extends Activity {
 
         //ボタンの配置
         cameraButton = findViewById(R.id.cameraButton);
+        addButton = findViewById(R.id.huku_add);
+        //プルダウンの設置
+        cate = findViewById(R.id.cate_spiner);
+        sub = findViewById(R.id.sub_spiner);
+        color = findViewById(R.id.color_spiner);
+        cate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Spinner spinner = (Spinner)adapterView;
+                cate_text = (String)spinner.getSelectedItem();
+                ArrayAdapter<String> subAdapter;
+                switch (cate_text){
+                    case "トップス":
+                        subAdapter = new ArrayAdapter<>(getApplication(),android.R.layout.simple_spinner_item,ArrayPulldown.tops_sub);
+                        sub.setAdapter(subAdapter);
+                        break;
+                    case "ボトムス":
+                        subAdapter = new ArrayAdapter<>(getApplication(),android.R.layout.simple_spinner_item,ArrayPulldown.botoms_sub);
+                        sub.setAdapter(subAdapter);
+                        break;
+                    case "ワンピース":
+                        subAdapter = new ArrayAdapter<>(getApplication(),android.R.layout.simple_spinner_item,ArrayPulldown.onepeace_sub);
+                        sub.setAdapter(subAdapter);
+                        break;
+                    case "アウター":
+                        subAdapter = new ArrayAdapter<>(getApplication(),android.R.layout.simple_spinner_item,ArrayPulldown.outer_sub);
+                        sub.setAdapter(subAdapter);
+                        break;
+                    case "シューズ":
+                        subAdapter = new ArrayAdapter<>(getApplication(),android.R.layout.simple_spinner_item,ArrayPulldown.shoese_sub);
+                        sub.setAdapter(subAdapter);
+                        break;
+                    default:
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        sub.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Spinner spiner = (Spinner)adapterView;
+                sub_text = (String)spiner.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        color.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Spinner spinner = (Spinner)adapterView;
+                color_text = (String)spinner.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         //撮影した写真の表示する場所兼ボタン
         cameraImage = findViewById(R.id.cameraImage);
 
@@ -85,6 +146,34 @@ public class camera extends Activity {
                 startActivityForResult(intent,REQUEST_CAPTURE_IMAGE);
             }
         });
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(cate_text == null){
+                    Toast.makeText(getApplication(),"カテゴリを選択してください！",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(sub_text == null){
+                    Toast.makeText(getApplication(),"サブカテゴリを選択してください！",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(color_text == null){
+                    Toast.makeText(getApplication(),"カテゴリを選択してください！",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                //現在時刻を取得
+                Calendar calendar = Calendar.getInstance();
+                String now = new SimpleDateFormat().format(calendar.getTime());
+                Timestamp tm = new Timestamp(System.currentTimeMillis());
+                //userNoと現在時刻をファイル名とする
+                filename  = userNo + "_" + tm;
+                param = new Param(filename,capImage,cate_text,sub_text,color_text);
+                task = new ImagePOST();
+                task.setListener(createListener_POST());
+                task.execute(param);
+            }
+        });
     }
 
     private ImagePOST.Listener createListener_POST(){
@@ -111,18 +200,7 @@ public class camera extends Activity {
             Bitmap bitmap_rotate = Bitmap.createBitmap(capImage,0,0,imageWidth,imageHeight,matrix,true);
 
             cameraImage.setImageBitmap(bitmap_rotate);
-            //現在時刻を取得
-            Calendar calendar = Calendar.getInstance();
-            String now = new SimpleDateFormat().format(calendar.getTime());
-            Timestamp tm = new Timestamp(System.currentTimeMillis());
-            //userNoと現在時刻をファイル名とする
-            filename  = userNo + "_" + tm;
-            //URLを指定
-            url = "http://3.133.83.204/tanuki/imgInDB";
-            param = new Param(filename,capImage,url,cookie);
-            task = new ImagePOST();
-            task.setListener(createListener_POST());
-            task.execute(param);
+
 
         }
     }

@@ -35,19 +35,19 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/main_botoms1"
                 android:layout_width="135dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@drawable/m_kajyuaru" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/main_tops_1"
                 android:layout_width="135dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@drawable/m_sinnpuru" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/main_shoese1"
                 android:layout_width="135dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@drawable/s" />

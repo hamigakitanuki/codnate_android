@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.util.Xml;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
@@ -32,6 +33,30 @@ public class Malt_part_post {
         printStream.print(ENTER_STRING);
         printStream.print(ENTER_STRING);
         printStream.print(text);
+        printStream.print(ENTER_STRING);
+        printStream.flush();
+    }
+    public void bitmapPost(PrintStream printStream,String tag,Bitmap bmp,String boundary)throws IOException {
+        printStream.print("--" + boundary);
+        printStream.print(ENTER_STRING);
+        printStream.print("Content-Disposition: form-data; name=\"image\"; filename=\""+tag+".png\"");
+        printStream.print(ENTER_STRING);
+        printStream.print("Content-Type: " + "application/octet-stream");
+        printStream.print(ENTER_STRING);
+        printStream.print("Content-Transfer-Encoding: binary");
+        printStream.print(ENTER_STRING);
+        printStream.print(ENTER_STRING);
+        ByteArrayOutputStream bos = null;
+        try {
+            bos = new ByteArrayOutputStream();
+            bmp.compress(Bitmap.CompressFormat.PNG, 100, bos);
+            printStream.write(bos.toByteArray());
+        }
+        finally {
+            if (bos != null) {
+                bos.close();
+            }
+        }
         printStream.print(ENTER_STRING);
         printStream.flush();
     }

@@ -65,6 +65,7 @@ public class new_account extends AsyncTask<Account_data,Void,String>{
             InputStream in = con.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
             readline = br.readLine();
+
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e);

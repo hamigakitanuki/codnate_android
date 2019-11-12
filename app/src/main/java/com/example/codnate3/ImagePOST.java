@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Xml;
-
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -23,24 +22,22 @@ public class ImagePOST extends AsyncTask<Param,Void,String>{
     //遷移してきたアクティビティへの戻り値を返す時に使う
     private Activity mActivity;
     //改行文字列
-    private static final String ENTER_STRING = "\r\n";
-    private String readline;
     @Override
     protected String doInBackground(Param... params) {
 
         //受け取ったParamを格納
         Param param = params[0];
-        //読み込み先の領域
-        StringBuffer sb = new StringBuffer();
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
-        int rescode;
+        String readline = "";
+        String url_text = "http://3.133.83.204/tanuki/imgInDB";
+
         try {
             //画像をJPEG形式で送れるように準備
             ByteArrayOutputStream png = new ByteArrayOutputStream();
             param.bmp.compress(Bitmap.CompressFormat.PNG,100,png);
             //URLクラス宣言
-            URL url = new URL(param.url);
+            URL url = new URL(url_text);
             //コネクションを開く
             con = (HttpURLConnection)url.openConnection();
             //POSTに変更
@@ -49,46 +46,27 @@ public class ImagePOST extends AsyncTask<Param,Void,String>{
             con.setDoOutput(true);
             //レスポンスのボディ受信を許可する
             con.setDoInput(true);
-
-            con.setRequestProperty("User-Agent", "Android");
             // ヘッダーの設定(複数設定可能)
+            con.setRequestProperty("User-Agent", "Android");
             con.setRequestProperty("Accept-Language", "jp");
-            //コンテンツタイプを変更
+            //boudaryに一意な文字列を代入
             final String boundary = UUID.randomUUID().toString();
+            //コンテンツタイプを変更
             con.setRequestProperty("Content-type","multipart/form-data; boundary="+boundary);
             //リクエストボディを書き込んでいく
             //一度コネクト
             con.connect();
-            System.out.println(param.filename);
-            //OutputStreamWriter out = new OutputStreamWriter(con.getOutputStream());
+            Malt_part_post malt = new Malt_part_post();
             PrintStream printStream = new PrintStream(con.getOutputStream(),false, Xml.Encoding.UTF_8.name());
-            printStream.print("--" + boundary);
-            printStream.print(ENTER_STRING);
-            printStream.print("Content-Disposition: form-data; name=\"image\"; filename=\""+param.filename+".png\"");
-            printStream.print(ENTER_STRING);
-            printStream.print("Content-Type: " + "application/octet-stream");
-            printStream.print(ENTER_STRING);
-            printStream.print("Content-Transfer-Encoding: binary");
-            printStream.print(ENTER_STRING);
-            printStream.print(ENTER_STRING);
-            ByteArrayOutputStream bos = null;
-            try {
-                bos = new ByteArrayOutputStream();
-                param.bmp.compress(Bitmap.CompressFormat.PNG, 100, bos);
-                printStream.write(bos.toByteArray());
-            } finally {
-                if (bos != null) {
-                    bos.close();
-                }
-            }
-            printStream.print(ENTER_STRING);
-            printStream.flush();
+            malt.textPost(printStream,"cate", param.cate,boundary);
+            malt.textPost(printStream,"sub",  param.sub,boundary);
+            malt.textPost(printStream,"color",param.color,boundary);
+            malt.bitmapPost(printStream,param.filename,param.bmp,boundary);
             printStream.print("--" + boundary + "--");
-            //out.close();
             if (printStream != null) {
                 printStream.close();
             }
-            rescode = con.getResponseCode();
+            int rescode = con.getResponseCode();
             InputStream in = con.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
             readline = br.readLine();

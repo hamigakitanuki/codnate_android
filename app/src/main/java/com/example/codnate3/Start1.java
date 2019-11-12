@@ -49,9 +49,9 @@ public class Start1 extends AppCompatActivity {
             public void onSuccess(String userNo) {
                 SharedPreferences data = getSharedPreferences("DATA",MODE_PRIVATE);
                 SharedPreferences.Editor editor = data.edit();
-                editor.putInt("userNo",Integer.parseInt(userNo));
+                editor.putInt("userNo", Integer.parseInt(userNo));
                 editor.apply();
-                System.out.println(userNo+"登録完了");
+                System.out.println(userNo + "登録完了");
                 finish();
 
             }
