@@ -123,7 +123,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/main_outer1"
         android:layout_width="193dp"
         android:layout_height="458dp"
         android:layout_alignParentTop="true"

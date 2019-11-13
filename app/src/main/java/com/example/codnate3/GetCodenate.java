@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.Locale;
 
-public class GetCodenate extends AsyncTask<String,Void, List[]>{
+public class GetCodenate extends AsyncTask<String,Void, Codenate_path_list>{
 
     //リスナー
     private Listener listener;
@@ -23,10 +23,10 @@ public class GetCodenate extends AsyncTask<String,Void, List[]>{
     private HttpURLConnection con = null;
 
     @Override
-    protected List[] doInBackground(String... userNos) {
+    protected Codenate_path_list doInBackground(String... userNos) {
         String userNo = userNos[0];
         //POST先のURL
-        String GetURL = "http://3.133.83.204:8080/tanuki/getCodenate?UserNo="+userNo;
+        String GetURL = "http://3.133.83.204/tanuki/getCodenate?UserNo="+userNo;
         //接続するためのクラスを宣言
         int rescode = -1;
         String result = "";
@@ -86,17 +86,13 @@ public class GetCodenate extends AsyncTask<String,Void, List[]>{
         System.out.println("result:"+result);
         //jsonで読み込めるようにGSON宣言
         Gson gson = new Gson();
-        //文字列の両端を削除
-        String path = result.substring(14, result.length()-1);
-        //配列に変換
-        List[] pathlist = gson.fromJson(path,List[].class);
-        System.out.println("pathlist:"+pathlist);
-        //読み込むためのストリームを宣言
+        //クラス変数に格納
+        Codenate_path_list path_list = gson.fromJson(result,Codenate_path_list.class);
 
-        return pathlist;
+        return path_list;
     }
     @Override
-    public void onPostExecute(List[] pathlist){
+    public void onPostExecute(Codenate_path_list pathlist){
         if(listener != null){
             listener.onSuccess(pathlist);
         }
@@ -105,7 +101,7 @@ public class GetCodenate extends AsyncTask<String,Void, List[]>{
         this.listener = listener;
     }
     interface Listener{
-        void onSuccess(List[] pathlist);
+        void onSuccess(Codenate_path_list pathlist);
     }
 
 }
