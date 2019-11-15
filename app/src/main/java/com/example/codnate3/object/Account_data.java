@@ -1,4 +1,4 @@
-package com.example.codnate3;
+package com.example.codnate3.object;
 
 import java.io.Serializable;
 

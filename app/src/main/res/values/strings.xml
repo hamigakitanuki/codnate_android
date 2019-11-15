@@ -121,7 +121,7 @@
         <item>その他</item>
     </string-array>
 
-    <string-array name ="tops_sub">
+    <string-array name="tops_sub">
         <item></item>
         <item>ブラウス</item>
         <item>ビスチェ</item>

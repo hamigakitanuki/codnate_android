@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +12,15 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
+import com.example.codnate3.intent.Start1;
+import com.example.codnate3.intent.Swaip;
+import com.example.codnate3.intent.camera;
+import com.example.codnate3.intent.closet;
+import com.example.codnate3.net.GetCodenate;
+import com.example.codnate3.net.getimage2;
+import com.example.codnate3.object.Bitmap_set;
+import com.example.codnate3.object.Codenate_path_list;
+import com.example.codnate3.object.Path_set;
 
 public class MainActivity extends AppCompatActivity {
     final int StartResultCode = 1;
@@ -33,12 +40,21 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         Button button = findViewById(R.id.addButton);
+        ImageButton swaip_move_button = findViewById(R.id.calendar);
         ImageView tops = findViewById(R.id.main_tops_1);
         ImageView botoms = findViewById(R.id.main_botoms1);
         ImageView shoese = findViewById(R.id.main_shoese1);
         ImageView outer = findViewById(R.id.main_outer1);
         ImageView[] images2 = {tops, botoms, outer, shoese};
         images = images2;
+
+        swaip_move_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplication(),Swaip.class);
+                startActivity(intent);
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
