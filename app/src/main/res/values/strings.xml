@@ -21,6 +21,10 @@
     <string name="finish">完了</string>
     <string name="update">編集</string>
     <string name="delete">削除</string>
+    <string name="jiko">自己紹介</string>
+    <string name="type">タイプ</string>
+    <string name="save">保存</string>
+    <string name="website">ウェブサイト</string>
     <string name="Mypage_bar">マイページ</string>
     <string name="start2_setumei">性別を選択</string>
     <string name="start3_setumei">年齢を選択</string>
