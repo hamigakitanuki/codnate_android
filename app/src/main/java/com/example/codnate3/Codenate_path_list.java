@@ -11,10 +11,22 @@ public class Codenate_path_list {
         this.outer_path = outer_path;
         this.shoese_path = shoese_path;
     }
-
+    public boolean codnate_file_check(){
+        if(0==tops_path.length){
+            return false;
+        }
+        if(0==botoms_path.length){
+            return  false;
+        }
+        if(0 == shoese_path.length){
+            return false;
+        }
+        return true;
+    }
     public String get_path(int cate_idx,int idx){
         switch (cate_idx % 4) {
             case 0:
+                System.out.println(tops_path.length);
                 if(idx<tops_path.length) {
                     if (tops_path[idx] != null) {
                         return tops_path[idx];

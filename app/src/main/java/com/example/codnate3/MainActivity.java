@@ -29,13 +29,15 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplication(), Start1.class);
             startActivity(intent);
         }
+
+
         setContentView(R.layout.activity_main);
         Button button = findViewById(R.id.addButton);
         ImageView tops = findViewById(R.id.main_tops_1);
         ImageView botoms = findViewById(R.id.main_botoms1);
         ImageView shoese = findViewById(R.id.main_shoese1);
         ImageView outer = findViewById(R.id.main_outer1);
-        ImageView[] images2 = {tops,botoms,outer,shoese};
+        ImageView[] images2 = {tops, botoms, outer, shoese};
         images = images2;
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -56,19 +58,23 @@ public class MainActivity extends AppCompatActivity {
         GetCodenate task = new GetCodenate();
         task.setListener(createListner());
         task.execute(String.valueOf(userNo));
+
     }
     private GetCodenate.Listener createListner(){
         return new GetCodenate.Listener() {
             @Override
             public void onSuccess(Codenate_path_list pathlist) {
-                for(int i = 0;i<=3;i++){
+                if(pathlist == null){
 
-                    path = pathlist.get_path(i,0);
-                    if(path == "")continue;
-                    Path_set path_set = new Path_set(path,i);
-                    getimage2 task2 = new getimage2();
-                    task2.setListener(createListner2());
-                    task2.execute(path_set);
+                }else {
+                    for (int i = 0; i <= 3; i++) {
+                        path = pathlist.get_path(i, 0);
+                        if (path == "") continue;
+                        Path_set path_set = new Path_set(path, i);
+                        getimage2 task2 = new getimage2();
+                        task2.setListener(createListner2());
+                        task2.execute(path_set);
+                    }
                 }
             }
         };

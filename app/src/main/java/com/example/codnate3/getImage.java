@@ -15,7 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Locale;
 
-public class getImage extends AsyncTask<String,Void,String[]>{
+public class getImage extends AsyncTask<String,Void,Path_List>{
 
     //リスナー
     private Listener listener;
@@ -23,7 +23,7 @@ public class getImage extends AsyncTask<String,Void,String[]>{
     private HttpURLConnection con = null;
 
     @Override
-    protected String[] doInBackground(String... urls) {
+    protected Path_List doInBackground(String... urls) {
 
         //POST先のURL
         String GetURL = urls[0];
@@ -86,26 +86,23 @@ public class getImage extends AsyncTask<String,Void,String[]>{
         System.out.println("result:"+result);
         //jsonで読み込めるようにGSON宣言
         Gson gson = new Gson();
-        //文字列の両端を削除
-        String path = result.substring(14, result.length()-1);
         //配列に変換
-        String[] pathlist = gson.fromJson(path,String[].class);
-        System.out.println("pathlist:"+pathlist);
+        Path_List pathlist = gson.fromJson(result,Path_List.class);
         //読み込むためのストリームを宣言
 
         return pathlist;
     }
     @Override
-    public void onPostExecute(String[] string){
+    public void onPostExecute(Path_List path_list){
         if(listener != null){
-            listener.onSuccess(string);
+            listener.onSuccess(path_list);
         }
     }
     void setListener(Listener listener) {
         this.listener = listener;
     }
     interface Listener{
-        void onSuccess(String[] pathlist);
+        void onSuccess(Path_List pathlist);
     }
 
 }

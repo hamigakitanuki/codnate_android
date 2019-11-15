@@ -15,9 +15,10 @@ import android.widget.ImageView;
 
 public class closet extends AppCompatActivity {
     getImage task;
-    String[] Pathlist;
-    String url = "http://3.133.83.204:8080/tanuki/getImage?UserNo=";
+    String url = "http://3.133.83.204/tanuki/getImage?UserNo=";
     ImageView images[];
+    String[] path_array;
+    String path;
     private  int j;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class closet extends AppCompatActivity {
         SharedPreferences data = getSharedPreferences("DATA",MODE_PRIVATE);
         int userNo = data.getInt("userNo",0);
         url = url + userNo;
+        System.out.println(userNo);
 
         setContentView(R.layout.activity_closet);
         Button addButton = findViewById(R.id.addButton);
@@ -39,20 +41,7 @@ public class closet extends AppCompatActivity {
         ImageButton huku9 = findViewById(R.id.huku9);
         ImageView[] images2 = {huku1,huku2,huku3,huku4,huku5,huku6,huku7,huku8,huku9};
         images = images2;
-        for(int i=0;i< images2.length;i++){
-            j = i;
-            images2[i].setOnClickListener(new View.OnClickListener() {
 
-
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(),detail.class);
-                    intent.putExtra("path",Pathlist[j]);
-                    System.out.println("Pathlist["+j+"]"+Pathlist[j]);
-                    startActivity(intent);
-                }
-            });
-        }
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,38 +49,38 @@ public class closet extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        images = images2;
+
 
         task = new getImage();
         task.setListener(createListner());
         task.execute(url);
-
-
-
     }
 
     private getImage.Listener createListner(){
         return new getImage.Listener() {
             @Override
-            public void onSuccess(String[] pathlist) {
-                Pathlist = pathlist;
-                for(int i = 0;i<pathlist.length && i < 9;i++){
-                    Path_set path_set = new Path_set(pathlist[i],i);
+            public void onSuccess(Path_List pathlist) {
+                path_array = pathlist.path_list;
+
+                for(int i = 0;i<path_array.length && i < 9;i++){
+                    Path_set path_set = new Path_set(path_array[i],i);
                     getimage2 task2 = new getimage2();
                     task2.setListener(createListner2());
                     task2.execute(path_set);
                     j = i;
                     images[i].setOnClickListener(new View.OnClickListener() {
-
-
+                        int path_idx = j;
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(getApplicationContext(),detail.class);
-                            intent.putExtra("path",Pathlist[j]);
-                            System.out.println("Pathlist["+j+"]"+Pathlist[j]);
+                            intent.putExtra("path",path_array[path_idx]);
                             startActivity(intent);
                         }
+
+
                     });
+
+
                 }
 
             }
