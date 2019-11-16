@@ -21,11 +21,21 @@ public class Swaip extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_swaip);
-        ImageButton button = findViewById(R.id.float_myPage_button);
-        button.setOnClickListener(new View.OnClickListener() {
+
+        ImageButton myPage_button = findViewById(R.id.float_myPage_button);
+        myPage_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplication(),com.example.codnate3.intent.MyPage.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton addButton = findViewById(R.id.add_button_swaip);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplication(),com.example.codnate3.intent.camera.class);
                 startActivity(intent);
             }
         });

@@ -64,71 +64,7 @@
         android:layout_alignParentBottom="true"
         android:background="#ffffff"
 
-        >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/addButton"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-
-                android:text="＋"
-                android:textColor="#00BCD4"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/codenate"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="30dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/coordinate"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/closetbutton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="centerInside"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/addButton"
-                app:layout_constraintStart_toEndOf="@+id/codenate"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/closet_" />
-
-            <ImageButton
-                android:id="@+id/mypagebutton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="30dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/mypage"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/calendar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/calender"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/mypagebutton"
-                app:layout_constraintStart_toEndOf="@+id/addButton"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </RelativeLayout>
+        />
 
     <LinearLayout
         android:layout_width="match_parent"

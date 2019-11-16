@@ -13,81 +13,19 @@
         android:layout_alignParentBottom="true"
         android:background="#ffffff"
 
-        >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/addButton"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-
-                android:text="＋"
-                android:textColor="#00BCD4"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/codenate"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="30dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/coordinate"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/closetbutton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="centerInside"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/addButton"
-                app:layout_constraintStart_toEndOf="@+id/codenate"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/closet_" />
-
-            <ImageButton
-                android:id="@+id/mypagebutton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="30dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/mypage"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/calendar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/calender"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/mypagebutton"
-                app:layout_constraintStart_toEndOf="@+id/addButton"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </RelativeLayout>
+        />
 
 
     <ImageView
         android:id="@+id/main_tops_1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="153dp"
+        android:layout_height="138dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="148dp"
-        android:layout_marginEnd="230dp"
+        android:layout_marginEnd="227dp"
+        android:layout_marginBottom="10dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -104,12 +42,13 @@
 
     <ImageView
         android:id="@+id/main_botoms1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
-        android:layout_marginBottom="279dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="301dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView

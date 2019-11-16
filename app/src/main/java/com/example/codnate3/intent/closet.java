@@ -35,7 +35,6 @@ public class closet extends AppCompatActivity {
         System.out.println(userNo);
 
         setContentView(R.layout.activity_closet);
-        Button addButton = findViewById(R.id.addButton);
         ImageButton huku1 = findViewById(R.id.huku1);
         ImageButton huku2 = findViewById(R.id.huku2);
         ImageButton huku3 = findViewById(R.id.huku3);
@@ -48,13 +47,7 @@ public class closet extends AppCompatActivity {
         ImageView[] images2 = {huku1,huku2,huku3,huku4,huku5,huku6,huku7,huku8,huku9};
         images = images2;
 
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplication(),camera.class);
-                startActivity(intent);
-            }
-        });
+
 
 
         task = new getImage();
