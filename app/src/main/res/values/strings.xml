@@ -26,6 +26,7 @@
     <string name="start3_setumei">年齢を選択</string>
     <string name="start4_setumei">名前を入力</string>
     <string name="start5_setumei">タイプを選択</string>
+    <string name="top_bar">こうでねえと</string>
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>

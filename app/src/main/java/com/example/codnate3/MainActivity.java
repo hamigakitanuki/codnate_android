@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         SharedPreferences data = getSharedPreferences("DATA", MODE_PRIVATE);
         int userNo = data.getInt("userNo", 0);
         if (userNo == 0) {
