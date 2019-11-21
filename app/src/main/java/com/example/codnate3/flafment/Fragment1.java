@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.codnate3.R;
@@ -21,6 +22,14 @@ import com.example.codnate3.net.getimage2;
 import com.example.codnate3.object.Bitmap_set;
 import com.example.codnate3.object.Path_List;
 import com.example.codnate3.object.Path_set;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -31,6 +40,7 @@ public class Fragment1 extends Fragment {
     ImageView images[];
     String[] path_array;
     String path;
+    final public static int DETAIL_RESULT_CODE = 55;
     private  int j;
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -38,6 +48,7 @@ public class Fragment1 extends Fragment {
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.activity_closet, container, false);
         return rootView;
+
     }
     @Override
     public void onViewCreated(@NonNull View view,Bundle savedInstanceState) {
@@ -67,10 +78,13 @@ public class Fragment1 extends Fragment {
     }
 
     private getImage.Listener createListner(){
+
         return new getImage.Listener() {
+
             @Override
             public void onSuccess(Path_List pathlist) {
                 path_array = pathlist.path_list;
+                setupPieChart(pathlist);
 
                 for(int i = 0;i<path_array.length && i < 9;i++){
                     Path_set path_set = new Path_set(path_array[i],i);
@@ -82,15 +96,12 @@ public class Fragment1 extends Fragment {
                         int path_idx = j;
                         @Override
                         public void onClick(View view) {
-
+                            Intent intent = new Intent(getActivity(),com.example.codnate3.intent.detail.class);
+                            intent.putExtra("path",path_array[path_idx]);
+                            startActivityForResult(intent,DETAIL_RESULT_CODE);
                         }
-
-
                     });
-
-
                 }
-
             }
         };
     }
@@ -109,5 +120,28 @@ public class Fragment1 extends Fragment {
             }
         };
     }
+    private void setupPieChart(Path_List path_list){
+        List<PieEntry> pieEntries = new ArrayList<PieEntry>();
+        if(path_list.kawaii > 0){
+            pieEntries.add(new PieEntry(path_list.kawaii,"カワイイ"));
+        }
+        if(path_list.cool > 0){
+            pieEntries.add(new PieEntry(path_list.cool,"クール"));
+        }
+        if(path_list.simple > 0){
+            pieEntries.add(new PieEntry(path_list.simple,"シンプル"));
+        }
+        if(path_list.adult > 0){
+            pieEntries.add(new PieEntry(path_list.adult,"セクシー"));
+        }
+        PieDataSet dataSet = new PieDataSet(pieEntries,"あなたの属性");
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        PieData data = new PieData(dataSet);
+
+        PieChart pieChart = rootView.findViewById(R.id.pie_chart);
+        pieChart.setData(data);
+        pieChart.invalidate();
+    }
+
 }
 

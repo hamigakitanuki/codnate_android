@@ -44,6 +44,7 @@ public class detail extends Activity {
             @Override
             public void onSuccess(String result_text) {
                 Toast.makeText(getApplication(),result_text,Toast.LENGTH_LONG);
+                setResult(RESULT_OK);
                 finish();
             }
         };

@@ -57,10 +57,9 @@ public class getImage extends AsyncTask<String,Void, Path_List>{
                 //エンコードするクラスを作成
                 String encoding = con.getContentEncoding();
 
-                if(null == encoding) {
-                    //ないなら指定の文字コード
-                    encoding = "UTF-8";
-                }
+                //ないなら指定の文字コード
+                encoding = "UTF-8";
+
                 //送られてきた文字列を格納
                 final InputStreamReader inReader = new InputStreamReader(in,encoding);
                 //こちらで処理できるように格納
@@ -88,13 +87,15 @@ public class getImage extends AsyncTask<String,Void, Path_List>{
         //配列に変換
         Path_List pathlist = gson.fromJson(result,Path_List.class);
         //読み込むためのストリームを宣言
-
+        System.out.println("kawaii"+pathlist.kawaii);
         return pathlist;
     }
     @Override
     public void onPostExecute(Path_List path_list){
         if(listener != null){
-            listener.onSuccess(path_list);
+            if(path_list != null){
+                listener.onSuccess(path_list);
+            }
         }
     }
     public void setListener(Listener listener) {

@@ -43,6 +43,10 @@ public class Start1 extends AppCompatActivity {
             task.setListener(create_Lithner());
             task.execute(account_data);
 
+            finish();
+
+
+
         }
 
     }
@@ -53,10 +57,10 @@ public class Start1 extends AppCompatActivity {
                 SharedPreferences data = getSharedPreferences("DATA",MODE_PRIVATE);
                 SharedPreferences.Editor editor = data.edit();
                 editor.putInt("userNo", Integer.parseInt(userNo));
-                editor.apply();
+                editor.commit();
                 System.out.println(userNo + "登録完了");
-                finish();
-
+                Intent intent2 = new Intent(getApplication(),com.example.codnate3.MainActivity.class);
+                startActivity(intent2);
             }
         };
     }

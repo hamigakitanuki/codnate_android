@@ -27,270 +27,93 @@ tools:context=".closet2">
         tools:ignore="UnknownId">
 
 
-        <RelativeLayout
-            android:id="@+id/Relative1"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textView3"
-                android:layout_marginStart="20dp" />
-
-            <ImageButton
-                android:id="@+id/huku1"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:layout_below="@id/textView3"
-                android:layout_marginTop="50dp"
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie_chart"
+                android:layout_width="381dp"
+                android:layout_height="334dp"
                 android:layout_marginStart="20dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/coordinate"
-                android:contentDescription="@string/too" />
-
-            <ImageButton
-                android:id="@+id/huku2"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:layout_below="@id/textView3"
-                android:layout_marginTop="50dp"
-                android:layout_centerHorizontal="true"
-                android:scaleType="centerInside"
-                android:src="@drawable/coordinate"
-                android:contentDescription="@string/tdo" />
-
-            <ImageButton
-                android:id="@+id/huku3"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:layout_below="@id/textView3"
-                android:layout_marginTop="50dp"
-                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/coordinate"
-                android:contentDescription="@string/odo" />
+                android:layout_marginBottom="20dp"/>
 
-            <ImageButton
-                android:id="@+id/huku4"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:layout_below="@id/huku1"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="20dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/coordinate"
-                android:contentDescription="@string/o" />
-            <ImageButton
-                android:id="@+id/huku5"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:layout_below="@id/huku2"
-                android:layout_marginTop="30dp"
-                android:layout_centerHorizontal="true"
-                android:scaleType="centerInside"
-                android:src="@drawable/coordinate"
-                android:contentDescription="@string/d" />
-
-            <ImageButton
-                android:id="@+id/huku6"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:layout_below="@id/huku3"
-                android:layout_marginTop="30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/coordinate"
-                android:contentDescription="@string/d" />
-
-            <ImageButton
-                android:id="@+id/huku7"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:layout_below="@id/huku4"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="27dp"
-                android:contentDescription="@string/odo"
-                android:scaleType="centerInside"
-                android:src="@drawable/coordinate"
-                />
-            <ImageButton
-                android:id="@+id/huku8"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:layout_below="@id/huku5"
-                android:layout_marginTop="30dp"
-                android:layout_centerHorizontal="true"
-                android:scaleType="centerInside"
-                android:src="@drawable/coordinate"
-                android:contentDescription="@string/odo" />
-
-            <ImageButton
-                android:id="@+id/huku9"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:layout_below="@id/huku5"
-                android:layout_marginTop="30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/coordinate"
-                android:contentDescription="@string/odo" />
-
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"
-                android:gravity="center_horizontal"
-                android:text="@string/closet"
-                android:textSize="45sp" />
-            <Button
-                android:id="@+id/New_account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/button"
-                android:layout_marginStart="30dp"
-                />
-
-
-            <HorizontalScrollView
-                android:layout_width="230dp"
-                android:layout_height="30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="65dp">
-
+            <ScrollView
+                android:layout_width="600dp"
+                android:layout_height="match_parent">
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="1000dp"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:id="@+id/huku1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
 
-                    <RadioGroup
-                        android:id="@+id/radioGroup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <ImageButton
+                        android:id="@+id/huku2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
 
-                        <RadioButton
-                            android:id="@+id/radioButton"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#ffffff" />
+                    <ImageButton
+                        android:id="@+id/huku3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
 
-                        <RadioButton
-                            android:id="@+id/radioButton2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#000000" />
+                    <ImageButton
+                        android:id="@+id/huku4"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku5"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku6"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku7"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku8"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku9"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
 
-                        <RadioButton
-                            android:id="@+id/radioButton3"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#808080" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton4"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#8b4513"/>
-
-                        <RadioButton
-                            android:id="@+id/radioButton5"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#ffebce" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton6"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#7cfc00" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton7"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#0000ff" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton8"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#800080" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton9"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#ffff00" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton10"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#ffc0cb" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton11"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#ff0000" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton12"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#ffa500" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton13"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#c0c0c0" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton14"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#ffd700" />
-
-                    </RadioGroup>
                 </LinearLayout>
-            </HorizontalScrollView>
 
 
+            </ScrollView>
 
 
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
-
-    <RelativeLayout
-        android:id="@+id/Relative2"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:background="#ffffff"
-
-        />
 
 </RelativeLayout>
 

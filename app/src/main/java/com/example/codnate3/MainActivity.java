@@ -2,61 +2,78 @@ package com.example.codnate3;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.codnate3.flafment.Fragment1;
 import com.example.codnate3.flafment.MyFragmentStatePagerAdapter;
 import com.example.codnate3.intent.Start1;
-import com.example.codnate3.intent.Swaip;
-import com.example.codnate3.intent.camera;
-import com.example.codnate3.intent.closet;
-import com.example.codnate3.net.GetCodenate;
-import com.example.codnate3.net.getimage2;
-import com.example.codnate3.object.Bitmap_set;
-import com.example.codnate3.object.Codenate_path_list;
-import com.example.codnate3.object.Path_set;
 
 public class MainActivity extends AppCompatActivity {
-    final int StartResultCode = 1;
-    String path;
-    ImageView images[];
-    int j;
     ViewPager viewPager;
-
+    final int OPENING_RESULT_CODE = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
-        setContentView(R.layout.activity_swaip);
-        ImageButton button = findViewById(R.id.float_myPage_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplication(),com.example.codnate3.intent.MyPage.class);
-                startActivity(intent);
-            }
-        });
 
-        ImageButton addButton = findViewById(R.id.add_button_swaip);
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplication(),com.example.codnate3.intent.camera.class);
-                startActivity(intent);
-            }
-        });
-        viewPager = findViewById(R.id.homePage);
-        viewPager.setAdapter(new MyFragmentStatePagerAdapter(getSupportFragmentManager(),0));
+        SharedPreferences data = getSharedPreferences("DATA", MODE_PRIVATE);
+        int userNo = data.getInt("userNo", 0);
+        if (userNo == 0) {
+            Intent intent = new Intent(getApplication(), Start1.class);
+            startActivityForResult(intent,OPENING_RESULT_CODE);
+            finish();
+
+        } else {
+            getSupportActionBar().hide();
+            setContentView(R.layout.activity_swaip);
+            ImageButton button = findViewById(R.id.float_myPage_button);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplication(), com.example.codnate3.intent.MyPage.class);
+                    startActivity(intent);
+
+                }
+
+            });
+
+            ImageButton addButton = findViewById(R.id.add_button_swaip);
+            addButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplication(), com.example.codnate3.intent.camera.class);
+                    startActivity(intent);
+                }
+            });
+            viewPager = findViewById(R.id.homePage);
+            viewPager.setAdapter(new MyFragmentStatePagerAdapter(getSupportFragmentManager(), 0));
+
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK &&
+                requestCode == OPENING_RESULT_CODE &&
+                data != null) {
+            Intent intent = new Intent(getApplication(), com.example.codnate3.MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        if (resultCode == RESULT_OK &&
+            requestCode == Fragment1.DETAIL_RESULT_CODE ){
+            onDestroy();
+            onRestart();
+        }
     }
 }
+
+
 /*
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
