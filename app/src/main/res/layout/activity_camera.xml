@@ -8,15 +8,6 @@
 
 
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
-
-    </LinearLayout>
 
     <ImageButton
         android:id="@+id/cameraImage"
@@ -24,17 +15,23 @@
         android:layout_height="150dp"
         android:scaleType="fitCenter"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="30dp"
-        android:src="@drawable/coordinate" />
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/coordinate"
+        />
+
+
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:background="#f0f8ff"
-        android:text="　　　アイテム編集"
-        android:textSize="30sp" />
+        android:background="#2196F4"
+        android:gravity="center"
+        android:text="アイテム編集"
+        android:textColor="#ffffff"
+        android:textSize="21sp"
+        />
 
     <Button
         android:id="@+id/cameraButton"
@@ -46,7 +43,8 @@
         android:layout_marginEnd="102dp"
         android:text="写真を撮影"
         android:background="#ffffff"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        />
 
     <TextView
         android:id="@+id/textView4"
@@ -54,8 +52,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="212dp"
-        android:background="#f0f8ff"
-        android:text="　※必須項目" />
+        android:background="#ffffff"
+        android:text="　※必須項目"
+        />
 
     <RelativeLayout
         android:id="@+id/Relative2"
@@ -81,7 +80,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                />
 
             <ImageButton
                 android:id="@+id/codenate"
@@ -92,7 +92,8 @@
                 android:src="@drawable/coordinate"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                />
 
             <ImageButton
                 android:id="@+id/closetbutton"
@@ -103,7 +104,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/addButton"
                 app:layout_constraintStart_toEndOf="@+id/codenate"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/closet_" />
+                app:srcCompat="@drawable/closet_"
+                />
 
             <ImageButton
                 android:id="@+id/mypagebutton"
@@ -111,10 +113,11 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="30dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/mypage"
+                android:src="@drawable/human"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                />
 
             <ImageButton
                 android:id="@+id/calendar"
@@ -125,7 +128,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/mypagebutton"
                 app:layout_constraintStart_toEndOf="@+id/addButton"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>
@@ -153,7 +157,9 @@
                     android:id="@+id/textView7"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:text="カテゴリ" />
+                    android:layout_marginStart="10dp"
+                    android:text="カテゴリ"
+                    />
 
             </LinearLayout>
 
@@ -165,9 +171,12 @@
                 <Spinner
                     android:id="@+id/cate_spiner"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp" />
+                    android:layout_height="20dp"
+                    />
+
 
             </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -184,7 +193,9 @@
                     android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:text="サブカテゴリ" />
+                    android:layout_marginStart="10dp"
+                    android:text="サブカテゴリ"
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -196,13 +207,15 @@
                 <Spinner
                     android:id="@+id/sub_spiner"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp" />
+                    android:layout_height="20dp"
+                    />
 
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:text="もしくは" />
+                    android:text="もしくは"
+                    android:layout_height="1dp"
+                    />
 
                 <Button
                     android:id="@+id/sub_yosou"
@@ -219,14 +232,16 @@
                     android:layout_height="20dp"
                     android:gravity="left|bottom"
                     android:background="#ffffff"
-                    android:text="Button" />
+                    android:text="Button"
+                    />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="173dp"
+            android:layout_height="158dp"
             android:orientation="horizontal">
+
 
             <LinearLayout
                 android:layout_width="193dp"
@@ -237,7 +252,9 @@
                     android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:text="カラー" />
+                    android:layout_marginStart="10dp"
+                    android:text="カラー"
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -245,19 +262,49 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+
                 <Spinner
                     android:id="@+id/color_spiner"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp" />
+                    android:layout_height="20dp"
+                    />
             </LinearLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/huku_add"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="追加" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <!--ボタンの影android:elevation="40dp"-->
+            <Button
+                android:id="@+id/huku2_add"
+                android:layout_width="165dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/frame2_style"
+                android:text="キャンセル"
+                android:textColor="#EF5350"
+                android:textSize="18dp"
+                />
+
+            <!--ボタンの色の設定-->
+            <Button
+                android:id="@+id/huku_add"
+                android:layout_width="165dp"
+                android:layout_height="45dp"
+                android:background="@drawable/frame_style"
+                android:elevation="40dp"
+                android:text="追加"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                />
+        </LinearLayout>
+
+
     </LinearLayout>
+
+
 
 
 </RelativeLayout>

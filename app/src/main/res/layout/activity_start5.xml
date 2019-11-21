@@ -105,13 +105,17 @@
                 android:id="@+id/back_start5"
                 android:layout_width="206dp"
                 android:layout_height="wrap_content"
-                android:text="@string/back" />
+                android:background="#ffffff"
+                android:text="@string/back"
+                android:textColor="#2196F4"/>
 
             <Button
                 android:id="@+id/next_start_mens"
                 android:layout_width="206dp"
                 android:layout_height="wrap_content"
-                android:text="@string/finish" />
+                android:background="#2196F4"
+                android:text="@string/finish"
+                android:textColor="#ffffff"/>
         </LinearLayout>
 
     </LinearLayout>

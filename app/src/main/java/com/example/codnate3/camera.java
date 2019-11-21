@@ -74,6 +74,8 @@ public class camera extends Activity {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 //カメラのインテントを起動し結果を取得
                 startActivityForResult(intent,REQUEST_CAPTURE_IMAGE);
+                //Buttonのアニメーション(フェードイン・フェードアウト)
+                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
             }
         });
         cameraImage.setOnClickListener(new View.OnClickListener() {
@@ -161,5 +163,11 @@ public class camera extends Activity {
         toast.setGravity(Gravity.CENTER,x,y);
         toast.show();
 
-    }
-}
+
+        }
+
+
+
+
+        }
+
