@@ -32,6 +32,8 @@ tools:context=".closet2">
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/pie_chart"
                 android:layout_width="381dp"
@@ -40,6 +42,18 @@ tools:context=".closet2">
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="トップス" />
 
             <ScrollView
                 android:layout_width="600dp"
@@ -101,6 +115,164 @@ tools:context=".closet2">
                         app:srcCompat="@drawable/coordinate" />
                     <ImageButton
                         android:id="@+id/huku9"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ボトムス" />
+
+
+
+            <ScrollView
+                android:layout_width="600dp"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="1000dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:id="@+id/huku10"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+
+                    <ImageButton
+                        android:id="@+id/huku12"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+
+                    <ImageButton
+                        android:id="@+id/huku13"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+
+                    <ImageButton
+                        android:id="@+id/huku14"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku15"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku16"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku17"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku18"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku19"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="シューズ" />
+
+            <ScrollView
+                android:layout_width="600dp"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="1000dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:id="@+id/huku20"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+
+                    <ImageButton
+                        android:id="@+id/huku22"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+
+                    <ImageButton
+                        android:id="@+id/huku23"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+
+                    <ImageButton
+                        android:id="@+id/huku24"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku25"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku26"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku27"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku28"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/coordinate" />
+                    <ImageButton
+                        android:id="@+id/huku29"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:paddingLeft="5dp"
