@@ -16,9 +16,12 @@ import com.example.codnate3.intent.Start1;
 public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     final int OPENING_RESULT_CODE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         SharedPreferences data = getSharedPreferences("DATA", MODE_PRIVATE);
         int userNo = data.getInt("userNo", 0);

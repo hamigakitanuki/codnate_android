@@ -1,6 +1,5 @@
 package com.example.codnate3.flafment;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
@@ -8,18 +7,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.codnate3.MainActivity;
 import com.example.codnate3.R;
-import com.example.codnate3.intent.Start1;
-import com.example.codnate3.intent.closet;
 import com.example.codnate3.net.GetCodenate;
 import com.example.codnate3.net.getimage2;
 import com.example.codnate3.object.Bitmap_set;
