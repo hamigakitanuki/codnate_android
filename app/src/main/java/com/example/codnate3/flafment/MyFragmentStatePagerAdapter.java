@@ -35,11 +35,11 @@ public class MyFragmentStatePagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int postion){
         switch (postion){
             case 0:
-                return "画面１";
+                return "今日のコーデ";
             case 1:
-                return "画面２";
+                return "クローゼット";
             case 2:
-                return "画面３";
+                return "おすすめのアイテム";
         }
         return null;
     }
