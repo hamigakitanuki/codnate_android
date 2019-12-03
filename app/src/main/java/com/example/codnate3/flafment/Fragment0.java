@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,6 +34,7 @@ public class Fragment0 extends Fragment {
     ImageView images[];
     int j;
     ViewPager viewPager;
+    ImageView imageView;
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
@@ -40,6 +43,8 @@ public class Fragment0 extends Fragment {
 
         return rootView;
     }
+
+
     @Override
     public void onViewCreated(@NonNull View view,Bundle savedInstanceState){
         super.onViewCreated(view,savedInstanceState);

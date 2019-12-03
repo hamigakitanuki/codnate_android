@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -21,8 +24,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
+        setContentView(R.layout.road);
+        ImageView imageView = findViewById(R.id.load_tanuki);
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.translate_animetion);
+        imageView.setAnimation(animation);
+        /*
         SharedPreferences data = getSharedPreferences("DATA", MODE_PRIVATE);
         int userNo = data.getInt("userNo", 0);
         if (userNo == 0) {
@@ -56,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
             viewPager.setAdapter(new MyFragmentStatePagerAdapter(getSupportFragmentManager(), 0));
 
         }
+
+         */
     }
 
     @Override
