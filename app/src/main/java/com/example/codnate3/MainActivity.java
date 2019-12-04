@@ -24,11 +24,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.road);
+        setContentView(R.layout.load);
         ImageView imageView = findViewById(R.id.load_tanuki);
-        Animation animation = AnimationUtils.loadAnimation(this,R.anim.translate_animetion);
-        imageView.setAnimation(animation);
-        /*
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.tanuki_load_animato);
+        imageView.startAnimation(animation);
+
+
         SharedPreferences data = getSharedPreferences("DATA", MODE_PRIVATE);
         int userNo = data.getInt("userNo", 0);
         if (userNo == 0) {
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-         */
+
     }
 
     @Override
