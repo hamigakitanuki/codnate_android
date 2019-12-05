@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#B1B1B1"
+    tools:context=".Load_Flagment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/frame_style">
+
+        <ImageView
+            android:id="@+id/load_tanuki"
+            android:layout_width="121dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/frame_style"
+            app:srcCompat="@drawable/touka" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="150dp"
+            android:paddingStart="5dp"
+            android:text="なうろーでぃんぐ"
+            android:textSize="30dp" />
+
+    </FrameLayout>
+
+</FrameLayout>

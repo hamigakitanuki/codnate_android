@@ -10,13 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.codnate3.Load_Flagment;
 import com.example.codnate3.R;
 import com.example.codnate3.net.GetCodenate;
 import com.example.codnate3.net.getimage2;
@@ -28,6 +32,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 
 public class Fragment0 extends Fragment {
+    LinearLayout linearLayout;
     View rootView;
     final int StartResultCode = 1;
     String path;
@@ -35,13 +40,16 @@ public class Fragment0 extends Fragment {
     int j;
     ViewPager viewPager;
     ImageView imageView;
+    boolean load_compleate = true;
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle saveInstanceState){
-        rootView = inflater.inflate(R.layout.activity_main,container,false);
 
+
+        rootView = inflater.inflate(R.layout.activity_main,container,false);
         return rootView;
+
     }
 
 
@@ -59,14 +67,14 @@ public class Fragment0 extends Fragment {
         ImageView[] images2 = {tops, botoms, outer, shoese};
         images = images2;
 
-
-
-
-
         GetCodenate task = new GetCodenate();
         task.setListener(createListner());
         task.execute(String.valueOf(userNo));
 
+        linearLayout = getActivity().findViewById(R.id.fragment_codnate_liner);
+        linearLayout.setVisibility(View.INVISIBLE);
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.load_tanuki, Load_Flagment.newInstance()).commit();
     }
     private GetCodenate.Listener createListner(){
         return new GetCodenate.Listener() {
@@ -83,7 +91,9 @@ public class Fragment0 extends Fragment {
                         task2.setListener(createListner2());
                         task2.execute(path_set);
                     }
+
                 }
+                linearLayout.setVisibility(View.VISIBLE);
             }
         };
     }
