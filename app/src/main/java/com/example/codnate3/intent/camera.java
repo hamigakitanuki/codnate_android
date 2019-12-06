@@ -24,6 +24,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.codnate3.R;
+import com.example.codnate3.net.GetCate;
 import com.example.codnate3.net.ImagePOST;
 import com.example.codnate3.object.ArrayPulldown;
 import com.example.codnate3.object.Param;
@@ -33,9 +34,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class camera extends Activity {
-    //取得する画像の大きさ
+
     final int REQUEST_CAPTURE_IMAGE = 150;
     private ImagePOST task;
+    private GetCate getCate_task;
     private int userNo;
     private Bitmap capImage;
     private Button cameraButton,addButton;
@@ -189,6 +191,14 @@ public class camera extends Activity {
             }
         };
     }
+    private GetCate.Listener createListener_POST_getcate(){
+        return new GetCate.Listener() {
+            @Override
+            public void onSuccess(String result) {
+
+            }
+        };
+    }
 
     //別のアクティビティから帰ってきたら起動する↓
     @Override
@@ -206,7 +216,9 @@ public class camera extends Activity {
 
             cameraImage.setImageBitmap(bitmap_rotate);
 
-
+            getCate_task = new GetCate();
+            getCate_task.setListener(createListener_POST_getcate());
+            getCate_task.execute(capImage);
         }
     }
 
