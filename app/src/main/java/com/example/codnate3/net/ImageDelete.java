@@ -5,6 +5,8 @@ package com.example.codnate3.net;
 import android.os.AsyncTask;
 import android.util.Xml;
 
+import com.example.codnate3.AWS_INTERFACE;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -27,7 +29,7 @@ public class ImageDelete extends AsyncTask<String,Void,String>{
         StringBuffer sb = new StringBuffer();
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
-        String new_account_url = "http://3.133.83.204/tanuki/img_Delete";
+        String new_account_url = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/img_Delete";
         int rescode;
         try {
             //URLクラス宣言

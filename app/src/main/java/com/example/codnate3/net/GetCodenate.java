@@ -4,6 +4,7 @@ package com.example.codnate3.net;
 
 import android.os.AsyncTask;
 
+import com.example.codnate3.AWS_INTERFACE;
 import com.example.codnate3.object.Codenate_path_list;
 import com.google.gson.Gson;
 
@@ -25,7 +26,7 @@ public class GetCodenate extends AsyncTask<String,Void, Codenate_path_list>{
     protected Codenate_path_list doInBackground(String... userNos) {
         String userNo = userNos[0];
         //POST先のURL
-        String GetURL = "http://3.133.83.204/tanuki/getCodenate?UserNo="+userNo;
+        String GetURL = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/getCodenate?UserNo="+userNo;
         //接続するためのクラスを宣言
         int rescode = -1;
         String result = "";

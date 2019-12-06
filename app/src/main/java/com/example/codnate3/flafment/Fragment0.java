@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.codnate3.Load_Flagment;
 import com.example.codnate3.R;
 import com.example.codnate3.net.GetCodenate;
 import com.example.codnate3.net.getimage2;
@@ -60,7 +59,7 @@ public class Fragment0 extends Fragment {
             linearLayout = getActivity().findViewById(R.id.fragment_codnate_liner);
             linearLayout.setVisibility(View.INVISIBLE);
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.load_tanuki, Load_Flagment.newInstance()).commit();
+            fragmentManager.beginTransaction().replace(R.id.load_tanuki, Fragment2.Load_Flagment.newInstance()).commit();
             sw = false;
         }
 

@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Xml;
 
+import com.example.codnate3.AWS_INTERFACE;
 import com.example.codnate3.object.Param;
 
 import java.io.BufferedReader;
@@ -33,7 +34,8 @@ public class GetCate extends AsyncTask<Bitmap,Void,String>{
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
         String readline = "";
-        String url_text = "http://3.133.83.204:8080/tanuki/get_Cate";
+
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +":8080/tanuki/get_Cate";
 
         try {
             //画像をJPEG形式で送れるように準備
