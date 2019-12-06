@@ -10,7 +10,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.codnate3.flafment.Fragment1;
@@ -21,24 +20,20 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     final int OPENING_RESULT_CODE = 1;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         SharedPreferences data = getSharedPreferences("DATA", MODE_PRIVATE);
         int userNo = data.getInt("userNo", 0);
-        //新規に始めた場合はusernoが0状態
         if (userNo == 0) {
             Intent intent = new Intent(getApplication(), Start1.class);
-            startActivityForResult(intent, OPENING_RESULT_CODE);
+            startActivityForResult(intent,OPENING_RESULT_CODE);
             finish();
 
         } else {
-
-            //上のタイトルバーが消える
             getSupportActionBar().hide();
-
             setContentView(R.layout.activity_swaip);
             ImageButton button = findViewById(R.id.float_myPage_button);
             button.setOnClickListener(new View.OnClickListener() {
@@ -59,36 +54,32 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-
             viewPager = findViewById(R.id.homePage);
             viewPager.setAdapter(new MyFragmentStatePagerAdapter(getSupportFragmentManager(), 0));
 
-
-
-
         }
+
 
     }
 
-
-        @Override
-        protected void onActivityResult ( int requestCode, int resultCode, Intent data){
-            super.onActivityResult(requestCode, resultCode, data);
-            if (resultCode == RESULT_OK &&
-                    requestCode == OPENING_RESULT_CODE &&
-                    data != null) {
-                Intent intent = new Intent(getApplication(), com.example.codnate3.MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-            if (resultCode == RESULT_OK &&
-                    requestCode == Fragment1.DETAIL_RESULT_CODE) {
-                onDestroy();
-                onRestart();
-            }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK &&
+                requestCode == OPENING_RESULT_CODE &&
+                data != null) {
+            Intent intent = new Intent(getApplication(), com.example.codnate3.MainActivity.class);
+            startActivity(intent);
+            finish();
         }
-
+        if (resultCode == RESULT_OK &&
+            requestCode == Fragment1.DETAIL_RESULT_CODE ){
+            onDestroy();
+            onRestart();
+        }
     }
+}
+
 
 /*
     protected void onCreate(Bundle savedInstanceState) {
