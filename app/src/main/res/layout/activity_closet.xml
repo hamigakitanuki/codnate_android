@@ -17,275 +17,744 @@ tools:context=".closet2">
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="false"
     android:orientation="vertical">
 
     <ScrollView
-        android:layout_above="@+id/Relative2"
-        android:background="@drawable/closet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/Relative2"
+        android:background="#ffffff"
         tools:ignore="UnknownId">
 
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
 
-
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/pie_chart"
-                android:layout_width="381dp"
-                android:layout_height="334dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"/>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
-
-
-            <TextView
-                android:id="@+id/textView3"
+            <FrameLayout
+                android:id="@+id/graph_frame"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="トップス" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/closet_style"
+                android:elevation="5dp">
 
-            <ScrollView
-                android:layout_width="600dp"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="1000dp"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                    <ImageButton
-                        android:id="@+id/huku1"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pie_chart"
+                    android:layout_width="371dp"
+                    android:layout_height="320dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="20dp"
+                     />
 
-                    <ImageButton
-                        android:id="@+id/huku2"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
+            </FrameLayout>
 
-                    <ImageButton
-                        android:id="@+id/huku3"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-
-                    <ImageButton
-                        android:id="@+id/huku4"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku5"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku6"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku7"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku8"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku9"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-
-                </LinearLayout>
-
-
-            </ScrollView>
-
-
-
-            <TextView
-                android:id="@+id/textView4"
+            <FrameLayout
+                android:id="@+id/tops_frame"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ボトムス" />
+                android:layout_height="match_parent"
+                android:layout_below="@id/graph_frame"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/closet_style"
+                android:elevation="5dp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="トップス" />
+
+                <HorizontalScrollView
+                    android:id="@+id/s1"
+                    android:layout_width="600dp"
+                    android:layout_height="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="30dp"
+                    android:scrollbars="none">
+
+                    <RelativeLayout
+                        android:id="@+id/r4"
+                        android:layout_width="1000dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/huku1"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="5dp"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku2"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku1"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku3"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku2"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku4"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku3"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku5"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku4"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku6"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku5"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku7"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku6"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku8"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku7"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku9"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku8"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
 
 
-
-            <ScrollView
-                android:layout_width="600dp"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="1000dp"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                    <ImageButton
-                        android:id="@+id/huku10"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-
-                    <ImageButton
-                        android:id="@+id/huku12"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-
-                    <ImageButton
-                        android:id="@+id/huku13"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-
-                    <ImageButton
-                        android:id="@+id/huku14"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku15"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku16"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku17"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku18"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku19"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-
-                </LinearLayout>
+                    </RelativeLayout>
 
 
-            </ScrollView>
+                </HorizontalScrollView>
 
 
+            </FrameLayout>
 
-            <TextView
-                android:id="@+id/textView5"
+            <FrameLayout
+                android:id="@+id/botoms_frame"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="シューズ" />
+                android:layout_height="match_parent"
+                android:layout_below="@id/tops_frame"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/closet_style"
+                android:elevation="5dp">
 
-            <ScrollView
-                android:layout_width="600dp"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="1000dp"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                    <ImageButton
-                        android:id="@+id/huku20"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="ボトムス" />
 
-                    <ImageButton
-                        android:id="@+id/huku22"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
+                <HorizontalScrollView
+                    android:id="@+id/s2"
+                    android:layout_width="600dp"
+                    android:layout_height="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="30dp"
+                    android:scrollbars="none">
 
-                    <ImageButton
-                        android:id="@+id/huku23"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="6dp"
+                        android:background="#ffffff"
+                        android:orientation="horizontal">
 
-                    <ImageButton
-                        android:id="@+id/huku24"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku25"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku26"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku27"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku28"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
-                    <ImageButton
-                        android:id="@+id/huku29"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="5dp"
-                        app:srcCompat="@drawable/coordinate" />
+                        <ImageButton
+                            android:id="@+id/huku10"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
 
-                </LinearLayout>
+                        <ImageButton
+                            android:id="@+id/huku12"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku10"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku13"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku12"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku14"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku13"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku15"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku14"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku16"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku15"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku17"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku16"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku18"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku17"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku19"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku18"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                    </LinearLayout>
 
 
-            </ScrollView>
+                </HorizontalScrollView>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/shoese_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/botoms_frame"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/closet_style"
+                android:elevation="5dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="シューズ" />
+
+                <HorizontalScrollView
+                    android:id="@+id/s3"
+                    android:layout_width="600dp"
+                    android:layout_height="114dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="30dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="match_parent"
+                        android:background="#ffffff"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/huku20"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku22"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku20"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku23"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku22"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku24"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku23"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku25"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku24"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku26"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku25"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku27"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku26"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku28"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku27"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku29"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                    </LinearLayout>
 
 
-        </LinearLayout>
+                </HorizontalScrollView>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/onepiece_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="6dp"
+                android:layout_below="@id/shoese_frame"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/closet_style"
+                android:elevation="5dp">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="ワンピース" />
+
+                <HorizontalScrollView
+                    android:id="@+id/s4"
+                    android:layout_width="600dp"
+                    android:layout_height="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="30dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="match_parent"
+                        android:background="#ffffff"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/huku30"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku31"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku20"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku32"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku22"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku33"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku23"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku34"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku24"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku35"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku25"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku36"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku26"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku37"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku27"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku38"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+
+
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/unknow_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="6dp"
+                android:layout_below="@id/onepiece_frame"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/closet_style"
+                android:elevation="5dp">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="ワンピース" />
+
+                <HorizontalScrollView
+                    android:id="@+id/s5"
+                    android:layout_width="600dp"
+                    android:layout_height="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="5dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="match_parent"
+                        android:background="#ffffff"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/huku39"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku40"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku20"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku41"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku22"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku42"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku23"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku43"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku24"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku44"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku25"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku45"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku26"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku46"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/huku27"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                        <ImageButton
+                            android:id="@+id/huku47"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/closet_style"
+                            android:elevation="3dp"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/coordinate" />
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+
+
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+
     </ScrollView>
 
+
 </RelativeLayout>
+
 
