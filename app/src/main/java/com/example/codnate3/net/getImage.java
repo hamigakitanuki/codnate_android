@@ -87,7 +87,7 @@ public class getImage extends AsyncTask<String,Void, Path_List>{
         //配列に変換
         Path_List pathlist = gson.fromJson(result,Path_List.class);
         //読み込むためのストリームを宣言
-        System.out.println("kawaii"+pathlist.kawaii);
+
         return pathlist;
     }
     @Override
