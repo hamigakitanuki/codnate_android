@@ -6,63 +6,64 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <FrameLayout
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#dcdcdc">
+        android:fadeScrollbars="false"
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="650dp"
-            android:layout_marginBottom="250dp"
-            android:fadeScrollbars="false"
-            android:scrollbarThumbHorizontal="@color/colorPrimary">
+        android:scrollbarThumbHorizontal="@color/colorPrimary" >
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="600dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="300dp"
-                android:scrollbarThumbHorizontal="@color/colorAccent"
-                android:scrollbarThumbVertical="@color/colorAccent"
-                android:scrollbarTrackHorizontal="@color/colorAccent"
-                android:scrollbarTrackVertical="@color/colorAccent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
 
                 <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="20dp"
-                    android:background="@drawable/frame_style">
+                    android:layout_width="350dp"
+                    android:layout_height="500dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginBottom="46dp"
+                    android:background="@drawable/frame_style"
+                    android:elevation="10dp">
 
                     <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="500dp"
-                        android:layout_marginStart="25dp"
-                        android:layout_marginTop="50dp"
+                        android:layout_width="46dp"
+                        android:layout_height="match_parent"
+
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/tops_color1"
                             android:layout_width="match_parent"
-                            android:layout_height="200dp" />
+                            android:layout_height="200dp"
+                            android:background="@drawable/text_style1"
+                            android:elevation="4dp" />
 
                         <TextView
                             android:id="@+id/botoms_color1"
                             android:layout_width="match_parent"
-                            android:layout_height="200dp" />
+                            android:layout_height="200dp"
+                            android:background="@drawable/text_style3"
+                            android:elevation="4dp" />
 
                         <TextView
                             android:id="@+id/shoese_color1"
                             android:layout_width="match_parent"
-                            android:layout_height="100dp" />
+                            android:layout_height="100dp"
+                            android:background="@drawable/text_style2"
+                            android:elevation="4dp" />
                     </LinearLayout>
 
                     <FrameLayout
-                        android:layout_width="300dp"
-                        android:layout_height="500dp"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginEnd="20dp">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="46dp">
 
                         <ImageView
                             android:id="@+id/main_tops_1"
@@ -100,13 +101,27 @@
                             android:layout_marginTop="45dp"
                             android:layout_marginEnd="13dp"
                             tools:srcCompat="@tools:sample/avatars" />
+
                     </FrameLayout>
+
                 </FrameLayout>
 
-            </LinearLayout>
-        </HorizontalScrollView>
 
-    </FrameLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="400dp"
+
+        android:backgroundTint="#ffffff"
+        android:clickable="true"
+        app:srcCompat="@drawable/more_codnate" />
 
 
 </RelativeLayout>
