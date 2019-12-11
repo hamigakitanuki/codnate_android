@@ -87,12 +87,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void open_button(float scale,float x,float y){
-        addButton.setScaleX(addButton.getScrollX()+scale);
-        addButton.setScaleY(addButton.getScrollY()+scale);
-        addButton.setTranslationX(x+scale);
-        addButton.setTranslationY(y+scale);
-    }
+
 
     public void open_camera(){
         Intent intent = new Intent(getApplication(), com.example.codnate3.intent.camera.class);
