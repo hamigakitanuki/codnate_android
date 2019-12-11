@@ -59,7 +59,7 @@ public class Fragment0 extends Fragment {
             linearLayout = getActivity().findViewById(R.id.fragment_codnate_liner);
             linearLayout.setVisibility(View.INVISIBLE);
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.load_tanuki, Fragment2.Load_Flagment.newInstance()).commit();
+            fragmentManager.beginTransaction().replace(R.id.load_tanuki, Load_Flagment.newInstance()).commit();
             sw = false;
 
             LinearLayout linearLayout = view.findViewById(R.id.tag_add_lisit_layout);
