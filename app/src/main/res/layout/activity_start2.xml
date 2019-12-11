@@ -6,28 +6,32 @@
     android:layout_height="match_parent"
     tools:context="intent.Start2">
 
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_gravity="left"
+        android:background="@drawable/frame_style5"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="@string/start2_bar"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView13"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/start2_bar"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100sp" />
+        android:layout_margin="46dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="24dp">
 
         <TextView
             android:id="@+id/textView14"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center"
             android:text="@string/start2_setumei" />
 
         <LinearLayout
@@ -37,14 +41,14 @@
 
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/mes_pict" />
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/woman" />
@@ -71,11 +75,6 @@
                 android:text="女性" />
 
         </RadioGroup>
-
-        <TextView
-            android:id="@+id/start2_blank"
-            android:layout_width="match_parent"
-            android:layout_height="100sp" />
 
         <TextView
             android:id="@+id/start2_error_message"
