@@ -10,48 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#dcdcdc">
-
-        <FrameLayout
-            android:id="@+id/camera_add_frame"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="300dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/frame_style"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="服を登録"
-                android:textSize="30sp" />
-
-            <ImageButton
-                android:id="@+id/cameraImage"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/frame_style"
-                android:scaleType="fitCenter"
-                android:src="@drawable/coordinate" />
-
-            <Button
-                android:id="@+id/cameraButton"
-                android:layout_width="101dp"
-                android:layout_height="33dp"
-                android:layout_marginStart="200dp"
-                android:layout_marginTop="100dp"
-                android:background="#ffffff"
-                android:text="写真を撮影"
-                android:textSize="12sp" />
-        </FrameLayout>
+        android:background="@drawable/gray_back">
 
         <LinearLayout
             android:id="@+id/camera_info"
@@ -72,6 +31,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/frame_style5"
                 android:gravity="center"
                 android:text="項目" />
 
@@ -189,9 +149,52 @@
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="50dp"
+                android:background="@drawable/frame_style4"
                 android:elevation="50dp"
                 android:text="追加" />
         </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/camera_add_frame"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/frame_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@f"
+                android:gravity="center"
+                android:text="服を登録"
+                android:textSize="30sp" />
+
+            <ImageButton
+                android:id="@+id/cameraImage"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/frame_style"
+                android:scaleType="fitCenter"
+                android:src="@drawable/coordinate" />
+
+            <Button
+                android:id="@+id/cameraButton"
+                android:layout_width="101dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/frame_style4"
+                android:text="写真を撮影"
+                android:textSize="12sp" />
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

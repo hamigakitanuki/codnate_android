@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="729dp"
-        android:background="#dcdcdc"
+        android:background="#ECE8E8"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -17,29 +17,29 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#68C5C5">
+            android:background="@drawable/frame_style5">
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="60dp"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="350dp"
-                android:background="@drawable/frame_style3"
+                android:background="@drawable/frame_style4"
                 android:text="@string/save" />
 
             <TextView
-                android:id="@+id/textView15"
                 android:layout_width="179dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="125dp"
+                android:gravity="center"
                 android:text="@string/Mypage_bar"
                 android:textSize="30dp" />
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/frame_style3"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/frame_style4"
                 android:text="↩"
                 android:textSize="18sp" />
         </FrameLayout>

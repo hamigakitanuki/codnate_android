@@ -9,7 +9,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:background="@drawable/frame_style">
 
         <ImageView
             android:id="@+id/kousatu"
@@ -23,7 +24,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="430dp"
+            android:background="@drawable/frame_style2"
+            android:elevation="10dp"
             android:text="かわいい" />
 
         <Button
@@ -31,7 +34,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="430dp"
+            android:background="@drawable/frame_style2"
+            android:elevation="10dp"
             android:text="かっこいい" />
 
         <Button
@@ -39,7 +44,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="205dp"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="430dp"
+            android:background="@drawable/frame_style2"
+            android:elevation="10dp"
             android:text="その他" />
 
         <ImageView
@@ -47,8 +54,9 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="200dp"
-            android:layout_marginTop="330dp"
-            tools:src="@drawable/tanuki_kousatu" />
+            android:layout_marginTop="350dp"
+            android:background=""
+            tools:src="@drawable/kousatu_tanuki_2" />
     </FrameLayout>
 
 </FrameLayout>
