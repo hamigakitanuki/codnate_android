@@ -36,7 +36,19 @@ public class add extends Fragment {
         tag1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ImageView)v.findViewById(R.id.tanuki_kangaeru)).setImageResource(R.drawable.add_button);
+                ((ImageView)v.findViewById(R.id.tanuki_kangaeru)).setImageResource(R.drawable.tanuki_hirameki);
+            }
+        });
+        tag2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ImageView)v.findViewById(R.id.tanuki_kangaeru)).setImageResource(R.drawable.tanuki_hirameki);
+            }
+        });
+        tag3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ImageView)v.findViewById(R.id.tanuki_kangaeru)).setImageResource(R.drawable.tanuki_hirameki);
             }
         });
         return view;
