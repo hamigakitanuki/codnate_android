@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.codnate3.AWS_INTERFACE;
 import com.example.codnate3.R;
 import com.example.codnate3.intent.detail;
 import com.example.codnate3.net.getImage;
@@ -36,7 +37,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class Fragment1 extends Fragment {
     View rootView;
     getImage task;
-    String url = "http://3.133.83.204/tanuki/getImage?UserNo=";
+    String url = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/getImage?UserNo=";
     ImageView images[];
     String[] path_array;
     String path;

@@ -7,7 +7,9 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Xml;
 
-import com.example.codnate3.object.Param;
+import com.example.codnate3.AWS_INTERFACE;
+import com.example.codnate3.object.Huku_info;
+import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -18,7 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.UUID;
 
-public class GetCate extends AsyncTask<Bitmap,Void,String>{
+public class GetCate extends AsyncTask<Bitmap,Void, Huku_info>{
 
     //リスナー
     private Listener listener;
@@ -26,14 +28,23 @@ public class GetCate extends AsyncTask<Bitmap,Void,String>{
     private Activity mActivity;
     //改行文字列
     @Override
-    protected String doInBackground(Bitmap... bitmaps) {
+    protected Huku_info doInBackground(Bitmap... bitmaps) {
 
+        //-----------デバッグ用
+        String[] type = {"dress","casual","simmple"};
+        float[] type_value = {0.63f,0.21f,0.16f};
+        String[] tag = {"1","2","3","4"};
+        return new Huku_info("tops","cut-and-saw_knit_offshoulder",type,type_value,tag);
+
+        //-----------
+/*
         //受け取ったParamを格納
         Bitmap bitmap = bitmaps[0];
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
         String readline = "";
-        String url_text = "http://3.133.83.204:8080/tanuki/get_Cate";
+
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_Cate";
 
         try {
             //画像をJPEG形式で送れるように準備
@@ -55,7 +66,7 @@ public class GetCate extends AsyncTask<Bitmap,Void,String>{
             //boudaryに一意な文字列を代入
             final String boundary = UUID.randomUUID().toString();
             //コンテンツタイプを変更
-            con.setRequestProperty("Content-type","multipart/form-data; boundary="+boundary);
+            con.setRequestProperty("Content-type","multipart/form-data; boundary="+boundary+";charset=UTF-8");
             //リクエストボディを書き込んでいく
             //一度コネクト
             con.connect();
@@ -71,7 +82,10 @@ public class GetCate extends AsyncTask<Bitmap,Void,String>{
             InputStream in = con.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
             readline = br.readLine();
+
+
             System.out.println(readline);
+
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e);
@@ -81,14 +95,22 @@ public class GetCate extends AsyncTask<Bitmap,Void,String>{
                 con.disconnect();
             }
         }
-        return readline;
+
+        Huku_info huku_info;
+        Gson gson = new Gson();
+
+        huku_info = gson.fromJson(readline,Huku_info.class);
+
+        return huku_info;
+
+ */
     }
     @Override
-    public void onPostExecute(String string){
-        super.onPostExecute(string);
+    public void onPostExecute(Huku_info huku_info){
+        super.onPostExecute(huku_info);
 
         if(listener != null){
-            listener.onSuccess(string);
+            listener.onSuccess(huku_info);
         }
     }
 
@@ -97,7 +119,7 @@ public class GetCate extends AsyncTask<Bitmap,Void,String>{
     }
 
     public interface Listener{
-        void onSuccess(String result);
+        void onSuccess(Huku_info result);
     }
 
 }

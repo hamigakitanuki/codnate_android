@@ -5,6 +5,7 @@ package com.example.codnate3.net;
 import android.os.AsyncTask;
 import android.util.Xml;
 
+import com.example.codnate3.AWS_INTERFACE;
 import com.example.codnate3.object.Account_data;
 
 import java.io.BufferedReader;
@@ -30,7 +31,7 @@ new_account extends AsyncTask<Account_data,Void,String>{
         StringBuffer sb = new StringBuffer();
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
-        String new_account_url = "http://3.133.83.204/tanuki/newAccount";
+        String new_account_url = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/newAccount";
 
         int rescode;
         try {

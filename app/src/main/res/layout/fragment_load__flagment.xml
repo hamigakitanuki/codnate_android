@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#B1B1B1"
-    tools:context=".Load_Flagment">
+    tools:context=".flafment.Fragment2$Load_Flagment">
 
     <!-- TODO: Update blank fragment layout -->
     <FrameLayout
