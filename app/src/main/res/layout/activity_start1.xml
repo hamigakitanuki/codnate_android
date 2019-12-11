@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gray_back"
     tools:context="intent.Start1">
 
     <LinearLayout
@@ -11,45 +12,61 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="150dp" />
+        <FrameLayout
+            android:layout_width="380dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/frame_style2">
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/kode"
-            android:gravity="center"
-            android:textSize="24sp" />
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@string/kode"
+                android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/kode2"
-            android:gravity="center"
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
 
-            android:textSize="20sp" />
+                android:text="@string/kode2"
+                android:textSize="20sp" />
+        </FrameLayout>
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="205dp"
+            android:layout_gravity="center"
             app:srcCompat="@drawable/tanuki" />
 
-        <Button
-            android:id="@+id/New_account"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/newAccount" />
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="#ffff">
 
-        <Button
-            android:id="@+id/Login_account"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/loginAccount" />
+            <Button
+                android:id="@+id/New_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame_style4"
+                android:text="@string/newAccount" />
+
+            <Button
+                android:id="@+id/Login_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/frame_style4"
+                android:text="@string/loginAccount" />
+        </FrameLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
