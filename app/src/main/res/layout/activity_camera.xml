@@ -170,17 +170,17 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="@f"
+                android:background="@drawable/frame_style5"
                 android:gravity="center"
                 android:text="服を登録"
                 android:textSize="30sp" />
 
             <ImageButton
                 android:id="@+id/cameraImage"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="70dp"
                 android:background="@drawable/frame_style"
                 android:scaleType="fitCenter"
                 android:src="@drawable/coordinate" />

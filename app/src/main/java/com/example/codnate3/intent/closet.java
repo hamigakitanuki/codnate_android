@@ -35,20 +35,6 @@ public class closet extends AppCompatActivity {
         System.out.println(userNo);
 
         setContentView(R.layout.activity_closet);
-        ImageButton huku1 = findViewById(R.id.huku1);
-        ImageButton huku2 = findViewById(R.id.huku2);
-        ImageButton huku3 = findViewById(R.id.huku3);
-        ImageButton huku4 = findViewById(R.id.huku4);
-        ImageButton huku5 = findViewById(R.id.huku5);
-        ImageButton huku6 = findViewById(R.id.huku6);
-        ImageButton huku7 = findViewById(R.id.huku7);
-        ImageButton huku8 = findViewById(R.id.huku8);
-        ImageButton huku9 = findViewById(R.id.huku9);
-        ImageView[] images2 = {huku1,huku2,huku3,huku4,huku5,huku6,huku7,huku8,huku9};
-        images = images2;
-
-
-
 
         task = new getImage();
         task.setListener(createListner());

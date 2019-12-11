@@ -61,6 +61,15 @@ public class Fragment0 extends Fragment {
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.load_tanuki, Fragment2.Load_Flagment.newInstance()).commit();
             sw = false;
+
+            LinearLayout linearLayout = view.findViewById(R.id.tag_add_lisit_layout);
+
+            int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
+            for(int i = 0;i<3;i++){
+                System.out.println(linearLayout);
+                View view = getLayoutInflater().inflate(R.layout.add_frame_layout,null);
+                linearLayout.addView(view);
+            }
         }
 
         return view;

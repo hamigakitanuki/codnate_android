@@ -58,21 +58,6 @@ public class Fragment1 extends Fragment {
         url = url + userNo;
         System.out.println(userNo);
 
-        ImageButton huku1 = view.findViewById(R.id.huku1);
-        ImageButton huku2 = view.findViewById(R.id.huku2);
-        ImageButton huku3 = view.findViewById(R.id.huku3);
-        ImageButton huku4 = view.findViewById(R.id.huku4);
-        ImageButton huku5 = view.findViewById(R.id.huku5);
-        ImageButton huku6 = view.findViewById(R.id.huku6);
-        ImageButton huku7 = view.findViewById(R.id.huku7);
-        ImageButton huku8 = view.findViewById(R.id.huku8);
-        ImageButton huku9 = view.findViewById(R.id.huku9);
-        ImageView[] images2 = {huku1,huku2,huku3,huku4,huku5,huku6,huku7,huku8,huku9};
-        images = images2;
-
-
-
-
         task = new getImage();
         task.setListener(createListner());
         task.execute(url);

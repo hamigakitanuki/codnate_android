@@ -55,7 +55,7 @@
             android:layout_height="100dp"
             android:layout_marginStart="200dp"
             android:layout_marginTop="350dp"
-            android:background=""
+            android:background="@drawable/frame_style"
             tools:src="@drawable/kousatu_tanuki_2" />
     </FrameLayout>
 
