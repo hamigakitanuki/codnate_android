@@ -6,6 +6,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -62,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
             });
             viewPager = findViewById(R.id.homePage);
             viewPager.setAdapter(new MyFragmentStatePagerAdapter(getSupportFragmentManager(), 0));
+
+            LinearLayout linearLayout = findViewById(R.id.tag_add_lisit_layout);
+            View view = getLayoutInflater().inflate(R.layout.add_frame_layout,null);
+            /*
+            for(int i = 0;i<3;i++){
+                linearLayout.addView(view);
+            }
+
+
+             */
         }
     }
 

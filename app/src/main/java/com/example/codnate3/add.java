@@ -19,11 +19,6 @@ public class add extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

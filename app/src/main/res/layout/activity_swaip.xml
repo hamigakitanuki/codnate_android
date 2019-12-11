@@ -35,7 +35,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:clickable="true"
-        app:backgroundTint="#4CAF50"
+        app:backgroundTint="#d84315"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/fragment_codnate_liner"
         app:srcCompat="@drawable/add_button" />
@@ -54,6 +54,7 @@
             android:id="@+id/textView18"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:background="#ff9800"
             android:gravity="center"
             android:text="@string/top_bar" />
 
@@ -61,7 +62,8 @@
             android:id="@+id/homePage"
             android:layout_width="match_parent"
             android:layout_height="661dp"
-            android:layout_marginTop="0dp">
+            android:layout_marginTop="0dp"
+            android:background="#ECE8E8">
 
             <androidx.viewpager.widget.PagerTabStrip
                 android:id="@+id/pager_tab_strip"

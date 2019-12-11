@@ -2,22 +2,20 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="300dp"
+    android:layout_height="500dp"
     tools:context=".add">
 
     <FrameLayout
-        android:layout_width="300dp"
-        android:layout_height="480dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
         <ImageView
             android:id="@+id/kousatu"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="50dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
             android:src="@android:drawable/btn_star_big_on" />
 
         <Button
@@ -25,16 +23,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="300dp"
-            android:text="かわいい"
-            />
+            android:layout_marginTop="400dp"
+            android:text="かわいい" />
 
         <Button
             android:id="@+id/tag2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="400dp"
             android:text="かっこいい" />
 
         <Button
@@ -42,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="205dp"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="400dp"
             android:text="その他" />
 
         <ImageView
@@ -50,7 +47,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="200dp"
-            android:layout_marginTop="350dp"
+            android:layout_marginTop="330dp"
             tools:src="@drawable/tanuki_kousatu" />
     </FrameLayout>
 
