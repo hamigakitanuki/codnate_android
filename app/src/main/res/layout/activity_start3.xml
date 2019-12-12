@@ -67,7 +67,7 @@
                 android:layout_width="206dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/frame_style4"
-                android:elevation="10dp"
+                android:elevation="8dp"
                 android:text="@string/back" />
 
             <Button
@@ -75,7 +75,7 @@
                 android:layout_width="206dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/frame_style4"
-                android:elevation="10dp"
+                android:elevation="8dp"
                 android:text="@string/next" />
 
             <TextView

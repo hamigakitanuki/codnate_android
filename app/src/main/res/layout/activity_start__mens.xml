@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray_back"
     tools:context="intent.Start5">
 
     <LinearLayout
@@ -15,102 +16,106 @@
             android:id="@+id/textView13"
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:background="@color/primaryDarkColor"
             android:text="@string/start5_bar"
             android:textSize="16sp" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100sp" />
-
-        <TextView
             android:id="@+id/textView14"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:background="@color/primaryColor"
             android:text="@string/start5_setumei" />
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="280dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginRight="16dp"
+            android:background="#ffff"
+            android:elevation="8dp">
 
-            <ImageView
-                android:id="@+id/main_botoms1"
-                android:layout_width="135dp"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/m_kajyuaru" />
-
-            <ImageView
-                android:id="@+id/main_tops_1"
-                android:layout_width="135dp"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/m_sinnpuru" />
-
-            <ImageView
-                android:id="@+id/main_shoese1"
-                android:layout_width="135dp"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/s" />
-        </LinearLayout>
-
-        <RadioGroup
-            android:id="@+id/RadioGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="135dp"
-                android:layout_height="wrap_content"
-                android:text="カジュアル" />
-
-            <RadioButton
-                android:id="@+id/radioButton4"
-                android:layout_width="135dp"
-                android:layout_height="wrap_content"
-                android:text="シンプル" />
-
-            <RadioButton
-                android:id="@+id/radioButton6"
-                android:layout_width="135dp"
-                android:layout_height="wrap_content"
-                android:text="クール" />
-
-            <TextView
-                android:id="@+id/textView8"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        </RadioGroup>
+                <ImageView
+                    android:id="@+id/main_botoms1"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/m_kajyuaru" />
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="match_parent"
-            android:layout_height="76dp" />
+                <ImageView
+                    android:id="@+id/main_tops_1"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/m_sinnpuru" />
 
+                <ImageView
+                    android:id="@+id/main_shoese1"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/s" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/start_mens_error"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#FCE93232" />
+            <RadioGroup
+                android:id="@+id/RadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="240dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="カジュアル" />
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="シンプル" />
+
+                <RadioButton
+                    android:id="@+id/radioButton6"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="クール" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </RadioGroup>
+
+        </FrameLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="120dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/back_start5"
                 android:layout_width="206dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/frame_style4"
+                android:elevation="8dp"
                 android:text="@string/back" />
 
             <Button
                 android:id="@+id/next_start_mens"
                 android:layout_width="206dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/frame_style4"
+                android:elevation="8dp"
                 android:text="@string/finish" />
         </LinearLayout>
 

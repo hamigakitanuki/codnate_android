@@ -33,8 +33,12 @@
         <LinearLayout
             android:layout_width="399dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:background="#ffff"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="240dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/frame_style"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
@@ -47,20 +51,15 @@
                 android:id="@+id/start4_edit_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#ffff"
                 android:ems="10"
                 android:inputType="textPersonName"
                 tools:text="未記入" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="match_parent"
-            android:layout_height="314dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="240dp"
             android:orientation="horizontal">
 
             <Button
@@ -68,7 +67,7 @@
                 android:layout_width="206dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/frame_style4"
-                android:elevation="10dp"
+                android:elevation="8dp"
                 android:text="@string/back" />
 
             <Button
@@ -76,7 +75,7 @@
                 android:layout_width="206dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/frame_style4"
-                android:elevation="10dp"
+                android:elevation="8dp"
                 android:text="@string/next" />
         </LinearLayout>
 
