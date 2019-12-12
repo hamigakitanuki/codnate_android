@@ -18,11 +18,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.codnate3.R;
+import com.example.codnate3.add;
 import com.example.codnate3.net.GetCodenate;
 import com.example.codnate3.net.getimage2;
 import com.example.codnate3.object.Bitmap_set;
 import com.example.codnate3.object.Codenate_path_list;
 import com.example.codnate3.object.Path_set;
+
+import java.util.zip.Inflater;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -62,13 +65,15 @@ public class Fragment0 extends Fragment {
             fragmentManager.beginTransaction().replace(R.id.load_tanuki, Load_Flagment.newInstance()).commit();
             sw = false;
 
-            LinearLayout linearLayout = view.findViewById(R.id.tag_add_lisit_layout);
 
-            int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
+            LinearLayout linearLayout = view.findViewById(R.id.tag_add_lisit_layout);
             for(int i = 0;i<3;i++){
-                System.out.println(linearLayout);
-                View view = getLayoutInflater().inflate(R.layout.add_frame_layout,null);
-                linearLayout.addView(view);
+                System.out.println("i"+i);
+                View tag_add_view = getLayoutInflater().inflate(R.layout.add_frame_layout,null);
+                linearLayout.addView(tag_add_view);
+                FragmentManager fragmentManager1 = getActivity().getSupportFragmentManager();
+                fragmentManager1.beginTransaction().replace(R.id.add_frame_layout,add.newInstance()).commit();
+
             }
         }
 

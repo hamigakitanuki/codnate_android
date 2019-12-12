@@ -23,7 +23,6 @@ public class Load_Flagment extends Fragment {
 
     public static Load_Flagment newInstance() {
         Load_Flagment fragment = new Load_Flagment();
-        Bundle args = new Bundle();
 
         return fragment;
     }

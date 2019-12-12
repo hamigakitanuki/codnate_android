@@ -3,10 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="500dp"
-    tools:context=".add">
+    android:layout_height="300dp"
+    android:layout_margin="24dp"
+    >
 
     <FrameLayout
+        android:id="@+id/tag_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -16,15 +18,16 @@
             android:id="@+id/kousatu"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:src="@android:drawable/btn_star_big_on" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/ic_1" />
 
         <Button
             android:id="@+id/tag1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="430dp"
+            android:layout_marginTop="240dp"
             android:background="@drawable/frame_style2"
             android:elevation="10dp"
             android:text="かわいい" />
@@ -34,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="430dp"
+            android:layout_marginTop="240dp"
             android:background="@drawable/frame_style2"
             android:elevation="10dp"
             android:text="かっこいい" />
@@ -44,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="205dp"
-            android:layout_marginTop="430dp"
+            android:layout_marginTop="240dp"
             android:background="@drawable/frame_style2"
             android:elevation="10dp"
             android:text="その他" />
@@ -54,8 +57,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="200dp"
-            android:layout_marginTop="350dp"
-            android:background="@drawable/frame_style"
+            android:layout_marginTop="150dp"
             tools:src="@drawable/kousatu_tanuki_2" />
     </FrameLayout>
 

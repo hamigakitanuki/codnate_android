@@ -10,56 +10,57 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 
 
 public class add extends Fragment {
 
-
+    View mView;
     private OnFragmentInteractionListener mListener;
 
+    public static add newInstance() {
+
+        add fragment = new add();
+        return fragment;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_add, container, false);
-        ImageView imageView = view.findViewById(R.id.tanuki_kangaeru);
-        Button tag1 = view.findViewById(R.id.tag1);
-        Button tag2 = view.findViewById(R.id.tag2);
-        Button tag3 = view.findViewById(R.id.tag3);
+        mView= inflater.inflate(R.layout.fragment_add, container, false);
+        ImageView imageView = mView.findViewById(R.id.tanuki_kangaeru);
+        imageView.setImageResource(R.drawable.kousatu_tanuki_2);
+        Button tag1 = mView.findViewById(R.id.tag1);
+        Button tag2 = mView.findViewById(R.id.tag2);
+        Button tag3 = mView.findViewById(R.id.tag3);
         tag1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ImageView)v.findViewById(R.id.tanuki_kangaeru)).setImageResource(R.drawable.tanuki_hirameki);
+                ImageView imageView1 = mView.findViewById(R.id.tanuki_kangaeru);
+                imageView1.setImageResource(R.drawable.tanuki_hirameki);
+                FrameLayout frameLayout = mView.findViewById(R.id.tag_frame);
             }
         });
         tag2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ImageView)v.findViewById(R.id.tanuki_kangaeru)).setImageResource(R.drawable.tanuki_hirameki);
+                ImageView imageView1 = mView.findViewById(R.id.tanuki_kangaeru);
+                imageView1.setImageResource(R.drawable.tanuki_hirameki);
             }
         });
         tag3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ImageView)v.findViewById(R.id.tanuki_kangaeru)).setImageResource(R.drawable.tanuki_hirameki);
+                ImageView imageView1 = mView.findViewById(R.id.tanuki_kangaeru);
+                imageView1.setImageResource(R.drawable.tanuki_hirameki);
             }
         });
-        return view;
+        return mView;
     }
 
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
 
     @Override
     public void onDetach() {
@@ -69,7 +70,6 @@ public class add extends Fragment {
 
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }
