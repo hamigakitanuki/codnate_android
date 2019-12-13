@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gray_back"
     tools:context="intent.Start3">
 
     <LinearLayout
@@ -15,23 +16,25 @@
             android:id="@+id/textView13"
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:background="@drawable/frame_style5"
+            android:gravity="center"
             android:text="@string/start2_bar"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/frame_style6"
+            android:gravity="center"
             android:text="@string/start2_setumei" />
 
         <LinearLayout
             android:layout_width="399dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:background="#ffff"
             android:orientation="horizontal">
 
             <TextView
@@ -63,12 +66,16 @@
                 android:id="@+id/back_start3"
                 android:layout_width="206dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/frame_style4"
+                android:elevation="8dp"
                 android:text="@string/back" />
 
             <Button
                 android:id="@+id/next_start3"
                 android:layout_width="206dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/frame_style4"
+                android:elevation="8dp"
                 android:text="@string/next" />
 
             <TextView

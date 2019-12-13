@@ -34,8 +34,7 @@ public class Start4 extends AppCompatActivity {
             }
         });
 
-        TextView test =  findViewById(R.id.test4);
-        test.setText(text);
+
         //次のActivityへ
         Button next = findViewById(R.id.next_start4);
         next.setOnClickListener(new View.OnClickListener() {
