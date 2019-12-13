@@ -1,84 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
     android:layout_height="match_parent"
     android:background="@drawable/gray_back"
     tools:context="intent.Start1">
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/frame_style"
+        android:elevation="8dp"
+        >
 
         <FrameLayout
+            android:id="@+id/code"
             android:layout_width="380dp"
-            android:layout_height="630dp"
-            android:layout_gravity="center|center_horizontal|center_vertical"
-            android:layout_marginTop="50dp"
-            android:background="#fff"
-            android:elevation="8dp">
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/frame_style2">
 
-            <FrameLayout
-                android:layout_width="380dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="100dp"
-                android:background="@drawable/frame_style2">
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@string/kode"
+                android:textSize="21sp" />
 
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:text="@string/kode"
-                    android:textSize="21sp" />
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
 
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:gravity="center"
+                android:text="@string/kode2"
+                android:textSize="20sp" />
+        </FrameLayout>
 
-                    android:text="@string/kode2"
-                    android:textSize="20sp" />
-            </FrameLayout>
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="205dp"
+            android:layout_below="@id/code"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            app:srcCompat="@drawable/tanuki" />
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="350dp"
-                android:layout_height="205dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/tanuki" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/imageView5"
 
-            <FrameLayout
-                android:layout_width="300dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="160dp"
-                android:background="#ffff">
+            android:layout_marginTop="8dp"
+            android:background="#ffff">
 
-                <Button
-                    android:id="@+id/New_account"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/frame_style4"
-                    android:elevation="8dp"
-                    android:text="@string/newAccount" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+            <Button
+                android:id="@+id/New_account"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/frame_style4"
+                android:elevation="8dp"
+                android:text="@string/newAccount" />
 
                 <Button
                     android:id="@+id/Login_account"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
+                    android:layout_height="36dp"
+                    android:layout_below="@id/New_account"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
                     android:background="@drawable/frame_style4"
                     android:elevation="8dp"
                     android:text="@string/loginAccount" />
-            </FrameLayout>
 
+            </RelativeLayout>
         </FrameLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>
