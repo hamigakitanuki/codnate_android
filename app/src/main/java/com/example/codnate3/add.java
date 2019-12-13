@@ -21,7 +21,7 @@ public class add extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     public static add newInstance() {
-
+        System.out.println("addメソッドが呼び出された");
         add fragment = new add();
         return fragment;
     }
@@ -40,7 +40,6 @@ public class add extends Fragment {
             public void onClick(View v) {
                 ImageView imageView1 = mView.findViewById(R.id.tanuki_kangaeru);
                 imageView1.setImageResource(R.drawable.tanuki_hirameki);
-                FrameLayout frameLayout = mView.findViewById(R.id.tag_frame);
             }
         });
         tag2.setOnClickListener(new View.OnClickListener() {

@@ -64,7 +64,11 @@ public class camera extends Activity {
     Spinner cate ,sub,color;
     String cookie;
     Param param;
-    String url,filename, cate_text,sub_text,color_text;
+    String url,filename, cate_text,sub_text,color_text,type_text;
+    String tag1 = "";
+    String tag2 = "";
+    String tag3 = "";
+    String tag4 = "";
     private int Original_height;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -177,10 +181,6 @@ public class camera extends Activity {
             final int REQUEST_CODE = 1;
             ActivityCompat.requestPermissions(camera.this,new String[]{Manifest.permission.CAMERA},REQUEST_CODE);
         }
-
-
-
-
         //カメラ起動のリスナー
         cameraButton.setOnClickListener(
                 new View.OnClickListener() {
@@ -224,7 +224,7 @@ public class camera extends Activity {
                 Timestamp tm = new Timestamp(System.currentTimeMillis());
                 //userNoと現在時刻をファイル名とする
                 filename  = userNo + "_" + tm;
-                param = new Param(filename,capImage,cate_text,sub_text,color_text);
+                param = new Param(filename,capImage,cate_text,sub_text,color_text,type_text,tag1,tag2,tag3,tag4);
                 task = new ImagePOST();
                 task.setListener(createListener_POST());
                 task.execute(param);
@@ -290,6 +290,23 @@ public class camera extends Activity {
                 pieEntry.add(new PieEntry(result.type_value[1],"カジュアル"));
                 pieEntry.add(new PieEntry(result.type_value[2],"シンプル"));
                 PieDataSet pieDataSet = new PieDataSet(pieEntry,"この服のタイプ");
+
+                //-------------タイプ
+                float type_max_value = 0;
+                for(int i = 0;i<0;i++){
+                    if(type_max_value < result.type_value[i]){
+                        type_max_value = result.type_value[i];
+                        type_text = result.type[i];
+                    }
+                }
+                //------------
+                //--------タグの返しはまだ
+                tag1 = result.tag[0];
+                tag2 = result.tag[1];
+                tag3 = result.tag[2];
+                tag4 = result.tag[3];
+
+                //----------
                 pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
                 PieData pieData = new PieData(pieDataSet);
                 PieChart pieChart = findViewById(R.id.camera_type_pychart) ;
