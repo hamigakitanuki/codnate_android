@@ -82,7 +82,8 @@ public class Get_closet_image extends AsyncTask<String,Void, Path_List>{
             }
         }
         System.out.println("result:"+result);
-        //jsonで読み込めるようにGSON宣言
+        //jsonで読み込めるようにGSON宣
+        // ]言
         Gson gson = new Gson();
         //配列に変換
         Path_List pathlist = gson.fromJson(result,Path_List.class);

@@ -17,10 +17,10 @@ public class Get_image_list extends AsyncTask<String[],Void, Bitmap[]>{
 
     @Override
     protected Bitmap[] doInBackground(String[]... paths) {
-        Bitmap bmp[] = new Bitmap[paths.length];
-        for(int i=0;i<bmp.length;i++){
+        Bitmap bmp[] = new Bitmap[paths[0].length];
+        for(int i=0;i<paths[0].length;i++){
             try {
-                URL url = new URL(paths[i][0]);
+                URL url = new URL(paths[0][i]);
                 con = (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();
@@ -31,8 +31,9 @@ public class Get_image_list extends AsyncTask<String[],Void, Bitmap[]>{
                 }
 
                 //file output data
-                bmp[i] = BitmapFactory.decodeStream(con.getInputStream());
 
+                Bitmap bmp_befor = BitmapFactory.decodeStream(con.getInputStream());
+                bmp[i] = Bitmap.createScaledBitmap(bmp_befor,(int)(bmp_befor.getWidth()*2),(int)(bmp_befor.getHeight()*2),true);
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println(e);

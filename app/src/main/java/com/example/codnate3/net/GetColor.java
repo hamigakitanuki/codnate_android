@@ -2,13 +2,11 @@
 package com.example.codnate3.net;
 
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Xml;
 
 import com.example.codnate3.AWS_INTERFACE;
-import com.example.codnate3.object.Param;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -19,27 +17,26 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.UUID;
 
-public class ImagePOST extends AsyncTask<Param,Void,String>{
+public class GetColor extends AsyncTask<Bitmap,Void, String>{
 
     //リスナー
     private Listener listener;
-    //遷移してきたアクティビティへの戻り値を返す時に使う
-    private Activity mActivity;
     //改行文字列
     @Override
-    protected String doInBackground(Param... params) {
+    protected String doInBackground(Bitmap... bitmaps) {
 
         //受け取ったParamを格納
-        Param param = params[0];
+        Bitmap bitmap = bitmaps[0];
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
         String readline = "";
-        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/imgInDB";
+
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_Color";
 
         try {
             //画像をJPEG形式で送れるように準備
             ByteArrayOutputStream png = new ByteArrayOutputStream();
-            param.bmp.compress(Bitmap.CompressFormat.PNG,100,png);
+            bitmap.compress(Bitmap.CompressFormat.PNG,100,png);
             //URLクラス宣言
             URL url = new URL(url_text);
             //コネクションを開く
@@ -56,31 +53,30 @@ public class ImagePOST extends AsyncTask<Param,Void,String>{
             //boudaryに一意な文字列を代入
             final String boundary = UUID.randomUUID().toString();
             //コンテンツタイプを変更
-            con.setRequestProperty("Content-type","multipart/form-data; boundary="+boundary);
+            con.setRequestProperty("Content-type","multipart/form-data; boundary="+boundary+";charset=UTF-8");
             //リクエストボディを書き込んでいく
             //一度コネクト
             con.connect();
             Malt_part_post malt = new Malt_part_post();
             PrintStream printStream = new PrintStream(con.getOutputStream(),false, Xml.Encoding.UTF_8.name());
-            malt.textPost(printStream,"cate", param.cate,boundary);
-            malt.textPost(printStream,"sub",  param.sub,boundary);
-            malt.textPost(printStream,"color",param.color,boundary);
-            malt.textPost(printStream,"type","dress",boundary);
-            malt.textPost(printStream,"tag1",param.tag1,boundary);
-            malt.textPost(printStream,"tag2",param.tag2,boundary);
-            malt.textPost(printStream,"tag3",param.tag3,boundary);
-            malt.textPost(printStream,"tag4",param.tag4,boundary);
-
-            malt.bitmapPost(printStream,param.filename,param.bmp,boundary);
+            malt.textPost(printStream,"sub",  "tekitou",boundary);
+            malt.bitmapPost(printStream,"img",bitmap,boundary);
             printStream.print("--" + boundary + "--");
             if (printStream != null) {
                 printStream.close();
             }
             int rescode = con.getResponseCode();
-            InputStream in = con.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
-            readline = br.readLine();
-            System.out.println(readline);
+            if(rescode == HttpURLConnection.HTTP_OK){
+                InputStream in = con.getInputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
+                readline = br.readLine();
+            }else {
+                readline = "color conection error";
+
+            }
+
+            System.out.println("GetColor 78->"+readline);
+
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e);
@@ -92,21 +88,21 @@ public class ImagePOST extends AsyncTask<Param,Void,String>{
         }
         return readline;
     }
-    @Override
-    public void onPostExecute(String string){
-        super.onPostExecute(string);
 
-        if(listener != null){
-            listener.onSuccess(string);
-        }
-    }
 
     public void setListener(Listener listener){
         this.listener = listener;
     }
 
+    @Override
+    protected void onPostExecute(String s) {
+        if(listener != null){
+            listener.onSuccess(s);
+        }
+    }
+
     public interface Listener{
-        void onSuccess(String result);
+        void onSuccess(String cate);
     }
 
 }

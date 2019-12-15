@@ -2,14 +2,12 @@
 package com.example.codnate3.net;
 
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Xml;
 
 import com.example.codnate3.AWS_INTERFACE;
-import com.example.codnate3.object.Huku_info;
-import com.google.gson.Gson;
+import com.example.codnate3.object.Bitmap_set;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -20,24 +18,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.UUID;
 
-public class GetCate extends AsyncTask<Bitmap,Void, Huku_info>{
+public class GetCate extends AsyncTask<Bitmap,Void, String>{
 
     //リスナー
     private Listener listener;
-    //遷移してきたアクティビティへの戻り値を返す時に使う
-    private Activity mActivity;
     //改行文字列
     @Override
-    protected Huku_info doInBackground(Bitmap... bitmaps) {
+    protected String doInBackground(Bitmap... bitmaps) {
 
-        //-----------デバッグ用
-        String[] type = {"dress","casual","simmple"};
-        float[] type_value = {0.63f,0.21f,0.16f};
-        String[] tag = {"1","2","3","4"};
-        return new Huku_info("tops","cut-and-saw_knit_offshoulder",type,type_value,tag);
-
-        //-----------
-/*
         //受け取ったParamを格納
         Bitmap bitmap = bitmaps[0];
         //接続するためのクラスを宣言
@@ -79,12 +67,15 @@ public class GetCate extends AsyncTask<Bitmap,Void, Huku_info>{
                 printStream.close();
             }
             int rescode = con.getResponseCode();
-            InputStream in = con.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
-            readline = br.readLine();
+            if(rescode == HttpURLConnection.HTTP_OK){
+                InputStream in = con.getInputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
+                readline = br.readLine();
+            }else {
+                readline = "tops conection error";
+            }
 
-
-            System.out.println(readline);
+            System.out.println("GetCate 780>"+readline);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,30 +87,25 @@ public class GetCate extends AsyncTask<Bitmap,Void, Huku_info>{
             }
         }
 
-        Huku_info huku_info;
-        Gson gson = new Gson();
 
-        huku_info = gson.fromJson(readline,Huku_info.class);
 
-        return huku_info;
+        return readline;
 
- */
+
     }
-    @Override
-    public void onPostExecute(Huku_info huku_info){
-        super.onPostExecute(huku_info);
 
-        if(listener != null){
-            listener.onSuccess(huku_info);
-        }
-    }
 
     public void setListener(Listener listener){
         this.listener = listener;
     }
-
+    @Override
+    public void onPostExecute(String cate){
+        if(listener != null){
+            listener.onSuccess(cate);
+        }
+    }
     public interface Listener{
-        void onSuccess(Huku_info result);
+        void onSuccess(String cate);
     }
 
 }

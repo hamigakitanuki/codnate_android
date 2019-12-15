@@ -40,8 +40,14 @@ tools:context=".closet2">
                 android:id="@+id/graph_frame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/closet_style"
+                android:background="@drawable/frame_style"
                 android:elevation="2dp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="持っている服のタイプ" />
 
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/pie_chart"
@@ -51,12 +57,78 @@ tools:context=".closet2">
             </FrameLayout>
 
             <LinearLayout
-                android:id="@+id/closet_vertical"
+                android:id="@+id/tag_add_frame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/graph_frame"
-                android:orientation="vertical"
-                android:elevation="2dp">
+                android:layout_marginTop="8dp"
+                android:background="@drawable/frame_style"
+                android:elevation="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="あなたの思うものを選んで" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/tag_add_list_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:layout_below="@id/tag_add_frame"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/frame_style"
+                android:elevation="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="持っている服" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/closet_vertical_left"
+                        android:layout_width="172dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp">
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/closet_vertical_right"
+                        android:layout_width="172dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp">
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
         </RelativeLayout>

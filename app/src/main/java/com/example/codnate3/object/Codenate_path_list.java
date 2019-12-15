@@ -12,13 +12,16 @@ public class Codenate_path_list {
         this.shoese_path = shoese_path;
     }
     public boolean codnate_file_check(int idx){
-        if(idx <= tops_path.length){
+        System.out.println(tops_path.length);
+        if(idx >=tops_path.length){
             return false;
         }
-        if(idx <= botoms_path.length){
-            return  false;
+        System.out.println(botoms_path.length);
+        if(idx >= botoms_path.length){
+            return false;
         }
-        if(idx <= shoese_path.length){
+        System.out.println(shoese_path.length);
+        if(idx >= shoese_path.length){
             return false;
         }
         return true;

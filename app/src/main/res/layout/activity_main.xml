@@ -34,22 +34,7 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:id="@+id/tag_add_lisit_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="500dp"
-                    android:orientation="horizontal" />
-            </HorizontalScrollView>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </FrameLayout>
 
 
         </LinearLayout>

@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.codnate3.R;
-import com.example.codnate3.add;
 import com.example.codnate3.net.GetCodenate;
 import com.example.codnate3.object.Codenate_path_list;
 
@@ -47,12 +47,7 @@ public class Fragment0 extends Fragment {
             getCodenate.setListener(create_codnate_task());
             getCodenate.execute(String.valueOf(userNo));
 
-
-
         }
-
-
-
         return view;
 
     }
@@ -62,17 +57,18 @@ public class Fragment0 extends Fragment {
             @Override
             public void onSuccess(Codenate_path_list pathlist) {
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-
-                for(int i = 0;i<3;i++){
-                    if(pathlist.codnate_file_check(i)){
-                        add fragment = new add();
-                        Codnate_add codnate_add = new Codnate_add(pathlist.get_path(i));
-                        fragmentTransaction.add(R.id.tag_add_lisit_layout,fragment);
-                        fragmentTransaction.add(R.id.codnate_liner_list,codnate_add);
-                    }else{
-                        break;
+                if ( pathlist != null){
+                    for(int i = 0;i<3;i++){
+                        if(pathlist.codnate_file_check(i)){
+                            Codnate_add codnate_add = new Codnate_add(pathlist.get_path(i));
+                            fragmentTransaction.add(R.id.codnate_liner_list,codnate_add);
+                        }else{
+                            break;
+                        }
                     }
                 }
+
+
                 LinearLayout linearLayout = getActivity().findViewById(R.id.fragment_codnate_liner);
                 linearLayout.setVisibility(View.VISIBLE);
                 FrameLayout frameLayout = getActivity().findViewById(R.id.load_tanuki);

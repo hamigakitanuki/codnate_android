@@ -19,4 +19,5 @@
 
     <color name="secondaryTextColor">#000000</color>
 
+    <color name="gray_back">#ECE8E8</color>
 </resources>
