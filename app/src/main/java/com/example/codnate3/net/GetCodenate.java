@@ -35,9 +35,9 @@ public class GetCodenate extends AsyncTask<String,Void, Codenate_path_list>{
             //コネクションの変数にHttpURLConnection型でurlを開いて入れる
             con = (HttpURLConnection) url.openConnection();
             //接続タイムアウトの時間を設定する
-            con.setConnectTimeout(100000);
+            con.setConnectTimeout(10000);
             //レスポンスデータ読み取りタイムアウトを設定する
-            con.setReadTimeout(100000);
+            con.setReadTimeout(10000);
             //ヘッダーにuser-Agentを設定する
             con.setRequestProperty("User-Agent", "Android");
             //ヘッダーにAccept-Languageを設定する

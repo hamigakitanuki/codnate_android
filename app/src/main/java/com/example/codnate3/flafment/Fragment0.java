@@ -69,6 +69,9 @@ public class Fragment0 extends Fragment {
                 }
 
 
+
+
+
                 LinearLayout linearLayout = getActivity().findViewById(R.id.fragment_codnate_liner);
                 linearLayout.setVisibility(View.VISIBLE);
                 FrameLayout frameLayout = getActivity().findViewById(R.id.load_tanuki);
