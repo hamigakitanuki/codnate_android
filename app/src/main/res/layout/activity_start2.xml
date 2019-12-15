@@ -17,7 +17,7 @@
             android:id="@+id/textView13"
 
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="60dp"
             android:background="@drawable/frame_style5"
             android:gravity="center"
             android:text="@string/start2_bar"
@@ -26,12 +26,11 @@
         <TextView
             android:id="@+id/textView14"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="41dp"
             android:layout_gravity="center"
             android:background="@drawable/frame_style6"
             android:gravity="center"
-            android:text="@string/start2_setumei"
-            android:textSize="16dp" />
+            android:text="@string/start2_setumei" />
 
         <FrameLayout
             android:layout_width="360dp"
@@ -100,8 +99,6 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/frame_style4"
                 android:elevation="8dp"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
                 android:text="@string/back" />
 
             <Button
@@ -110,8 +107,6 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/frame_style4"
                 android:elevation="8dp"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
                 android:text="@string/next" />
         </LinearLayout>
 

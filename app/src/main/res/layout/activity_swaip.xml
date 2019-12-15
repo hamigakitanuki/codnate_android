@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ff9800"
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -11,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
 
@@ -25,6 +25,7 @@
         android:layout_marginRight="10dp"
         android:clickable="true"
         android:src="@drawable/touka"
+        app:backgroundTint="#9f0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +36,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:clickable="true"
-        app:backgroundTint="#4CAF50"
+        app:backgroundTint="#d84315"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/fragment_codnate_liner"
         app:srcCompat="@drawable/add_button" />
@@ -54,21 +55,31 @@
             android:id="@+id/textView18"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:background="#c66900"
+            android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
-            android:text="@string/top_bar" />
+            android:text="@string/top_bar"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#ff9800" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/homePage"
             android:layout_width="match_parent"
             android:layout_height="661dp"
-            android:layout_marginTop="0dp">
+            android:layout_marginTop="0dp"
+            android:background="@drawable/gray_back">
 
             <androidx.viewpager.widget.PagerTabStrip
                 android:id="@+id/pager_tab_strip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
-                android:background="#fff"
+                android:background="#ffc947"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:textColor="#FF5F5F" />

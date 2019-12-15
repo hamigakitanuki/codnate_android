@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -62,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
             });
             viewPager = findViewById(R.id.homePage);
             viewPager.setAdapter(new MyFragmentStatePagerAdapter(getSupportFragmentManager(), 0));
+
+
+
         }
     }
 
@@ -82,12 +87,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void open_button(float scale,float x,float y){
-        addButton.setScaleX(addButton.getScrollX()+scale);
-        addButton.setScaleY(addButton.getScrollY()+scale);
-        addButton.setTranslationX(x+scale);
-        addButton.setTranslationY(y+scale);
-    }
+
 
     public void open_camera(){
         Intent intent = new Intent(getApplication(), com.example.codnate3.intent.camera.class);

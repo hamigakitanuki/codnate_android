@@ -26,7 +26,6 @@ public class Start2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start2);
 
-        error = findViewById(R.id.start2_error_message);
         RadioGroup radioGroup =  findViewById(R.id.RadioGroupOs);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
             @Override

@@ -65,6 +65,12 @@ public class ImagePOST extends AsyncTask<Param,Void,String>{
             malt.textPost(printStream,"cate", param.cate,boundary);
             malt.textPost(printStream,"sub",  param.sub,boundary);
             malt.textPost(printStream,"color",param.color,boundary);
+            malt.textPost(printStream,"type","dress",boundary);
+            malt.textPost(printStream,"tag1",param.tag1,boundary);
+            malt.textPost(printStream,"tag2",param.tag2,boundary);
+            malt.textPost(printStream,"tag3",param.tag3,boundary);
+            malt.textPost(printStream,"tag4",param.tag4,boundary);
+
             malt.bitmapPost(printStream,param.filename,param.bmp,boundary);
             printStream.print("--" + boundary + "--");
             if (printStream != null) {

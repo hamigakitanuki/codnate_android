@@ -11,28 +11,25 @@ public class Path_List {
     public String[] cate_list;
     public String[] sub_list;
     public String[] color_list;
-    public float kawaii;
-    public float cool;
+    public float dress;
+    public float casual;
     public float simple;
-    public float adult;
 
 
     public Path_List(String[] path_list,
                      String[] cate_list,
                      String[] sub_list,
                      String[] color_list,
-                     float kawaii,
-                     float cool,
-                     float simple,
-                     float adult
+                     float dress,
+                     float casual,
+                     float simple
                      ){
         this.path_list = path_list;
         this.cate_list = cate_list;
         this.sub_list = sub_list;
         this.color_list = color_list;
-        this.kawaii = kawaii;
-        this.cool = cool;
+        this.dress = dress;
+        this.casual = casual;
         this.simple = simple;
-        this.adult = adult;
     }
 }

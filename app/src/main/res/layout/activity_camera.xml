@@ -1,208 +1,314 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#dcdcdc">
+        android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/camera_add_frame"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="300dp"
-            android:layout_marginEnd="20dp"
+            android:layout_height="1000dp"
             android:background="@drawable/frame_style"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="服を登録"
-                android:textSize="30sp" />
-
-            <ImageButton
-                android:id="@+id/cameraImage"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/frame_style"
-                android:scaleType="fitCenter"
-                android:src="@drawable/coordinate" />
-
-            <Button
-                android:id="@+id/cameraButton"
-                android:layout_width="101dp"
-                android:layout_height="33dp"
-                android:layout_marginStart="200dp"
-                android:layout_marginTop="100dp"
-                android:background="#ffffff"
-                android:text="写真を撮影"
-                android:textSize="12sp" />
-        </FrameLayout>
-
-        <LinearLayout
-            android:id="@+id/camera_info"
-            android:layout_width="match_parent"
-            android:layout_height="493dp"
-            android:layout_marginStart="20dp"
-
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/frame_style"
+            android:elevation="2dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent">
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp">
 
-            <TextView
-                android:id="@+id/textView4"
+            <RelativeLayout
+                android:id="@+id/camera_add_frame"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="項目" />
+                android:layout_height="200dp"
+                android:layout_marginTop="220dp"
+                android:background="@drawable/frame_style">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/frame_style5"
+                    android:gravity="center"
+                    android:text="服を登録"
+                    android:textSize="24sp" />
+
+                <ImageButton
+                    android:id="@+id/cameraImage"
+                    android:layout_width="112.5dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/textView"
+                    android:layout_marginLeft="67.5dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/frame_style"
+                    android:elevation="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/coordinate" />
+
+                <Button
+                    android:id="@+id/cameraButton"
+                    android:layout_width="67.5dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/textView"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="74dp"
+                    android:layout_toEndOf="@id/cameraImage"
+                    android:background="@drawable/frame_style4"
+
+                    android:elevation="8dp"
+                    android:text="写真を撮影"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
 
             <LinearLayout
+                android:id="@+id/camera_info"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_marginTop="208dp"
+                android:background="@drawable/frame_style"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="192dp"
-                    android:layout_height="match_parent"
+                    android:id="@+id/cate_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/frame_style5"
+                        android:text="項目"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/textView7"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:text="カテゴリ" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                        android:layout_height="24dp"
+                        android:layout_marginTop="8dp"
+                        android:text="カテゴリ"
+                        android:textSize="20dp" />
 
                     <Spinner
                         android:id="@+id/cate_spiner"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="8dp"
                         android:entries="@array/category" />
 
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="94dp"
-                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="193dp"
-                    android:layout_height="match_parent"
+                    android:id="@+id/sub_cate_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textView5"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:text="サブカテゴリ" />
+                        android:layout_height="24dp"
+                        android:layout_marginTop="8dp"
+                        android:text="サブカテゴリ"
+                        android:textSize="20dp" />
+
+                    <Spinner
+                        android:id="@+id/sub_spiner"
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="8dp"
+                        android:paddingRight="16dp" />
+
+                    <TextView
+                        android:id="@+id/mosikuwa"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="8dp"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sub_cate_button_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="81dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/sub_yosou"
+                        android:layout_width="100dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/frame_style4"
+                        android:elevation="4dp"
+                        android:gravity="left|bottom"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/sub_yosou2"
+                        android:layout_width="100dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="32dp"
+                        android:background="@drawable/frame_style4"
+                        android:gravity="left|bottom" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/color_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:text="カラー"
+                        android:textSize="20dp" />
+
+                    <Spinner
+                        android:id="@+id/color_spiner"
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="8dp"
+                        android:entries="@array/color"
+                        android:paddingEnd="16dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/type_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:text="タイプ"
+                        android:textSize="24dp" />
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/camera_type_pychart"
+                        android:layout_width="250dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp">
+
+                    </com.github.mikephil.charting.charts.PieChart>
+
+                    <TextView
+                        android:id="@+id/type_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:textSize="24dp" />
+
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_centerVertical="true"
+                    android:layout_marginTop="8dp"
                     android:orientation="vertical">
 
-                    <Spinner
-                        android:id="@+id/sub_spiner"
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="20dp" />
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:text="タグ"
+                        android:textSize="24dp" />
+
+                    <LinearLayout
+                        android:id="@+id/tag_frame"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/tag_text_1"
+                            android:layout_width="100dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/frame_style" />
+
+                        <TextView
+                            android:id="@+id/tag_text_2"
+                            android:layout_width="100dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/frame_style" />
+
+                        <TextView
+                            android:id="@+id/tag_text_3"
+                            android:layout_width="100dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/frame_style" />
+
+                        <TextView
+                            android:id="@+id/tag_text_4"
+                            android:layout_width="100dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/frame_style" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/mosikuwa"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp" />
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:text="見た目"
+                        android:textSize="24dp" />
 
-                    <Button
-                        android:id="@+id/sub_yosou"
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:background="#ffffff"
-                        android:gravity="left|bottom" />
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/camera_vol_pychart"
+                        android:layout_width="250dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp">
 
-                    <Button
-                        android:id="@+id/sub_yosou2"
+                    </com.github.mikephil.charting.charts.PieChart>
+
+                    <TextView
+                        android:id="@+id/vol_text"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:background="#ffffff"
-                        android:gravity="left|bottom" />
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:textSize="24dp" />
+
                 </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="200dp"
-                    android:layout_height="20dp"
-                    android:text="カラー" />
-
-                <Spinner
-                    android:id="@+id/color_spiner"
+                <Button
+                    android:id="@+id/huku_add"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:entries="@array/color" />
-
+                    android:layout_height="36dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/frame_style4"
+                    android:elevation="50dp"
+                    android:text="追加" />
             </LinearLayout>
 
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/camera_type_pychart"
-                android:layout_width="187dp"
-                android:layout_height="172dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp" >
 
-            </com.github.mikephil.charting.charts.PieChart>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-            <Button
-                android:id="@+id/huku_add"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="50dp"
-                android:elevation="50dp"
-                android:text="追加" />
-
-
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </ScrollView>
 
 
 </RelativeLayout>

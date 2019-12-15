@@ -20,7 +20,7 @@ public class Start5_Mens extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start5__mens);
+        setContentView(R.layout.activity_start__mens);
         Button back = findViewById(R.id.back_start5);
         //↓前のActivityへ
         back.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +47,7 @@ public class Start5_Mens extends AppCompatActivity {
             }
         });
         //↓呼び出したActivityにデータを返す
-        Button finish = findViewById(R.id.next_start5);
+        Button finish = findViewById(R.id.next_start_mens);
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

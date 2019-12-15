@@ -11,50 +11,26 @@ public class Codenate_path_list {
         this.outer_path = outer_path;
         this.shoese_path = shoese_path;
     }
-    public boolean codnate_file_check(){
-        if(0==tops_path.length){
+    public boolean codnate_file_check(int idx){
+        System.out.println(tops_path.length);
+        if(idx >=tops_path.length){
             return false;
         }
-        if(0==botoms_path.length){
-            return  false;
+        System.out.println(botoms_path.length);
+        if(idx >= botoms_path.length){
+            return false;
         }
-        if(0 == shoese_path.length){
+        System.out.println(shoese_path.length);
+        if(idx >= shoese_path.length){
             return false;
         }
         return true;
     }
-    public String get_path(int cate_idx,int idx){
-        switch (cate_idx % 4) {
-            case 0:
-                System.out.println(tops_path.length);
-                if(idx<tops_path.length) {
-                    if (tops_path[idx] != null) {
-                        return tops_path[idx];
-                    }
-                }
-                break;
-            case 1:
-                if(idx<botoms_path.length) {
-                    if (botoms_path[idx] != null) {
-                        return botoms_path[idx];
-                    }
-                }
-                break;
-            case 2:
-                if(idx<outer_path.length) {
-                    if (outer_path[idx] != null) {
-                        return outer_path[idx];
-                    }
-                }
-                break;
-            case 3:
-                if(idx<shoese_path.length) {
-                    if (shoese_path[idx] != null) {
-                        return shoese_path[idx];
-                    }
-                }
-                break;
-        }
-        return "";
+    public String[] get_path(int idx){
+        String codnate_path[] = new String[3];
+        codnate_path[0] = tops_path[idx];
+        codnate_path[1] = botoms_path[idx];
+        codnate_path[2] = shoese_path[idx];
+        return codnate_path;
     }
 }

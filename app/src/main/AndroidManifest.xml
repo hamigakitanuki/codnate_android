@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".intent.Swaip"></activity>
+        <activity android:name=".tuuti"></activity>
+        <activity android:name=".intent.Swaip" />
         <activity android:name=".intent.MyPage" />
         <activity android:name=".intent.Start_Mens" />
         <activity android:name=".intent.Start5" />
@@ -24,8 +25,6 @@
         <activity android:name=".intent.Start2" />
         <activity android:name=".intent.Start1" />
         <activity android:name=".intent.camera" />
-        <activity android:name=".intent.detail" />
-        <activity android:name=".intent.closet" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

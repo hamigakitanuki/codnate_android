@@ -6,91 +6,133 @@
     android:layout_height="match_parent"
     tools:context="intent.MyPage">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView15"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Mypage_bar"
-            android:textSize="20sp" />
+            android:background="#ECE8E8"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/mypage_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/touka" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame_style5">
 
-        <TextView
-            android:id="@+id/textView24"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="TextView" />
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="350dp"
+                    android:background="@drawable/frame_style4"
+                    android:text="@string/save" />
 
-        <TextView
-            android:id="@+id/textView25"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/name" />
+                <TextView
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="125dp"
+                    android:gravity="center"
+                    android:text="@string/Mypage_bar"
+                    android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/mypage_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/frame_style4"
+                    android:text="↩"
+                    android:textSize="18sp" />
+            </FrameLayout>
 
-        <TextView
-            android:id="@+id/textView26"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/jiko" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
 
-        <EditText
-            android:id="@+id/mypage_jiko"
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
-            android:ems="10"
-            android:inputType="textPersonName" />
+                <FrameLayout
+                    android:layout_width="367dp"
+                    android:layout_height="623dp"
+                    android:background="#ffff">
 
-        <TextView
-            android:id="@+id/textView28"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/age" />
+                    <ImageView
+                        android:id="@+id/mypage_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginTop="50dp"
+                        android:elevation="10dp"
+                        app:srcCompat="@drawable/touka" />
 
-        <Spinner
-            android:id="@+id/mypage_age"
-            android:layout_width="match_parent"
-            android:layout_height="41dp"
-            android:entries="@array/age" />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="300dp"
+                        android:layout_marginEnd="20dp">
 
-        <TextView
-            android:id="@+id/textView29"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/type" />
+                        <TextView
+                            android:id="@+id/textView25"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:text="@string/name" />
 
-        <Spinner
-            android:id="@+id/mypage_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                        <EditText
+                            android:id="@+id/mypage_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
 
-    </LinearLayout>
+                        <TextView
+                            android:id="@+id/textView26"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="50dp"
+                            android:text="@string/jiko" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:text="@string/save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                        <EditText
+                            android:id="@+id/mypage_jiko"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="100dp"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <TextView
+                            android:id="@+id/textView28"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="200dp"
+                            android:text="@string/age" />
+
+                        <Spinner
+                            android:id="@+id/mypage_age"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="200dp"
+                            android:entries="@array/age" />
+
+                        <TextView
+                            android:id="@+id/textView29"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="250dp"
+                            android:text="@string/type" />
+
+                        <Spinner
+                            android:id="@+id/mypage_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="250dp" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
