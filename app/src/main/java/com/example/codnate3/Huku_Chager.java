@@ -9,7 +9,7 @@ public class Huku_Chager {
     private final List<String> tops_sub_text =  new ArrayList<>(Arrays.asList("ブラウス","ビスチェ","キャミソール","カットソー","インナー","ニット","オフショルダー","パーカー","ポロシャツ","プルオーバー","シャツ","セーター","スウェット","Tシャツ","タンクトップ","チュニック","その他"));
     private final List<String> botoms_sub_text =  new ArrayList<>(Arrays.asList("カーゴパンツ","クロップドパンツ","デニム","デニムスカート","フレアスカート","ハーフパンツ","マキシ丈スカート","ミモレスカート","ミニスカート","プリーツスカート","スキニーパンツ","スウェットパンツ","タイトスカート","タックパンツ","チュールスカート","ワイドパンツ","その他"));
     private final List<String> onepeace_sub_text =  new ArrayList<>(Arrays.asList("オールインワン","キャミドレス","コンビネゾン","ドレス","ひざ丈スカート","マキシドレス","ミニドレス","ニットドレス","ワンピース","オーバーオール","サルペット","シャツドレス","その他"));
-    private final List<String> outer_sub_text =   new ArrayList<>(Arrays.asList("オールインワン","キャミドレス","コンビネゾン","ドレス","ひざ丈スカート","マキシドレス","ミニドレス","ニットドレス","ワンピース","オーバーオール","サルペット","シャツドレス","その他"));
+    private final List<String> outer_sub_text =   new ArrayList<>(Arrays.asList("ブルゾン","ポンチョ","カーディガン","チェスターコート","コート","カラーレスコート","デニムジャケット","ダウンコート","ダウンジャケット","ダウンベスト","ガウン","ファーコート","ジャケット","レザージャケット","MA1","ミリタリージャケット","モッズコート","マウンテンパーカー","ピーコート","レインコート","その他"));
 
     private final ArrayList<String> tag_text = new ArrayList<>(Arrays.asList("ふわふわ", "きれい", "子供っぽい", "大人っぽい", "かわいい", "かっこいい", "ゆるい", "ワイルド",""));
     private final ArrayList<String> type_text = new ArrayList<>(Arrays.asList("ドレス", "カジュアル", "シンプル"));

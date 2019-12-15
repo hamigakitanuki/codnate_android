@@ -62,7 +62,7 @@ public class camera extends Activity {
     private Bitmap capImage;
     private Button cameraButton,addButton,yosou1,yosou2;
     private ImageButton cameraImage;
-    private LinearLayout camera_info;
+    private LinearLayout camera_info,cate_frame,sub_frame,color_frame,type_frame,tag_frame,vol_frame;
     private RelativeLayout add_frame;
     Spinner cate_sp ,sub_sp,color_sp;
     Param param;
@@ -91,9 +91,24 @@ public class camera extends Activity {
         yosou2 = findViewById(R.id.sub_yosou2);
 
         //画像の情報画面のレイアウト
+
         camera_info = findViewById(R.id.camera_info);
         camera_info.setVisibility(View.INVISIBLE);
+        /*
+        cate_frame = findViewById(R.id.cate_frame);
+        cate_frame.setVisibility(View.INVISIBLE);
+        sub_frame = findViewById(R.id.sub_cate_frame);
+        sub_frame.setVisibility(View.INVISIBLE);
+        color_frame = findViewById(R.id.color_frame);
+        color_frame.setVisibility(View.INVISIBLE);
+        type_frame = findViewById(R.id.type_frame);
+        type_frame.setVisibility(View.INVISIBLE);
+        tag_frame = findViewById(R.id.tag_frame);
+        tag_frame.setVisibility(View.INVISIBLE);
+        vol_frame = findViewById(R.id.vol_frame)
 
+
+         */
         //撮影した写真の表示する場所兼ボタン
         cameraImage = findViewById(R.id.cameraImage);
         add_frame = findViewById(R.id.camera_add_frame);
