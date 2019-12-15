@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
+import android.graphics.Region;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Gravity;
@@ -31,6 +32,7 @@ import androidx.core.content.ContextCompat;
 import com.example.codnate3.Huku_Chager;
 import com.example.codnate3.R;
 import com.example.codnate3.flafment.Open_layout_animation;
+import com.example.codnate3.flafment.Open_layout_animation_horizon;
 import com.example.codnate3.net.GetCate;
 import com.example.codnate3.net.GetColor;
 import com.example.codnate3.net.GetSub;
@@ -63,15 +65,17 @@ public class camera extends Activity {
     private Button cameraButton,addButton,yosou1,yosou2;
     private ImageButton cameraImage;
     private LinearLayout camera_info,cate_frame,sub_frame,color_frame,type_frame,tag_frame,vol_frame;
+    private int camera_info_height,original_width,sub_frame_width,color_frame_width,type_frame_width,tag_frame_width,vol_frame_width;
+    private Open_layout_animation open_cameraINFO_vertical;
+    private Open_layout_animation_horizon open_cate_horizon,open_sub_horizon,open_color_horizon,open_type_horizon,open_tag_horizon,open_vol_horizon;
     private RelativeLayout add_frame;
-    Spinner cate_sp ,sub_sp,color_sp;
-    Param param;
-    String filename, cate_text,sub_text,color_text,type_text,vol;
-    String tag1 = "";
-    String tag2 = "";
-    String tag3 = "";
-    String tag4 = "";
-    private int Original_height;
+    private Spinner cate_sp ,sub_sp,color_sp;
+    private Param param;
+    private String filename, cate_text,sub_text,color_text,type_text,vol;
+    private String tag1 = "";
+    private String tag2 = "";
+    private String tag3 = "";
+    private String tag4 = "";
     private Huku_Chager huku_chager;
 
     @Override
@@ -93,22 +97,14 @@ public class camera extends Activity {
         //画像の情報画面のレイアウト
 
         camera_info = findViewById(R.id.camera_info);
-        camera_info.setVisibility(View.INVISIBLE);
-        /*
         cate_frame = findViewById(R.id.cate_frame);
-        cate_frame.setVisibility(View.INVISIBLE);
         sub_frame = findViewById(R.id.sub_cate_frame);
-        sub_frame.setVisibility(View.INVISIBLE);
         color_frame = findViewById(R.id.color_frame);
-        color_frame.setVisibility(View.INVISIBLE);
         type_frame = findViewById(R.id.type_frame);
-        type_frame.setVisibility(View.INVISIBLE);
         tag_frame = findViewById(R.id.tag_frame);
-        tag_frame.setVisibility(View.INVISIBLE);
-        vol_frame = findViewById(R.id.vol_frame)
+        vol_frame = findViewById(R.id.vol_frame);
 
 
-         */
         //撮影した写真の表示する場所兼ボタン
         cameraImage = findViewById(R.id.cameraImage);
         add_frame = findViewById(R.id.camera_add_frame);
@@ -249,6 +245,49 @@ public class camera extends Activity {
             }
         });
     }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        camera_info_height = camera_info.getHeight();
+        original_width = cate_frame.getWidth();
+
+        System.out.println("camera 255->"+camera_info_height);
+        System.out.println("camera 256->"+original_width);
+
+        open_cameraINFO_vertical = new Open_layout_animation(camera_info,camera_info_height,0);
+        open_cate_horizon = new Open_layout_animation_horizon(cate_frame,original_width,0);
+        open_sub_horizon = new Open_layout_animation_horizon(sub_frame,original_width,0);
+        open_color_horizon = new Open_layout_animation_horizon(color_frame,original_width,0);
+        open_type_horizon = new Open_layout_animation_horizon(type_frame,original_width,0);
+        open_tag_horizon = new Open_layout_animation_horizon(cate_frame,original_width,0);
+        open_vol_horizon = new Open_layout_animation_horizon(vol_frame,original_width,0);
+
+        open_cameraINFO_vertical.setDuration(1000);
+        open_cate_horizon.setDuration(1000);
+        open_sub_horizon.setDuration(1000);
+        open_color_horizon.setDuration(1000);
+        open_type_horizon.setDuration(1000);
+        open_tag_horizon.setDuration(1000);
+        open_vol_horizon.setDuration(1000);
+
+        open_cameraINFO_vertical.setFillAfter(true);
+        open_cate_horizon.setFillAfter(true);
+        open_sub_horizon.setFillAfter(true);
+        open_color_horizon.setFillAfter(true);
+        open_type_horizon.setFillAfter(true);
+        open_tag_horizon.setFillAfter(true);
+        open_vol_horizon.setFillAfter(true);
+
+        camera_info.setVisibility(View.GONE);
+        cate_frame.setVisibility(View.GONE);
+        sub_frame.setVisibility(View.GONE);
+        color_frame.setVisibility(View.GONE);
+        type_frame.setVisibility(View.GONE);
+        tag_frame.setVisibility(View.GONE);
+        vol_frame.setVisibility(View.GONE);
+    }
+
     //画像アップロードの成功した時
     private ImagePOST.Listener createListener_POST(){
         return new ImagePOST.Listener() {
@@ -273,6 +312,12 @@ public class camera extends Activity {
                 getSub_task.setListener(createListener_POST_getsub());
                 getSub_task.execute(bitmap_cate_set);
                 System.out.println("camera 258->cate_get:"+cate);
+
+
+                cate_frame.setVisibility(View.VISIBLE);
+                cate_frame.startAnimation(open_cate_horizon);
+
+
             }
         };
     }
@@ -306,6 +351,8 @@ public class camera extends Activity {
                         });
                     }
                 }
+                sub_frame.setVisibility(View.VISIBLE);
+                sub_frame.setAnimation(open_sub_horizon);
                 System.out.println("camera 292->sab get");
             }
         };
@@ -317,6 +364,8 @@ public class camera extends Activity {
                 color_text = color;
                 color_sp.setSelection(huku_chager.color_get_idx(color)+1);
                 System.out.println("camera 302->color get:"+color);
+                color_frame.setVisibility(View.VISIBLE);
+                color_frame.setAnimation(open_color_horizon);
             }
         };
     }
@@ -325,20 +374,22 @@ public class camera extends Activity {
             @Override
             public void onSuccess(int[] value) {
                 List<PieEntry> pieEntry = new ArrayList<PieEntry>();
-                pieEntry.add(new PieEntry(value[0],"simmple"));
-                pieEntry.add(new PieEntry(value[1],"casual"));
-                pieEntry.add(new PieEntry(value[2],"dress"));
+                pieEntry.add(new PieEntry(value[0],"シンプル度"));
+                pieEntry.add(new PieEntry(value[2],"カジュアル度"));
+                pieEntry.add(new PieEntry(value[1],"ドレス度"));
                 PieDataSet pieDataSet = new PieDataSet(pieEntry,"この服のタイプ");
                 pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
                 PieData pieData = new PieData(pieDataSet);
                 PieChart pieChart = findViewById(R.id.camera_type_pychart) ;
                 pieChart.setData(pieData);
                 pieChart.invalidate();
-                String[] type_name = {"simmple","casual","dress"};
+                String[] type_name = {"simmple","dress","casual"};
                 type_text = type_name[Array_MAX_Get_idx(value)];
                 TextView textView = findViewById(R.id.type_text);
                 textView.setText("この服は"+huku_chager.type_to_text(type_text)+"ですね");
                 System.out.println("camera 324->type get:"+type_text);
+                type_frame.setVisibility(View.VISIBLE);
+                type_frame.setAnimation(open_type_horizon);
             }
         };
     }
@@ -359,6 +410,8 @@ public class camera extends Activity {
                 tag3.setText(huku_chager.tag_to_text(tag_list[2]));
                 tag4.setText(huku_chager.tag_to_text(tag_list[3]));
                 System.out.println("camera 344->tag get");
+                tag_frame.setVisibility(View.VISIBLE);
+                tag_frame.setAnimation(open_tag_horizon);
             }
         };
     }
@@ -375,11 +428,13 @@ public class camera extends Activity {
                 PieChart pieChart = findViewById(R.id.camera_vol_pychart) ;
                 pieChart.setData(pieData);
                 pieChart.invalidate();
-                String[] vol_name = {"hikaeme","hade"};
+                String[] vol_name = {"hade","hikaeme"};
                 vol = vol_name[Array_MAX_Get_idx(vol_value_list)];
                 TextView vol_text = findViewById(R.id.vol_text);
                 vol_text.setText("この服は"+huku_chager.vol_to_text(vol)+"です");
                 System.out.println("camera 365->vol get:"+vol);
+                vol_frame.setVisibility(View.VISIBLE);
+                vol_frame.setAnimation(open_vol_horizon);
             }
         };
     }
@@ -436,7 +491,11 @@ public class camera extends Activity {
             cameraImage.setY(193);
             cameraButton.setY(314);
             add_frame.startAnimation(translateAnimation);
+
             camera_info.setVisibility(View.VISIBLE);
+            camera_info.startAnimation(open_cameraINFO_vertical);
+
+
 
 
         }

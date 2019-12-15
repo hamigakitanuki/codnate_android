@@ -10,8 +10,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="1000dp"
-            android:background="@drawable/frame_style"
+            android:layout_height="match_parent"
+            android:background="@drawable/gray_back"
             android:elevation="2dp"
             android:orientation="vertical"
             android:paddingLeft="16dp"
@@ -70,6 +70,13 @@
                 android:layout_marginTop="208dp"
                 android:background="@drawable/frame_style"
                 android:orientation="vertical">
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/frame_style5"
+                    android:text="項目"
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:id="@+id/cate_frame"
@@ -77,13 +84,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/frame_style5"
-                        android:text="項目"
-                        android:textSize="24sp" />
+
 
                     <TextView
                         android:id="@+id/textView7"
@@ -129,34 +130,34 @@
                         android:layout_height="24dp"
                         android:layout_marginTop="8dp"
                         android:textSize="20dp" />
+                    <LinearLayout
+                        android:id="@+id/sub_cate_button_frame"
+                        android:layout_width="match_parent"
+                        android:layout_height="81dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/sub_yosou"
+                            android:layout_width="100dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/frame_style4"
+                            android:elevation="4dp"
+                            android:gravity="left|bottom"
+                            android:textSize="14sp" />
+
+                        <Button
+                            android:id="@+id/sub_yosou2"
+                            android:layout_width="100dp"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="32dp"
+                            android:background="@drawable/frame_style4"
+                            android:gravity="left|bottom" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/sub_cate_button_frame"
-                    android:layout_width="match_parent"
-                    android:layout_height="81dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/sub_yosou"
-                        android:layout_width="100dp"
-                        android:layout_height="36dp"
-                        android:background="@drawable/frame_style4"
-                        android:elevation="4dp"
-                        android:gravity="left|bottom"
-                        android:textSize="14sp" />
-
-                    <Button
-                        android:id="@+id/sub_yosou2"
-                        android:layout_width="100dp"
-                        android:layout_height="36dp"
-                        android:layout_marginLeft="32dp"
-                        android:background="@drawable/frame_style4"
-                        android:gravity="left|bottom" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/color_frame"
