@@ -90,21 +90,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/back_start2"
-                android:layout_width="206dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/frame_style4"
                 android:elevation="8dp"
                 android:text="@string/back" />
 
             <Button
                 android:id="@+id/next_start2"
-                android:layout_width="206dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
                 android:background="@drawable/frame_style4"
                 android:elevation="8dp"
                 android:text="@string/next" />

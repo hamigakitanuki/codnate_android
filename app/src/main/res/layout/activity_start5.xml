@@ -76,21 +76,21 @@
 
                 <RadioButton
                     android:id="@+id/radioButton3"
-                    android:layout_width="135dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:background="#ffff"
                     android:text="フェミニン" />
 
                 <RadioButton
                     android:id="@+id/radioButton4"
-                    android:layout_width="135dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:background="#ffff"
                     android:text="カジュアル" />
 
                 <RadioButton
                     android:id="@+id/radioButton6"
-                    android:layout_width="135dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:background="#ffff"
                     android:text="クール" />
@@ -118,20 +118,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/back_start5"
-                android:layout_width="206dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/frame_style4"
                 android:elevation="8dp"
                 android:text="@string/back" />
 
             <Button
                 android:id="@+id/next_start_mens"
-                android:layout_width="206dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
                 android:background="@drawable/frame_style4"
                 android:elevation="8dp"
                 android:text="@string/finish" />

@@ -52,38 +52,31 @@
                 android:textSize="50sp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="match_parent"
-            android:layout_height="314dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="300dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/back_start3"
-                android:layout_width="206dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:background="@drawable/frame_style4"
                 android:elevation="8dp"
                 android:text="@string/back" />
 
             <Button
                 android:id="@+id/next_start3"
-                android:layout_width="206dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:background="@drawable/frame_style4"
                 android:elevation="8dp"
                 android:text="@string/next" />
 
-            <TextView
-                android:id="@+id/test3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Test" />
         </LinearLayout>
 
     </LinearLayout>
