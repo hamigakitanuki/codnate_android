@@ -6,7 +6,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbarThumbHorizontal="@color/secondaryDarkColor">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -19,12 +20,14 @@
             android:paddingRight="16dp"
             android:paddingBottom="8dp">
 
+            <!--
             <RelativeLayout
                 android:id="@+id/camera_add_frame"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="220dp"
-                android:background="@drawable/frame_style">
+                android:background="@drawable/frame_style"
+                android:elevation="8dp">
 
                 <TextView
                     android:id="@+id/textView"
@@ -49,7 +52,7 @@
 
                 <Button
                     android:id="@+id/cameraButton"
-                    android:layout_width="67.5dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_below="@id/textView"
                     android:layout_marginLeft="16dp"
@@ -62,7 +65,7 @@
                     android:textSize="12sp" />
             </RelativeLayout>
 
-
+-->
             <LinearLayout
                 android:id="@+id/camera_info"
                 android:layout_width="match_parent"
@@ -74,13 +77,13 @@
                 <LinearLayout
                     android:id="@+id/cate_frame"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textView4"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:background="@drawable/frame_style5"
                         android:text="項目"
                         android:textSize="24sp" />
@@ -145,7 +148,7 @@
                         android:layout_height="36dp"
                         android:background="@drawable/frame_style4"
                         android:elevation="4dp"
-                        android:gravity="left|bottom"
+                        android:gravity="center|left"
                         android:textSize="14sp" />
 
                     <Button
@@ -154,7 +157,7 @@
                         android:layout_height="36dp"
                         android:layout_marginLeft="32dp"
                         android:background="@drawable/frame_style4"
-                        android:gravity="left|bottom" />
+                        android:gravity="center|left" />
 
                 </LinearLayout>
 
