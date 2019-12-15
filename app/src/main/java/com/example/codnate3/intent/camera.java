@@ -224,7 +224,7 @@ public class camera extends Activity {
                 Timestamp tm = new Timestamp(System.currentTimeMillis());
                 //userNoと現在時刻をファイル名とする
                 filename  = userNo + "_" + tm;
-                param = new Param(filename,capImage,cate_text,sub_text,color_text);
+                param = new Param(filename,capImage,cate_text,sub_text,color_text,"dress","tag","tag","tag","tag");
                 task = new ImagePOST();
                 task.setListener(createListener_POST());
                 task.execute(param);
@@ -343,6 +343,7 @@ public class camera extends Activity {
             translateAnimation.setRepeatCount(0);
             translateAnimation.setFillAfter(true);
             add_frame.startAnimation(translateAnimation);
+
 
 
 
