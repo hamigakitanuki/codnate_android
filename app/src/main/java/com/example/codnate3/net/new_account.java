@@ -79,6 +79,7 @@ new_account extends AsyncTask<Account_data,Void,String>{
                 con.disconnect();
             }
         }
+        System.out.println("new_account 82->"+readline);
         return readline;
     }
     @Override

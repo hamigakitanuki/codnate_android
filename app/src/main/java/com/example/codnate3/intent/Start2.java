@@ -61,9 +61,7 @@ public class Start2 extends AppCompatActivity {
                     intent.putExtra("EXTRA_DATA", sex_text);
                     startActivityForResult(intent,RESULT_Start3);
                     check = false;
-                    error.setText("");
                 }else{
-                    error.setText("性別を選択してください");
                 }
 
             }

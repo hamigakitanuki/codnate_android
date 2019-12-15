@@ -32,10 +32,11 @@ public class Start1 extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode,int resultCode,Intent intent){
         super.onActivityResult(requestCode, resultCode, intent);
-
+        System.out.println("start1 35->");
         if(resultCode == RESULT_OK
         && requestCode == RESULT_Start2
         && intent != null){
+            System.out.println("start1 39->");
 
 
             Account_data account_data = (Account_data)intent.getSerializableExtra("Account_data");
