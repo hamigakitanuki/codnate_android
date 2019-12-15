@@ -62,7 +62,7 @@ public class camera extends Activity {
     private Bitmap capImage;
     private Button cameraButton,addButton,yosou1,yosou2;
     private ImageButton cameraImage;
-    private LinearLayout camera_info;
+    private LinearLayout camera_info,cate_frame,sub_frame,color_frame,type_frame,tag_frame,vol_frame;
     private RelativeLayout add_frame;
     Spinner cate_sp ,sub_sp,color_sp;
     Param param;
