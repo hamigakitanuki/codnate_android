@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!--?xml version="1.0" encoding="UTF-8"?-->
+    <!--?xml version="1.0" encoding="UTF-8"?-->
 <resources>
 
     <color name="primaryColor">#ff9800</color>
@@ -20,4 +20,6 @@
     <color name="secondaryTextColor">#000000</color>
 
     <color name="gray_back">#ECE8E8</color>
+
+    <color name="white_back">#ffffff</color>
 </resources>

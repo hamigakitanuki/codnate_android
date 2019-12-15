@@ -2,6 +2,7 @@ package com.example.codnate3.flafment;
 
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Path;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.example.codnate3.net.Get_closet_image;
 import com.example.codnate3.net.Get_image_list;
 import com.example.codnate3.object.Path_List;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -31,6 +33,9 @@ public class Fragment1 extends Fragment {
     View rootView;
     String url = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/getImage?UserNo=";
     String path;
+    private int dress = 0;
+    private int casual = 0;
+    private int simple = 0;
     final public static int DETAIL_RESULT_CODE = 55;
     private  int j;
     @Override
@@ -54,9 +59,11 @@ public class Fragment1 extends Fragment {
         return  new Get_closet_image.Listener() {
             @Override
             public void onSuccess(Path_List pathlist) {
+
                 Get_image_list task = new Get_image_list();
                 task.setListener(get_task());
                 task.execute(pathlist.path_list);
+                setupPieChart();
             }
         };
     }
@@ -79,31 +86,34 @@ public class Fragment1 extends Fragment {
                     fragmentTransaction.add(R.id.closet_vertical_left,closet_image_button);
 
                 }
-
-                for(int i=0;i<bmp.length;i++){
+                int i;
+                for(i = 0;i<bmp.length;i++){
                     if(bmp[i] == null){
                         break;
                     }
                     add fragment = new add(bmp[i]);
                     fragmentTransaction.add(R.id.tag_add_list_layout,fragment);
                 }
-                fragmentTransaction.commit();
+                if(i != 0){
+                    fragmentTransaction.commit();
+
+                }
 
             }
         };
     }
 
 
-    private void setupPieChart(Path_List path_list){
+    private void setupPieChart(){
         List<PieEntry> pieEntries = new ArrayList<PieEntry>();
-        if(path_list.dress > 0){
-            pieEntries.add(new PieEntry(path_list.dress,"ドレス"));
+        if(dress > 0){
+            pieEntries.add(new PieEntry(dress,"ドレス"));
         }
-        if(path_list.casual > 0){
-            pieEntries.add(new PieEntry(path_list.casual,"カジュアル"));
+        if(casual > 0){
+            pieEntries.add(new PieEntry(casual,"カジュアル"));
         }
-        if(path_list.simple > 0){
-            pieEntries.add(new PieEntry(path_list.simple,"シンプル"));
+        if(simple > 0){
+            pieEntries.add(new PieEntry(simple,"シンプル"));
         }
 
         PieDataSet dataSet = new PieDataSet(pieEntries,"あなたの属性");
@@ -112,6 +122,8 @@ public class Fragment1 extends Fragment {
 
         PieChart pieChart = rootView.findViewById(R.id.pie_chart);
         pieChart.setData(data);
+        Legend label = pieChart.getLegend();
+        label.setEnabled(false);
         pieChart.invalidate();
     }
 
