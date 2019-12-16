@@ -6,133 +6,141 @@
     android:layout_height="match_parent"
     tools:context="intent.MyPage">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ECE8E8"
-            android:orientation="vertical">
+            android:background="@drawable/frame_style5">
 
-            <FrameLayout
+            <Button
+                android:id="@+id/button"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="350dp"
+                android:background="@drawable/frame_style4"
+                android:text="@string/save" />
+
+            <TextView
+                android:layout_width="179dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="125dp"
+                android:gravity="center"
+                android:text="@string/Mypage_bar"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/frame_style4"
+                android:text="↩"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/appbar">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/frame_style5">
-
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="350dp"
-                    android:background="@drawable/frame_style4"
-                    android:text="@string/save" />
-
-                <TextView
-                    android:layout_width="179dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="125dp"
-                    android:gravity="center"
-                    android:text="@string/Mypage_bar"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/frame_style4"
-                    android:text="↩"
-                    android:textSize="18sp" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="16dp">
+                android:background="#ECE8E8"
+                android:orientation="vertical">
 
                 <FrameLayout
-                    android:layout_width="367dp"
-                    android:layout_height="623dp"
-                    android:background="#ffff">
-
-                    <ImageView
-                        android:id="@+id/mypage_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="70dp"
-                        android:layout_marginTop="50dp"
-                        android:elevation="10dp"
-                        app:srcCompat="@drawable/touka" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
 
                     <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="300dp"
-                        android:layout_marginEnd="20dp">
+                        android:layout_width="367dp"
+                        android:layout_height="623dp"
+                        android:background="#ffff">
 
-                        <TextView
-                            android:id="@+id/textView25"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:text="@string/name" />
-
-                        <EditText
-                            android:id="@+id/mypage_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
-
-                        <TextView
-                            android:id="@+id/textView26"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                        <ImageView
+                            android:id="@+id/mypage_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="70dp"
                             android:layout_marginTop="50dp"
-                            android:text="@string/jiko" />
+                            android:elevation="10dp"
+                            app:srcCompat="@drawable/touka" />
 
-                        <EditText
-                            android:id="@+id/mypage_jiko"
+                        <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="100dp"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
+                            android:layout_height="300dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="300dp"
+                            android:layout_marginEnd="20dp">
 
-                        <TextView
-                            android:id="@+id/textView28"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="200dp"
-                            android:text="@string/age" />
+                            <TextView
+                                android:id="@+id/textView25"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:text="@string/name" />
 
-                        <Spinner
-                            android:id="@+id/mypage_age"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="200dp"
-                            android:entries="@array/age" />
+                            <EditText
+                                android:id="@+id/mypage_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:ems="10"
+                                android:inputType="textPersonName" />
 
-                        <TextView
-                            android:id="@+id/textView29"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="250dp"
-                            android:text="@string/type" />
+                            <TextView
+                                android:id="@+id/textView26"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="50dp"
+                                android:text="@string/jiko" />
 
-                        <Spinner
-                            android:id="@+id/mypage_type"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="250dp" />
+                            <EditText
+                                android:id="@+id/mypage_jiko"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="100dp"
+                                android:ems="10"
+                                android:inputType="textPersonName" />
+
+                            <TextView
+                                android:id="@+id/textView28"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="200dp"
+                                android:text="@string/age" />
+
+                            <Spinner
+                                android:id="@+id/mypage_age"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="200dp"
+                                android:entries="@array/age" />
+
+                            <TextView
+                                android:id="@+id/textView29"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="250dp"
+                                android:text="@string/type" />
+
+                            <Spinner
+                                android:id="@+id/mypage_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="250dp" />
+
+                        </FrameLayout>
 
                     </FrameLayout>
-
                 </FrameLayout>
-            </FrameLayout>
 
-        </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
