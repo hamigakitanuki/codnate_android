@@ -22,4 +22,27 @@
     <color name="gray_back">#ECE8E8</color>
 
     <color name="white_back">#ffffff</color>
+
+    <color name="black">#FF000000</color>
+
+    <color name="blue">#3F39EB</color>
+
+    <color name="brown">#632E14</color>
+
+    <color name="gray">#615D5D</color>
+
+    <color name="green">#049400</color>
+
+    <color name="orange">#F89114</color>
+
+    <color name="pink">#E0288D</color>
+
+    <color name="purple">#9605E6</color>
+
+    <color name="red">#E60505</color>
+
+    <color name="white">#ffffff</color>
+
+    <color name="yellow">#E6AE05</color>
+
 </resources>
