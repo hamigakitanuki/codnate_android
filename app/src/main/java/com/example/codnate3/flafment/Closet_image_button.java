@@ -1,22 +1,26 @@
 package com.example.codnate3.flafment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.codnate3.Huku_Chager;
 import com.example.codnate3.R;
+import com.example.codnate3.intent.Image_detail;
+import com.example.codnate3.net.ImageDelete;
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 
 
@@ -25,11 +29,15 @@ public class Closet_image_button extends Fragment {
     String sub;
     String color;
     String cate;
-    public Closet_image_button(Bitmap bmp,String sub,String cate,String color){
+    String path;
+
+
+    public Closet_image_button(Bitmap bmp,String sub,String cate,String color,String path){
         this.sub = sub;
         this.color = color;
         this.bmp = bmp;
         this.cate = cate;
+        this.path = path;
         System.out.println("Closet_button 33->"+color);
     }
 
@@ -37,12 +45,48 @@ public class Closet_image_button extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_closet_image_button, container, false);
-        PorterShapeImageView porterShapeImageView = view.findViewById(R.id.closet_image_button);
+        PorterShapeImageView porterShapeImageView = view.findViewById(R.id.closet_image);
         porterShapeImageView.setImageBitmap(bmp);
 
         Huku_Chager huku_chager = new Huku_Chager();
         TextView textView = view.findViewById(R.id.closet_image_button_text);
         textView.setText(huku_chager.color_to_text(color)+"の"+huku_chager.sub_to_text(cate,sub));
+
+        ImageButton imageButton = view.findViewById(R.id.closet_image_button);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageDelete imageDelete = new ImageDelete();
+                imageDelete.setListener(create_task());
+                imageDelete.execute(path);
+               /*
+                Intent intent = new Intent(getActivity(), Image_detail.class);
+                Bundle b = new Bundle();
+                b.putParcelable("bitmap",bmp);
+                b.putString("path",path);
+                intent.putExtras(b);
+                startActivity(intent);
+                */
+            }
+        });
         return view;
     }
+    ImageDelete.Listener create_task(){
+        return new ImageDelete.Listener() {
+            @Override
+            public void onSuccess(String result_text) {
+                ToastMake("削除しましたぬき",0,-200);
+            }
+        };
+    }
+    public void ToastMake(String message,int x,int y){
+        //トーストの宣言
+        Context context = getActivity().getApplicationContext();
+        Toast toast = Toast.makeText(getActivity(),message,Toast.LENGTH_LONG);
+        //位置調整
+        toast.setGravity(Gravity.CENTER,x,y);
+        toast.show();
+
+    }
+
 }

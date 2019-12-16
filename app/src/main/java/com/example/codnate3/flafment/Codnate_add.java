@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.codnate3.R;
+import com.example.codnate3.Text_to_ColorStateList;
 import com.example.codnate3.net.Get_image;
 import com.example.codnate3.object.Bitmap_set;
 import com.example.codnate3.object.Path_set;
@@ -23,7 +24,9 @@ import com.example.codnate3.object.Path_set;
 public class Codnate_add extends Fragment {
 
 
-    private final String path[];
+    private final String[] path;
+    private final String[] color;
+    private final String[] sub;
     private ImageButton goodButton;
     private ImageButton badButton;
     private int codnate_idx;
@@ -33,8 +36,10 @@ public class Codnate_add extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-    public Codnate_add(String path[]){
+    public Codnate_add(String path[],String color[],String sub[]){
         this.path = path;
+        this.color = color;
+        this.sub = sub;
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,10 +72,16 @@ public class Codnate_add extends Fragment {
             Get_image task = new Get_image();
             task.setListener(get_image_task());
             task.execute(path_set);
-        }
 
-        TextView textView = view.findViewById(R.id.tops_color1);
-        textView.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getContext(),R.color.primaryColor)));
+
+        }
+        TextView tops_bar = view.findViewById(R.id.tops_color1);
+        tops_bar.setBackgroundTintList(Text_to_ColorStateList.get_ColorStateList(color[0]));
+        TextView botoms_bar = view.findViewById(R.id.botoms_color1);
+        botoms_bar.setBackgroundTintList(Text_to_ColorStateList.get_ColorStateList(color[1]));
+        TextView shoese_bar = view.findViewById(R.id.shoese_color1);
+        shoese_bar.setBackgroundTintList(Text_to_ColorStateList.get_ColorStateList(color[2]));
+
         return view;
     }
 

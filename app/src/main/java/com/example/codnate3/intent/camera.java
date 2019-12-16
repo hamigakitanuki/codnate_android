@@ -121,6 +121,7 @@ public class camera extends Activity {
                 Spinner spinner = (Spinner)adapterView;
                 cate_text = (String)spinner.getSelectedItem();
                 cate_text = huku_chager.cate_text_to_eng(cate_text);
+                System.out.println("camera 124-> cate_text:"+cate_text);
                 ArrayAdapter<String> subAdapter;
                 switch (cate_text){
                     case "tops":
@@ -221,15 +222,15 @@ public class camera extends Activity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(cate_text == null){
+                if(cate_text.equals("")){
                     Toast.makeText(getApplication(),"カテゴリを選択してください！",Toast.LENGTH_LONG).show();
                     return;
                 }
-                if(sub_text == null){
+                if(sub_text.equals("")){
                     Toast.makeText(getApplication(),"サブカテゴリを選択してください！",Toast.LENGTH_LONG).show();
                     return;
                 }
-                if(color_text == null){
+                if(color_text.equals("")){
                     Toast.makeText(getApplication(),"カラーを選択してください！",Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -478,6 +479,44 @@ public class camera extends Activity {
             int imageWidth = capImage.getWidth();
             int imageHeight = capImage.getHeight();
 
+            //-----------------アニメーションの準備
+            //現在の大きさを取得
+            int camera_info_height = camera_info.getHeight();
+            cate_frame_height = cate_frame.getHeight();
+            sub_frame_height = sub_frame.getHeight();
+            color_frame_height = color_frame.getHeight();
+            type_frame_height = type_frame.getHeight();
+            tag_frame_height = tag_frame.getHeight();
+            vol_frame_height = vol_frame.getHeight();
+
+
+            //それぞれの幅0にする
+            camera_info.getLayoutParams().height = 0;
+            cate_frame.getLayoutParams().height = 0;
+            sub_frame.getLayoutParams().height = 0;
+            color_frame.getLayoutParams().height = 0;
+            type_frame.getLayoutParams().height = 0;
+            tag_frame.getLayoutParams().height = 0;
+            vol_frame.getLayoutParams().height = 0;
+
+
+            open_cameraINFO_vertical = new Open_layout_animation(camera_info,camera_info_height,0);
+            open_cate_horizon = new Open_layout_animation(cate_frame,cate_frame_height,0);
+            open_sub_horizon = new Open_layout_animation(sub_frame,sub_frame_height,0);
+            open_color_horizon = new Open_layout_animation(color_frame,color_frame_height,0);
+            open_type_horizon = new Open_layout_animation(type_frame,type_frame_height,0);
+            open_tag_horizon = new Open_layout_animation(tag_frame,tag_frame_height,0);
+            open_vol_horizon = new Open_layout_animation(vol_frame,vol_frame_height,0);
+            open_cameraINFO_vertical.setFillAfter(true);
+
+            open_cameraINFO_vertical.setDuration(1000);
+            open_cate_horizon.setDuration(300);
+            open_sub_horizon.setDuration(300);
+            open_color_horizon.setDuration(300);
+            open_type_horizon.setDuration(300);
+            open_tag_horizon.setDuration(300);
+            open_vol_horizon.setDuration(300);
+            //-----------------
             Matrix matrix = new Matrix();
             matrix.setRotate(90,imageWidth/2,imageHeight/2);
 

@@ -11,7 +11,7 @@
     tools:context=".flafment.Closet_image_button">
 
     <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
-        android:id="@+id/closet_image_button"
+        android:id="@+id/closet_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/ic_1"
@@ -19,6 +19,7 @@
         app:siSquare="true" />
 
     <ImageButton
+        android:id="@+id/closet_image_button"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/back_invisivle"
@@ -33,7 +34,7 @@
         android:layout_marginRight="4dp"
         android:textSize="12dp"
         android:gravity="right"
-        android:layout_below="@id/closet_image_button"
+        android:layout_below="@id/closet_image"
         android:text="TextView" />
 
 

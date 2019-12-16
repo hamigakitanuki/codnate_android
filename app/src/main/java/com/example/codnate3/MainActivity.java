@@ -38,9 +38,8 @@ public class MainActivity extends AppCompatActivity {
             finish();
 
         } else {
-
             //上のタイトルバーが消える
-            getSupportActionBar().hide();
+//            getSupportActionBar().hide();
 
             setContentView(R.layout.activity_swaip);
             ImageButton button = findViewById(R.id.float_myPage_button);

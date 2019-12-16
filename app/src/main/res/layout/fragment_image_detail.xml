@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".intent.Image_detail">
+
+    <Button
+        android:id="@+id/backgroud_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back_invisivle" />
+
+    <ImageView
+        android:id="@+id/closet_detail_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_1"
+        android:layout_margin="16dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/closet_detail_image"
+        android:gravity="center">
+        <Button
+            android:id="@+id/detail_back_button"
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:background="@drawable/frame_style4"
+            android:backgroundTint="@color/secondaryColor"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:text="戻る"
+            android:layout_marginRight="16dp"
+            android:textSize="14sp" />
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/frame_style4"
+            android:backgroundTint="@color/red"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:text="削除"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

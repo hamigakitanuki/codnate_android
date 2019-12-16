@@ -71,6 +71,8 @@ public class Fragment1 extends Fragment {
 
             }
         });
+
+
         return rootView;
 
     }
@@ -107,15 +109,14 @@ public class Fragment1 extends Fragment {
                         break;
                     }
                     if((j+1)% 2 == 0){
-                        Closet_image_button closet_image_button  = new Closet_image_button(bmp[j],mpathlist.sub_list[j],mpathlist.cate_list[j],mpathlist.color_list[j]);
+                        Closet_image_button closet_image_button  = new Closet_image_button(bmp[j],mpathlist.sub_list[j],mpathlist.cate_list[j],mpathlist.color_list[j],mpathlist.path_list[j]);
                         fragmentTransaction.add(R.id.closet_vertical_right,closet_image_button);
-
                     }else {
-                        Closet_image_button closet_image_button = new Closet_image_button(bmp[j], mpathlist.sub_list[j], mpathlist.cate_list[j], mpathlist.color_list[j]);
+                        Closet_image_button closet_image_button = new Closet_image_button(bmp[j], mpathlist.sub_list[j], mpathlist.cate_list[j], mpathlist.color_list[j],mpathlist.path_list[j]);
                         fragmentTransaction.add(R.id.closet_vertical_left, closet_image_button);
                     }
                 }
-                int i;
+                int i = 0;
                 for(i = 0;i<bmp.length;i++){
                     if(bmp[i] == null){
                         break;
@@ -123,8 +124,9 @@ public class Fragment1 extends Fragment {
                     add fragment = new add(bmp[i]);
                     fragmentTransaction.add(R.id.tag_add_list_layout,fragment);
                 }
-                if(i != 0){
+                if(i > 1 && isResumed()){
                     fragmentTransaction.commit();
+
 
 
                 }

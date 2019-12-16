@@ -56,22 +56,23 @@ public class Fragment0 extends Fragment {
         return new GetCodenate.Listener() {
             @Override
             public void onSuccess(Codenate_path_list pathlist) {
-                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                if ( pathlist != null){
-                    for(int i = 0;i<3;i++){
+                if(pathlist != null){
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    for(int i = 0;i<pathlist.tops_sub.length;i++){
                         if(pathlist.codnate_file_check(i)){
-                            Codnate_add codnate_add = new Codnate_add(pathlist.get_path(i));
+                            Codnate_add codnate_add = new Codnate_add(pathlist.get_path(i),pathlist.get_color(i),pathlist.get_sub(i));
                             fragmentTransaction.add(R.id.codnate_liner_list,codnate_add);
                         }else{
                             break;
                         }
                     }
+                    fragmentTransaction.commit();
                 }
+                System.out.println("Fragment 77->アイテムがそろってないよ");
                 LinearLayout linearLayout = getActivity().findViewById(R.id.fragment_codnate_liner);
                 linearLayout.setVisibility(View.VISIBLE);
                 FrameLayout frameLayout = getActivity().findViewById(R.id.load_tanuki);
                 frameLayout.setVisibility(View.INVISIBLE);
-                fragmentTransaction.commit();
 
             }
         };

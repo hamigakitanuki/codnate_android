@@ -84,11 +84,19 @@ public class GetCodenate extends AsyncTask<String,Void, Codenate_path_list>{
             }
         }
         System.out.println("result:"+result);
+        if (result.equals("tops no item")){
+            return null;
+        }else if(result.equals("botoms no item")) {
+            return null;
+        }else if(result.equals("shoese no item")){
+            return null;
+        }
         Codenate_path_list path_list;
 
         //jsonで読み込めるようにGSON宣言
         Gson gson = new Gson();
         //クラス変数に格納
+
         path_list = gson.fromJson(result, Codenate_path_list.class);
 
         return path_list;

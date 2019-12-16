@@ -5,25 +5,29 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Huku_Chager {
-    private final List<String> cate_select_text =  new ArrayList<>(Arrays.asList("トップス","ボトムス","ワンピース","アウター"));
+    private final List<String> cate_select_text =  new ArrayList<>(Arrays.asList("トップス","ボトムス","ワンピース","アウター","シューズ","その他"));
     private final List<String> tops_sub_text =  new ArrayList<>(Arrays.asList("ブラウス","ビスチェ","キャミソール","カットソー","インナー","ニット","オフショルダー","パーカー","ポロシャツ","プルオーバー","シャツ","セーター","スウェット","Tシャツ","タンクトップ","チュニック","その他"));
     private final List<String> botoms_sub_text =  new ArrayList<>(Arrays.asList("カーゴパンツ","クロップドパンツ","デニム","デニムスカート","フレアスカート","ハーフパンツ","マキシ丈スカート","ミモレスカート","ミニスカート","プリーツスカート","スキニーパンツ","スウェットパンツ","タイトスカート","タックパンツ","チュールスカート","ワイドパンツ","その他"));
     private final List<String> onepeace_sub_text =  new ArrayList<>(Arrays.asList("オールインワン","キャミドレス","コンビネゾン","ドレス","ひざ丈スカート","マキシドレス","ミニドレス","ニットドレス","ワンピース","オーバーオール","サルペット","シャツドレス","その他"));
     private final List<String> outer_sub_text =   new ArrayList<>(Arrays.asList("ブルゾン","ポンチョ","カーディガン","チェスターコート","コート","カラーレスコート","デニムジャケット","ダウンコート","ダウンジャケット","ダウンベスト","ダッフルコート","ガウン","ファーコート","ジャケット","レザージャケット","MA1","ミリタリージャケット","モッズコート","マウンテンパーカー","マウンテンコート","ピーコート","レインコート","その他"));
+    private final List<String> shoese_sub_text =   new ArrayList<>(Arrays.asList("ビーチサンダル","ブーツ","ブーティ","ドレスシューズ","ローファー","モカシン","ミュール","パンプス","レインシューズ","サンダル","スリッポン","スニーカー","その他"));
 
     private final ArrayList<String> tag_text = new ArrayList<>(Arrays.asList("ふわふわ", "きれい", "子供っぽい", "大人っぽい", "かわいい", "かっこいい", "ゆるい", "ワイルド",""));
     private final ArrayList<String> type_text = new ArrayList<>(Arrays.asList("ドレス", "カジュアル", "シンプル"));
     private final ArrayList<String> vol_text = new ArrayList<>(Arrays.asList("派手","控え目"));
     private final ArrayList<String> color_text = new ArrayList<>(Arrays.asList("ブラック", "ブルー", "ブラウン", "グレー", "グリーン", "オレンジ", "ピンク", "パープル", "レッド", "ホワイト", "イエロー","その他"));
-    private final List<String> cate_select = new ArrayList<>(Arrays.asList("tops", "botoms", "onepeace", "outer"));
+
+    private final List<String> cate_select = new ArrayList<>(Arrays.asList("tops", "botoms", "onepeace", "outer","shoese","other"));
     private final List<String> tops_sub =  new ArrayList<>(Arrays.asList("blouse","busiter","camisole","cut-and-saw","inner","knit","offshoulder","parker","poloshirt","pullover","shirt","sweater","swrat", "t-shirt","tanktop","tunic","other"));
     private final List<String> botoms_sub =  new ArrayList<>(Arrays.asList("cargopants","qloppedepants","denim","denimskirt","flareskirt","harfpants","maxilengthskirt","mimoreskirt","miniskirt","pleatedskirt","skinnypants","sweatpants","tightskirt","tuckpants","tuleskirt", "widepants","other"));
     private final List<String> onepeace_sub =  new ArrayList<>(Arrays.asList("all-in-one","camisole","convenience","dress","knee-lengthdress","maxidress","minidress","nittodress","onepeace","overalls","saropetto","shirtdress","other"));
     private final List<String> outer_sub =  new ArrayList<>(Arrays.asList("blouson","boncho", "cardigan","chester-coat","coat","color-less-coat","denim-jacket","down-coat","down-jacket", "down-vest","duffle-coat","gown","hur-coat","jacket","leather-jacket","ma1","military-acket","mods-coat","moutain-perker","mouton-coat","pcoat","raincoat","other"));
-    private final List<String> color_select =  new ArrayList<>(Arrays.asList("black","blue", "brown","gray","green","orange","pink","purple","red", "white","yellow","other"));
+    private final List<String> shoese_sub =  new ArrayList<>(Arrays.asList("beachsandal","boots", "booty","dressshoese","loadfer","moccasin","mules","pumps","rainshoese", "sandals","slipons","sneakers","other"));
+
     private final List<String> tag_select =  new ArrayList<>(Arrays.asList("huwahuwa","beuty", "child","adult","kawaii","cool","yurui","wild",""));
     private final List<String> type_select =  new ArrayList<>(Arrays.asList("dress","casual", "simmple"));
     private final List<String> vol_select =  new ArrayList<>(Arrays.asList("hade","hikaeme"));
+    private final List<String> color_select =  new ArrayList<>(Arrays.asList("black","blue", "brown","gray","green","orange","pink","purple","red", "white","yellow","other"));
 
     public int cate_get_idx(String cate){
         return cate_select.indexOf(cate);
@@ -39,6 +43,10 @@ public class Huku_Chager {
                 return onepeace_sub.indexOf(sub);
             case 3:
                 return outer_sub.indexOf(sub);
+            case 4:
+                return shoese_sub.indexOf(sub);
+
+
         }
         System.out.println("Huku_Changer 43->error cate:"+cate+" sub:"+sub);
         return 0;
@@ -61,6 +69,9 @@ public class Huku_Chager {
                 return onepeace_sub_text.get(onepeace_sub.indexOf(sub));
             case 3:
                 return outer_sub_text.get(outer_sub.indexOf(sub));
+            case 4:
+                return shoese_sub_text.get(shoese_sub.indexOf(sub));
+
         }
         System.out.println("Huku_Changer 65->サブ変換でエラーはいてます");
 
@@ -80,16 +91,16 @@ public class Huku_Chager {
         return vol_text.get(vol_select.indexOf(vol));
     }
     public String cate_text_to_eng(String cate){
-        if(cate.isEmpty()){
+        if(cate.equals("")){
             return "";
         }
         return cate_select.get(cate_select_text.indexOf(cate));
     }
     public String sub_text_to_eng(String cate,String sub){
-        if(cate==""){
+        if(cate.equals("")){
             return "";
         }
-        if(sub==""){
+        if(sub.equals("")){
             return "";
         }
         int cate_idx = cate_get_idx(cate);
@@ -102,6 +113,9 @@ public class Huku_Chager {
                 return onepeace_sub.get(onepeace_sub_text.indexOf(sub));
             case 3:
                 return outer_sub.get(outer_sub_text.indexOf(sub));
+            case 4:
+                return shoese_sub.get(shoese_sub_text.indexOf(sub));
+
         }
         System.out.print("Huku_Changer 97->サブの英語変換でエラーです。");
         return null;
