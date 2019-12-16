@@ -1,5 +1,6 @@
 package com.example.codnate3;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Image;
@@ -10,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.codnate3.flafment.Fragment1;
@@ -22,13 +24,11 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private final int OPENING_RESULT_CODE = 1;
-    private Timer timer;
+    private boolean sw = false;
     private ImageButton addButton;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         SharedPreferences data = getSharedPreferences("DATA", MODE_PRIVATE);
         int userNo = data.getInt("userNo", 0);
         //新規に始めた場合はusernoが0状態
@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         }
     }
 
@@ -87,10 +88,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
-    public void open_camera(){
-        Intent intent = new Intent(getApplication(), com.example.codnate3.intent.camera.class);
-        startActivity(intent);
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (sw) {
+            sw = false;
+            Intent intent = new Intent();
+            intent.setClass(getApplication(), MainActivity.class);
+            startActivity(intent);
+        }
     }
 }

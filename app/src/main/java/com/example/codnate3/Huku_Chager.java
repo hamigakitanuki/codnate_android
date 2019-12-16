@@ -67,7 +67,7 @@ public class Huku_Chager {
         return null;
     }
     public String color_to_text(String color){
-        return color_text.get(cate_get_idx(color));
+        return color_text.get(color_get_idx(color));
     }
     public String type_to_text(String type){
         return type_text.get(type_select.indexOf(type));

@@ -4,6 +4,7 @@ package com.example.codnate3.net;
 
 import android.os.AsyncTask;
 
+import com.example.codnate3.AWS_INTERFACE;
 import com.example.codnate3.object.Path_List;
 import com.google.gson.Gson;
 
@@ -22,10 +23,10 @@ public class Get_closet_image extends AsyncTask<String,Void, Path_List>{
     private HttpURLConnection con = null;
 
     @Override
-    protected Path_List doInBackground(String... urls) {
-
+    protected Path_List doInBackground(String... user) {
         //POST先のURL
-        String GetURL = urls[0];
+        String URL = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/getImage?UserNo=";
+        String GetURL = URL + user[0];
         //接続するためのクラスを宣言
         int rescode = -1;
         String result = "";

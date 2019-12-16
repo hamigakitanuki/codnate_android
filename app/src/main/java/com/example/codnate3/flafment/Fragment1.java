@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.codnate3.AWS_INTERFACE;
 import com.example.codnate3.R;
@@ -31,11 +32,12 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Fragment1 extends Fragment {
     View rootView;
-    String url = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/getImage?UserNo=";
-    String path;
-    private int dress = 0;
-    private int casual = 0;
-    private int simple = 0;
+    private String path;
+    private float dress = 0;
+    private float casual = 0;
+    private float simple = 0;
+    private Path_List mpathlist;
+    private int userNo;
     final public static int DETAIL_RESULT_CODE = 55;
     private  int j;
     @Override
@@ -44,13 +46,31 @@ public class Fragment1 extends Fragment {
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.activity_closet, container, false);
         SharedPreferences data = this.getActivity().getSharedPreferences("DATA",MODE_PRIVATE);
-        int userNo = data.getInt("userNo",0);
-        url = url + userNo;
-        System.out.println(userNo);
+        userNo = data.getInt("userNo",0);
 
         Get_closet_image task = new Get_closet_image();
         task.setListener(createListner());
-        task.execute(url);
+        task.execute(String.valueOf(userNo));
+
+        SwipeRefreshLayout swipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                LinearLayout closet_left = rootView.findViewById(R.id.closet_vertical_left);
+                LinearLayout closet_right = rootView.findViewById(R.id.closet_vertical_right);
+                LinearLayout tag_add_list = rootView.findViewById(R.id.tag_add_list_layout);
+                closet_left.removeAllViews();
+                closet_right.removeAllViews();
+                tag_add_list.removeAllViews();
+
+                Get_closet_image task = new Get_closet_image();
+                task.setListener(createListner());
+                task.execute(String.valueOf(userNo));
+
+
+            }
+        });
         return rootView;
 
     }
@@ -59,10 +79,18 @@ public class Fragment1 extends Fragment {
         return  new Get_closet_image.Listener() {
             @Override
             public void onSuccess(Path_List pathlist) {
+                SwipeRefreshLayout swipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout);
 
+                if(swipeRefreshLayout.isRefreshing()){
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+                mpathlist = pathlist;
                 Get_image_list task = new Get_image_list();
                 task.setListener(get_task());
                 task.execute(pathlist.path_list);
+                dress = pathlist.dress / (pathlist.casual + pathlist.simple + pathlist.dress) * 100;
+                casual = pathlist.casual / (pathlist.casual + pathlist.simple + pathlist.dress) * 100;
+                simple = pathlist.simple / (pathlist.casual + pathlist.simple + pathlist.dress) * 100;
                 setupPieChart();
             }
         };
@@ -79,12 +107,13 @@ public class Fragment1 extends Fragment {
                         break;
                     }
                     if((j+1)% 2 == 0){
-                        Closet_image_button closet_image_button  = new Closet_image_button(bmp[j]);
+                        Closet_image_button closet_image_button  = new Closet_image_button(bmp[j],mpathlist.sub_list[j],mpathlist.cate_list[j],mpathlist.color_list[j]);
                         fragmentTransaction.add(R.id.closet_vertical_right,closet_image_button);
-                    }
-                    Closet_image_button closet_image_button  = new Closet_image_button(bmp[j]);
-                    fragmentTransaction.add(R.id.closet_vertical_left,closet_image_button);
 
+                    }else {
+                        Closet_image_button closet_image_button = new Closet_image_button(bmp[j], mpathlist.sub_list[j], mpathlist.cate_list[j], mpathlist.color_list[j]);
+                        fragmentTransaction.add(R.id.closet_vertical_left, closet_image_button);
+                    }
                 }
                 int i;
                 for(i = 0;i<bmp.length;i++){
@@ -96,6 +125,7 @@ public class Fragment1 extends Fragment {
                 }
                 if(i != 0){
                     fragmentTransaction.commit();
+
 
                 }
 
@@ -122,8 +152,7 @@ public class Fragment1 extends Fragment {
 
         PieChart pieChart = rootView.findViewById(R.id.pie_chart);
         pieChart.setData(data);
-        Legend label = pieChart.getLegend();
-        label.setEnabled(false);
+
         pieChart.invalidate();
     }
 
