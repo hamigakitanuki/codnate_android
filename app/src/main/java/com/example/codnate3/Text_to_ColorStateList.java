@@ -10,8 +10,8 @@ import android.widget.RelativeLayout;
 public class Text_to_ColorStateList {
     public static ColorStateList get_ColorStateList(String color_text){
         switch (color_text){
-            case "brack":
-                return ColorStateList.valueOf(Color.BLACK);
+            case "black":
+                return ColorStateList.valueOf(Color.parseColor("#000000"));
             case "blue":
                 return ColorStateList.valueOf(Color.parseColor("#2196F3"));
             case "brown":
@@ -31,7 +31,7 @@ public class Text_to_ColorStateList {
             case "white":
                 return ColorStateList.valueOf(Color.parseColor("#FAFAFA"));
             case "yellow":
-                return ColorStateList.valueOf(Color.parseColor("FFEB3B"));
+                return ColorStateList.valueOf(Color.parseColor("#FFEB3B"));
 
         }
         return null;

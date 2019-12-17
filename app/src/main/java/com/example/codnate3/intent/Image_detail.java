@@ -20,7 +20,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.codnate3.R;
+import com.example.codnate3.net.Get_image;
 import com.example.codnate3.net.ImageDelete;
+import com.example.codnate3.object.Bitmap_set;
+import com.example.codnate3.object.Path_set;
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 
 
@@ -37,13 +40,19 @@ public class Image_detail extends Activity {
 
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
-        Bitmap bmp = (Bitmap)b.get("bitmap");
         path = b.getString("path");
-        ImageView imageView = findViewById(R.id.detail_image);
-        imageView.setImageBitmap(bmp);
+
         Button backbutton = findViewById(R.id.detail_back_button);
         Button delete = findViewById(R.id.detail_delete_button);
         Button backgroud_button = findViewById(R.id.backgroud_button);
+
+        Get_image get_image = new Get_image();
+        get_image.setListener(get_image_task());
+        Path_set path_set = new Path_set(path,0);
+        get_image.execute(path_set);
+
+
+
 
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +66,7 @@ public class Image_detail extends Activity {
                 ImageDelete imageDelete = new ImageDelete();
                 imageDelete.setListener(create_ImageDelete_task());
                 imageDelete.execute(path);
+                finish();
             }
         });
         backgroud_button.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +75,8 @@ public class Image_detail extends Activity {
                 finish();
             }
         });
+
+
     }
 
     public ImageDelete.Listener create_ImageDelete_task(){
@@ -73,6 +85,19 @@ public class Image_detail extends Activity {
             public void onSuccess(String result_text) {
                 ToastMake("削除しました",0,-200);
                 finish();
+            }
+        };
+    }
+    Get_image.Listener get_image_task(){
+        return new Get_image.Listener() {
+            @Override
+            public void onSuccess(Bitmap_set bmp) {
+                PorterShapeImageView porterShapeImageView = findViewById(R.id.closet_detail_image);
+                double resizeScale = (double)porterShapeImageView.getHeight() * bmp.bmp.getHeight();
+
+                Bitmap bitmap = Bitmap.createScaledBitmap(bmp.bmp,(int)(bmp.bmp.getWidth()*resizeScale),(int)(bmp.bmp.getHeight()*resizeScale),true);
+                ImageView imageView = findViewById(R.id.closet_detail_image);
+                imageView.setImageBitmap(bitmap);
             }
         };
     }

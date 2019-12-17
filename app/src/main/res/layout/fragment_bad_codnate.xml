@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="360dp"
+    android:layout_height="546dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="24dp"
+    android:layout_marginTop="24dp"
+    android:clipToPadding="false"
+    android:layout_marginBottom="46dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bad_codnate_delete_button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:src="@android:drawable/ic_delete" />
+    <TextView
+        android:id="@+id/shoese_color1"
+        android:layout_width="48dp"
+        android:layout_height="480dp"
+        android:background="@drawable/botom_left_maru"
+        android:elevation="2dp" />
+    <TextView
+        android:id="@+id/botoms_color1"
+        android:layout_width="48dp"
+        android:layout_height="360dp"
+        android:background="@drawable/botom_left_maru"
+        android:elevation="4dp" />
+    <TextView
+        android:id="@+id/tops_color1"
+        android:layout_width="48dp"
+        android:layout_height="180dp"
+        android:background="@drawable/botom_left_maru"
+        android:elevation="6dp" />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/codnate_frame_relative"
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            android:layout_marginStart="48dp"
+            android:background="@drawable/codnate_frame"
+            android:elevation="10dp"
+            android:padding="24dp">
+
+
+            <LinearLayout
+                android:id="@+id/tops_frame"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/codnate_tops_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/main_tops_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/botoms_frame"
+                android:layout_width="100dp"
+                android:layout_height="160dp"
+                android:layout_below="@id/tops_frame"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/codnate_botoms_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/main_botoms1"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_below="@id/botoms_frame"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/codnate_shoese_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/main_shoese1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="24dp"
+                android:layout_toEndOf="@id/tops_frame"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/codnate_ex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/main_outer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </FrameLayout>
+
+
+</RelativeLayout>
+

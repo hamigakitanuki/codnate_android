@@ -3,6 +3,7 @@ package com.example.codnate3.flafment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,14 +14,19 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.codnate3.Huku_Chager;
 import com.example.codnate3.R;
 import com.example.codnate3.intent.Image_detail;
+import com.example.codnate3.net.Get_image;
 import com.example.codnate3.net.ImageDelete;
+import com.example.codnate3.object.Bitmap_set;
+import com.example.codnate3.object.Path_set;
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 
 
@@ -31,7 +37,7 @@ public class Closet_image_button extends Fragment {
     String cate;
     String path;
 
-
+    View view;
     public Closet_image_button(Bitmap bmp,String sub,String cate,String color,String path){
         this.sub = sub;
         this.color = color;
@@ -44,7 +50,7 @@ public class Closet_image_button extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_closet_image_button, container, false);
+        view = inflater.inflate(R.layout.fragment_closet_image_button, container, false);
         PorterShapeImageView porterShapeImageView = view.findViewById(R.id.closet_image);
         porterShapeImageView.setImageBitmap(bmp);
 
@@ -56,29 +62,19 @@ public class Closet_image_button extends Fragment {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageDelete imageDelete = new ImageDelete();
-                imageDelete.setListener(create_task());
-                imageDelete.execute(path);
-               /*
+
                 Intent intent = new Intent(getActivity(), Image_detail.class);
                 Bundle b = new Bundle();
-                b.putParcelable("bitmap",bmp);
                 b.putString("path",path);
                 intent.putExtras(b);
                 startActivity(intent);
-                */
+
+
             }
         });
         return view;
     }
-    ImageDelete.Listener create_task(){
-        return new ImageDelete.Listener() {
-            @Override
-            public void onSuccess(String result_text) {
-                ToastMake("削除しましたぬき",0,-200);
-            }
-        };
-    }
+
     public void ToastMake(String message,int x,int y){
         //トーストの宣言
         Context context = getActivity().getApplicationContext();

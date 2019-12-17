@@ -98,7 +98,7 @@ public class GetCodenate extends AsyncTask<String,Void, Codenate_path_list>{
         //クラス変数に格納
 
         path_list = gson.fromJson(result, Codenate_path_list.class);
-
+        System.out.println(result);
         return path_list;
     }
     @Override

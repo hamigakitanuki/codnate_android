@@ -12,22 +12,21 @@
         android:id="@+id/shoese_color1"
         android:layout_width="48dp"
         android:layout_height="480dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/botom_left_maru"
-        android:backgroundTint="#0f0f0f"
         android:elevation="2dp" />
     <TextView
         android:id="@+id/botoms_color1"
-        android:layout_width="48dp"
+        android:layout_width="56dp"
+        android:layout_marginLeft="8dp"
         android:layout_height="360dp"
         android:background="@drawable/botom_left_maru"
-        android:backgroundTint="#FFEB3B"
         android:elevation="4dp" />
     <TextView
         android:id="@+id/tops_color1"
-        android:layout_width="48dp"
+        android:layout_width="64dp"
         android:layout_height="180dp"
         android:background="@drawable/botom_left_maru"
-        android:backgroundTint="#f0f0f0"
         android:elevation="6dp" />
 
 
@@ -37,7 +36,7 @@
         android:id="@+id/codnate_frame_relative"
         android:layout_width="match_parent"
         android:layout_height="480dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="64dp"
         android:padding="24dp"
         android:background="@drawable/codnate_frame"
         android:elevation="10dp">
@@ -52,14 +51,12 @@
             <TextView
                 android:id="@+id/codnate_tops_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="白のブラウス" />
+                android:layout_height="wrap_content"/>
 
             <ImageView
                 android:id="@+id/main_tops_1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/blouse_white_0" />
+                android:layout_height="match_parent"/>
         </LinearLayout>
 
 
@@ -75,14 +72,12 @@
                 android:id="@+id/codnate_botoms_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ミモレスカート" />
+                />
 
             <ImageView
                 android:id="@+id/main_botoms1"
                 android:layout_width="100dp"
-                android:layout_height="match_parent"
-
-                android:src="@drawable/mimoreskirt_orange_50" />
+                android:layout_height="match_parent" />
         </LinearLayout>
 
 
@@ -97,13 +92,13 @@
                 android:id="@+id/codnate_shoese_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="パンプス" />
+                android:text="" />
 
             <ImageView
                 android:id="@+id/main_shoese1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/panps" />
+                 />
         </LinearLayout>
 
 
@@ -118,13 +113,13 @@
                 android:id="@+id/codnate_ex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="大人かわいい" />
+                android:text="" />
 
             <ImageView
                 android:id="@+id/main_outer1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/domani_201806_p84_c" />
+                 />
         </LinearLayout>
 
     </RelativeLayout>

@@ -7,36 +7,31 @@
     android:background="@drawable/gray_back"
     android:orientation="vertical">
 
-
-    <ScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/fragment_swip_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            android:scrollbarThumbHorizontal="@color/primaryColor">
 
-            <HorizontalScrollView
+            <LinearLayout
+                android:id="@+id/codnate_liner_list"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fadeScrollbars="false"
-                android:scrollbarThumbHorizontal="@color/primaryColor">
-
-                <LinearLayout
-                    android:id="@+id/codnate_liner_list"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                android:orientation="horizontal">
 
 
-                </LinearLayout>
-            </HorizontalScrollView>
+            </LinearLayout>
+        </HorizontalScrollView>
 
 
-        </LinearLayout>
-    </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 
 </RelativeLayout>

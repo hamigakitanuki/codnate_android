@@ -28,7 +28,7 @@ import com.example.codnate3.object.Path_set;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class Codnate_add extends Fragment {
+public class Bad_codnate extends Fragment {
 
 
     private final String[] path;
@@ -44,7 +44,7 @@ public class Codnate_add extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-    public Codnate_add(String path[],String color[],String sub[]){
+    public Bad_codnate(String path[],String color[],String sub[]){
         this.path = path;
         this.color = color;
         this.sub = sub;
@@ -56,38 +56,7 @@ public class Codnate_add extends Fragment {
         goodButton = view.findViewById(R.id.good_button);
         badButton = view.findViewById(R.id.bad_button);
 
-        //いいねボタン
-        goodButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(good_bad_sw){
-                    GoodCodnate_post goodCodnate_post = new GoodCodnate_post();
-                    goodCodnate_post.setListener(good_task());
-                    SharedPreferences data = getActivity().getSharedPreferences("DATA", MODE_PRIVATE);
-                    int userNo = data.getInt("userNo", 0);
-                    Codnate_user_set codnate = new Codnate_user_set(path[0],path[1],path[2],userNo);
-                    good_bad_sw = false;
-                    goodButton.setImageResource(R.drawable.gooded);
-                }
 
-            }
-        });
-        //わるいねボタン
-        badButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(good_bad_sw){
-                    BadCodnate_post badCodnate_post = new BadCodnate_post();
-                    badCodnate_post.setListener(bad_task());
-                    SharedPreferences data = getActivity().getSharedPreferences("DATA", MODE_PRIVATE);
-                    int userNo = data.getInt("userNo", 0);
-                    Codnate_user_set codnate = new Codnate_user_set(path[0],path[1],path[2],userNo);
-                    badCodnate_post.execute(codnate);
-                    good_bad_sw = false;
-                    badButton.setImageResource(R.drawable.baded);
-                }
-            }
-        });
 
         codnate[0] = view.findViewById(R.id.main_tops_1);
         codnate[1] = view.findViewById(R.id.main_botoms1);

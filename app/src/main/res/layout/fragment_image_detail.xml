@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".intent.Image_detail">
+    tools:context=".intent.Image_detail"
+    android:background="@color/gray">
 
     <Button
         android:id="@+id/backgroud_button"
@@ -13,17 +14,22 @@
         android:layout_height="match_parent"
         android:background="@drawable/back_invisivle" />
 
-    <ImageView
+    <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
         android:id="@+id/closet_detail_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
         android:src="@drawable/ic_1"
-        android:layout_margin="16dp"
+        app:siShape="@drawable/shape_closet_image"
+        app:siSquare="true"
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:orientation="horizontal"
+        android:layout_marginTop="16dp"
         android:layout_below="@id/closet_detail_image"
         android:gravity="center">
         <Button
@@ -38,7 +44,7 @@
             android:layout_marginRight="16dp"
             android:textSize="14sp" />
         <Button
-            android:id="@+id/delete_button"
+            android:id="@+id/detail_delete_button"
             android:layout_width="100dp"
             android:layout_height="36dp"
             android:layout_marginLeft="16dp"

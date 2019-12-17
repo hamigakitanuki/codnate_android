@@ -313,20 +313,19 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:textSize="24dp" />
-
+                    <Button
+                        android:id="@+id/huku_add"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="50dp"
+                        android:background="@drawable/frame_style4"
+                        android:elevation="8dp"
+                        android:text="追加" />
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/huku_add"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="50dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/frame_style4"
-                    android:elevation="8dp"
-                    android:text="追加" />
+
             </LinearLayout>
 
 

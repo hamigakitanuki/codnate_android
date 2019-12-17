@@ -29,6 +29,7 @@ public class Codenate_path_list {
                               String[] shoese_path,
                               String[] shoese_color,
                               String[] shoese_sub
+                              
                               ){
         this.tops_path = tops_path;
         this.tops_color = tops_color;

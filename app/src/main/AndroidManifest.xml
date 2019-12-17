@@ -15,8 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-
+        <activity android:name=".flafment.Bad_Codnate_view" />
         <activity android:name=".tuuti" />
         <activity android:name=".intent.Swaip" />
         <activity android:name=".intent.MyPage" />
@@ -27,7 +26,7 @@
         <activity android:name=".intent.Start2" />
         <activity android:name=".intent.Start1" />
         <activity android:name=".intent.camera" />
-        <activity android:name=".intent.Image_detail"/>
+        <activity android:name=".intent.Image_detail" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

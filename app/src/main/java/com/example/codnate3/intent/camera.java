@@ -164,6 +164,7 @@ public class camera extends Activity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Spinner spiner = (Spinner)adapterView;
                 sub_text = (String)spiner.getSelectedItem();
+                System.out.println("camera167->"+cate_text+","+sub_text);
                 sub_text = huku_chager.sub_text_to_eng(cate_text,sub_text);
             }
 
@@ -313,7 +314,6 @@ public class camera extends Activity {
             @Override
             public void onSuccess(String cate) {
                 if(cate.equals("conection error")){
-                    ToastMake(cate,0,-200);
                     finish();
                 }
                 cate_text = cate;

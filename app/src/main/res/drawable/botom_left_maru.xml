@@ -4,7 +4,5 @@
     <corners android:bottomLeftRadius="46dp"/>
 
 
-    <!-- 背景色 -->
-    <solid android:color="#c66900" />
 
 </shape>
