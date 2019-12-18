@@ -1,5 +1,7 @@
 package com.example.codnate3.object;
 
+import com.example.codnate3.AWS_INTERFACE;
+
 public class Codenate_path_list {
     /*
     'tops_path':res_tops_path,
@@ -20,6 +22,7 @@ public class Codenate_path_list {
     public String[] shoese_path;
     public String[] shoese_color;
     public String[] shoese_sub;
+    public String[] codnate_sample;
     public Codenate_path_list(String[] tops_path,
                               String[] tops_color,
                               String[] tops_sub,
@@ -28,7 +31,8 @@ public class Codenate_path_list {
                               String[] botoms_sub,
                               String[] shoese_path,
                               String[] shoese_color,
-                              String[] shoese_sub
+                              String[] shoese_sub,
+                              String[] codnate_sample
 
                               ){
         this.tops_path = tops_path;
@@ -40,6 +44,7 @@ public class Codenate_path_list {
         this.shoese_path = shoese_path;
         this.shoese_color = shoese_color;
         this.shoese_sub = shoese_sub;
+        this.codnate_sample = codnate_sample;
     }
     public boolean codnate_file_check(int idx){
         System.out.println(tops_path.length);
@@ -76,5 +81,8 @@ public class Codenate_path_list {
         codnate_sub[1] = botoms_sub[idx];
         codnate_sub[2] = shoese_sub[idx];
         return codnate_sub;
+    }
+    public String get_codnate_sample(int idx){
+        return "http://"+AWS_INTERFACE.IPADDRESS +"/media/" +codnate_sample[idx];
     }
 }

@@ -80,7 +80,7 @@ public class Fragment0 extends Fragment {
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     for(int i = 0;i<pathlist.tops_sub.length;i++){
                         if(pathlist.codnate_file_check(i)){
-                            Codnate_add codnate_add = new Codnate_add(pathlist.get_path(i),pathlist.get_color(i),pathlist.get_sub(i));
+                            Codnate_add codnate_add = new Codnate_add(pathlist.get_path(i),pathlist.get_color(i),pathlist.get_sub(i),pathlist.get_codnate_sample(i));
                             fragmentTransaction.add(R.id.codnate_liner_list,codnate_add);
                         }else{
                             break;

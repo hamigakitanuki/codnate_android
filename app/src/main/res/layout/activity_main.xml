@@ -20,7 +20,8 @@
 
             <LinearLayout
                 android:id="@+id/codnate_liner_list"
-
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">

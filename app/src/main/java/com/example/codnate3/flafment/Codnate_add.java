@@ -38,16 +38,18 @@ public class Codnate_add extends Fragment {
     private ImageButton badButton;
     private int codnate_idx;
     private boolean good_bad_sw = true ;
-    private ImageView codnate[] = new ImageView[3];
+    private ImageView codnate[] = new ImageView[4];
+    private String sample;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-    public Codnate_add(String path[],String color[],String sub[]){
+    public Codnate_add(String path[],String color[],String sub[],String sample){
         this.path = path;
         this.color = color;
         this.sub = sub;
+        this.sample = sample;
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,14 +94,19 @@ public class Codnate_add extends Fragment {
         codnate[0] = view.findViewById(R.id.main_tops_1);
         codnate[1] = view.findViewById(R.id.main_botoms1);
         codnate[2] = view.findViewById(R.id.main_shoese1);
+        codnate[3] = view.findViewById(R.id.codnate_sample_image);
         Path_set path_set = null;
         for(int i=0;i<3;i++){
             path_set = new Path_set(path[i],i);
             Get_image task = new Get_image();
             task.setListener(get_image_task());
             task.execute(path_set);
-
-
+        }
+        if(sample.isEmpty() == false){
+            path_set = new Path_set(sample,3);
+            Get_image sample_get_task = new Get_image();
+            sample_get_task.setListener(get_sample_task());
+            sample_get_task.execute(path_set);
         }
         TextView tops_bar = view.findViewById(R.id.tops_color1);
         System.out.println(color[0]);
@@ -125,6 +132,14 @@ public class Codnate_add extends Fragment {
             @Override
             public void onSuccess(Bitmap_set bmp_set) {
                 codnate[bmp_set.idx].setImageBitmap(bmp_set.bmp);
+            }
+        };
+    }
+    private Get_image.Listener get_sample_task(){
+        return new Get_image.Listener() {
+            @Override
+            public void onSuccess(Bitmap_set bmp) {
+                codnate[bmp.idx].setImageBitmap(bmp.bmp);
             }
         };
     }
