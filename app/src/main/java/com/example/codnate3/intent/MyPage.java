@@ -94,6 +94,9 @@ public class MyPage extends AppCompatActivity {
                 finish();
             }
         });
+        Get_Account_Data get_account_data = new Get_Account_Data();
+        get_account_data.setListener(create_get_task());
+        get_account_data.execute(String.valueOf(userNo));
     }
 
     Change_Account.Listener create_change_task(){
@@ -119,13 +122,13 @@ public class MyPage extends AppCompatActivity {
                     ArrayAdapter<String> subAdapter = new ArrayAdapter<>(getApplication(), android.R.layout.simple_spinner_item, arraytype);
                     type_spinner.setAdapter(subAdapter);
 
-                    type_spinner.setSelection(type_list.indexOf(str[3]));
+                    type_spinner.setSelection(type_list.indexOf(str[4]));
                 }else{
                     List<String> type_list =  new ArrayList<>(Arrays.asList("フェミニン","カジュアル","クール"));
                     String[] arraytype = {"フェミニン","カジュアル","クール"};
                     ArrayAdapter<String> subAdapter = new ArrayAdapter<>(getApplication(), android.R.layout.simple_spinner_item, arraytype);
                     type_spinner.setAdapter(subAdapter);
-                    type_spinner.setSelection(type_list.indexOf(str[3]));
+                    type_spinner.setSelection(type_list.indexOf(str[4]));
                 }
 
             }

@@ -83,7 +83,7 @@ public class Get_Account_Data extends AsyncTask<String,Void, String[]>{
                 con.disconnect();
             }
         }
-
+        System.out.println(result);
         String account[] = result.split(",");
 
 
