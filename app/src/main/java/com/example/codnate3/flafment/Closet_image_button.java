@@ -62,19 +62,34 @@ public class Closet_image_button extends Fragment {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*
+                ImageDelete imageDelete = new ImageDelete();
+                imageDelete.setListener(create_ImageDelete_task());
+                imageDelete.execute(path);
 
+                */
                 Intent intent = new Intent(getActivity(), Image_detail.class);
-                Bundle b = new Bundle();
-                b.putString("path",path);
-                intent.putExtras(b);
+                //Bundle b = new Bundle();
+                //b.putString("path",path);
+                //intent.putExtras(b);
                 startActivity(intent);
+
+
 
 
             }
         });
         return view;
     }
+    public ImageDelete.Listener create_ImageDelete_task(){
+        return new ImageDelete.Listener() {
+            @Override
+            public void onSuccess(String result_text) {
+                ToastMake("削除しました",0,-200);
 
+            }
+        };
+    }
     public void ToastMake(String message,int x,int y){
         //トーストの宣言
         Context context = getActivity().getApplicationContext();

@@ -305,6 +305,7 @@ public class camera extends Activity {
         return new ImagePOST.Listener() {
             @Override
             public void onSuccess(String result) {
+                ToastMake("登録完了！",0,-200);
                 finish();
             }
         };

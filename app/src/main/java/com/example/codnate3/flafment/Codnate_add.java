@@ -103,7 +103,7 @@ public class Codnate_add extends Fragment {
             task.setListener(get_image_task());
             task.execute(path_set);
         }
-        if(sample.isEmpty() == false){
+        if(sample.equals("") == false){
             path_set = new Path_set(sample,3);
             Get_image sample_get_task = new Get_image();
             sample_get_task.setListener(get_sample_task());

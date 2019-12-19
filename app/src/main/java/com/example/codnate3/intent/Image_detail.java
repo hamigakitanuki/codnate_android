@@ -37,7 +37,7 @@ public class Image_detail extends Activity {
         super.onCreate(savedInstanceState);
         System.out.println("Image_detail 35->");
         setContentView(R.layout.fragment_image_detail);
-
+        /*
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         path = b.getString("path");
@@ -76,6 +76,8 @@ public class Image_detail extends Activity {
             }
         });
 
+
+         */
 
     }
 

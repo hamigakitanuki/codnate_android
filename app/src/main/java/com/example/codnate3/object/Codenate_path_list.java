@@ -83,6 +83,9 @@ public class Codenate_path_list {
         return codnate_sub;
     }
     public String get_codnate_sample(int idx){
+        if (codnate_sample[idx].equals("")){
+            return "";
+        }
         return "http://"+AWS_INTERFACE.IPADDRESS +"/media/" +codnate_sample[idx];
     }
 }

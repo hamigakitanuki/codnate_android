@@ -38,7 +38,6 @@ public class Start3 extends AppCompatActivity {
                 Spinner spinner = (Spinner)parent;
                 String item = (String)spinner.getSelectedItem();
                 age_text = item;
-                Toast.makeText(Start3.this, item, Toast.LENGTH_LONG).show();
 
             }
 
