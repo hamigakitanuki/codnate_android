@@ -55,11 +55,13 @@ public class Fragment0 extends Fragment {
                 }
             });
 
-            //sw = false;
+            sw = false;
 
             GetCodenate getCodenate = new GetCodenate();
             getCodenate.setListener(create_codnate_task());
             getCodenate.execute(String.valueOf(userNo));
+
+
 
         }
         return view;

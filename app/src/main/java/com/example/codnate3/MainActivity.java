@@ -7,8 +7,10 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -17,6 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.codnate3.flafment.Fragment1;
 import com.example.codnate3.flafment.MyFragmentStatePagerAdapter;
 import com.example.codnate3.intent.Start1;
+import com.example.codnate3.net.Get_count;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 //            getSupportActionBar().hide();
 
             setContentView(R.layout.activity_swaip);
-            ImageButton button = findViewById(R.id.float_myPage_button);
+            Button button = findViewById(R.id.float_myPage_button);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -61,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+            Get_count get_count = new Get_count();
+            get_count.setListener(get_count_task());
+            get_count.execute(String.valueOf(userNo));
+
             viewPager = findViewById(R.id.homePage);
             viewPager.setAdapter(new MyFragmentStatePagerAdapter(getSupportFragmentManager(), 0));
 
@@ -96,5 +103,43 @@ public class MainActivity extends AppCompatActivity {
             intent.setClass(getApplication(), MainActivity.class);
             startActivity(intent);
         }
+    }
+    Get_count.Listener get_count_task(){
+        return new Get_count.Listener() {
+            String hukidasi_text = "服の登録が足りないみたいです… 服を追加しましょう!!\n足りないカテゴリは";
+            boolean sw = false;
+            @Override
+            public void onSuccess(int[] count_list) {
+                if(count_list[0] < 1){
+                    sw = true;
+                    hukidasi_text = hukidasi_text +"トップス";
+                }
+                if(count_list[1] < 1){
+                    if(sw){
+                        hukidasi_text = hukidasi_text +"、ボトムス";
+                    }else {
+                        sw = true;
+                        hukidasi_text = hukidasi_text + "ボトムス";
+                    }
+                }
+                if(count_list[2] < 1){
+                    if(sw){
+                        hukidasi_text = hukidasi_text +"、シューズ";
+                    }else {
+                        sw = true;
+                        hukidasi_text = hukidasi_text + "シューズ";
+                    }
+                }
+                TextView hukidasi = findViewById(R.id.add_reco_hukidasi);
+
+                if(sw){
+                    hukidasi.setText(hukidasi_text + "です。");
+                }else{
+                    hukidasi.setVisibility(View.INVISIBLE);
+                    TextView blackback = findViewById(R.id.balck_back);
+                    blackback.setVisibility(View.INVISIBLE);
+                }
+            }
+        };
     }
 }

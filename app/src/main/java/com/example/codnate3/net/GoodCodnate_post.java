@@ -31,7 +31,7 @@ public class GoodCodnate_post extends AsyncTask<Codnate_user_set,Void,String>{
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
         String readline = "";
-        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/GoodCodnate";
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/good_codnate_post";
 
         try {
                         //URLクラス宣言

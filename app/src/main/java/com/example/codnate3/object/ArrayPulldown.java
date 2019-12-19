@@ -59,10 +59,6 @@ public class ArrayPulldown {
     };
 
     static public String[] outer_sub = {
-            "",
-            "ブルゾン",
-            "ポンチョ",
-            "カーディガン",
             "チェスターコート",
             "コート",
             "カラーレスジャケット",

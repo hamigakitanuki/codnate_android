@@ -68,6 +68,7 @@ public class Codnate_add extends Fragment {
                     SharedPreferences data = getActivity().getSharedPreferences("DATA", MODE_PRIVATE);
                     int userNo = data.getInt("userNo", 0);
                     Codnate_user_set codnate = new Codnate_user_set(path[0],path[1],path[2],userNo);
+                    goodCodnate_post.execute(codnate);
                     good_bad_sw = false;
                     goodButton.setImageResource(R.drawable.gooded);
                 }
@@ -143,8 +144,9 @@ public class Codnate_add extends Fragment {
             }
         };
     }
-    private GoodCodnate_post.Listener good_task(){
-        return new GoodCodnate_post.Listener() {
+
+    private BadCodnate_post.Listener bad_task(){
+        return new BadCodnate_post.Listener() {
             @Override
             public void onSuccess(String result) {
 
@@ -152,8 +154,8 @@ public class Codnate_add extends Fragment {
         };
     }
 
-    private BadCodnate_post.Listener bad_task(){
-        return new BadCodnate_post.Listener() {
+    private GoodCodnate_post.Listener good_task(){
+        return new GoodCodnate_post.Listener() {
             @Override
             public void onSuccess(String result) {
 
