@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_back"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/recomend_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="タイトル"
+        android:textSize="24dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/hokanimo_frame_1"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp">
+
+            <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+                android:id="@+id/closet_image_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_1"
+                app:siShape="@drawable/shape_closet_image"
+                app:siSquare="true" />
+
+            <Button
+                android:id="@+id/hokanimo_button_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/back_invisivle"
+                android:text="Button" />
+
+            <TextView
+                android:id="@+id/hokanimo_text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/closet_image_1"
+                android:text="TextView"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/hokanimo_text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hokanimo_text1"
+                android:text="TextView"
+                android:textSize="12dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/hokanimo_frame_2"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp">
+
+            <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+                android:id="@+id/closet_image_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_1"
+                app:siShape="@drawable/shape_closet_image"
+                app:siSquare="true" />
+
+            <Button
+                android:id="@+id/hokanimo_button_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/back_invisivle"
+                android:text="Button" />
+
+            <TextView
+                android:id="@+id/hokanimo_text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/closet_image_2"
+                android:text="TextView"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/hokanimo_text4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hokanimo_text3"
+                android:text="TextView"
+                android:textSize="12dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/hokanimo_frame_3"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp">
+
+            <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+                android:id="@+id/closet_image_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_1"
+                app:siShape="@drawable/shape_closet_image"
+                app:siSquare="true" />
+
+            <Button
+                android:id="@+id/hokanimo_button_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/back_invisivle"
+                android:text="Button" />
+
+            <TextView
+                android:id="@+id/hokanimo_text5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/closet_image_3"
+                android:text="TextView"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/hokanimo_text6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hokanimo_text5"
+                android:text="TextView"
+                android:textSize="12dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/hokanimo_frame_4"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp">
+
+            <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+                android:id="@+id/closet_image_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_1"
+                app:siShape="@drawable/shape_closet_image"
+                app:siSquare="true" />
+
+            <Button
+                android:id="@+id/hokanimo_button_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/back_invisivle"
+                android:text="Button" />
+
+            <TextView
+                android:id="@+id/hokanimo_text7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/closet_image_4"
+                android:text="TextView"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/hokanimo_text8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hokanimo_text7"
+                android:text="TextView"
+                android:textSize="12dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/recomend_link_button"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below=""
+        android:layout_gravity="center"
+        android:background="@drawable/back_invisivle"
+        android:text="Button"
+        android:textSize="16dp" />
+
+</LinearLayout>
