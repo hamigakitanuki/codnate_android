@@ -31,7 +31,7 @@
                 android:id="@+id/closet_image_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_1"
+                android:src="@drawable/ic_2"
                 app:siShape="@drawable/shape_closet_image"
                 app:siSquare="true" />
 
@@ -69,7 +69,7 @@
                 android:id="@+id/closet_image_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_1"
+                android:src="@drawable/ic_2"
                 app:siShape="@drawable/shape_closet_image"
                 app:siSquare="true" />
 
@@ -100,6 +100,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/hokanimo_botome_liner"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="8dp"
@@ -116,7 +117,7 @@
                 android:id="@+id/closet_image_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_1"
+                android:src="@drawable/ic_2"
                 app:siShape="@drawable/shape_closet_image"
                 app:siSquare="true" />
 
@@ -154,7 +155,7 @@
                 android:id="@+id/closet_image_4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_1"
+                android:src="@drawable/ic_2"
                 app:siShape="@drawable/shape_closet_image"
                 app:siSquare="true" />
 
@@ -187,7 +188,7 @@
         android:id="@+id/recomend_link_button"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
-        android:layout_below=""
+        android:layout_below="@id/hokanimo_botome_liner"
         android:layout_gravity="center"
         android:background="@drawable/back_invisivle"
         android:text="Button"

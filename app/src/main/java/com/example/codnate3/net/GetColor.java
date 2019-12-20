@@ -17,16 +17,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.UUID;
 
-public class GetColor extends AsyncTask<Bitmap,Void, String>{
+public class GetColor extends AsyncTask<String,Void, String>{
 
     //リスナー
     private Listener listener;
     //改行文字列
     @Override
-    protected String doInBackground(Bitmap... bitmaps) {
+    protected String doInBackground(String... path_set) {
 
         //受け取ったParamを格納
-        Bitmap bitmap = bitmaps[0];
+        String path = path_set[0];
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
         String readline = "";
@@ -34,9 +34,6 @@ public class GetColor extends AsyncTask<Bitmap,Void, String>{
         String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI +"/tanuki/get_Color";
 
         try {
-            //画像をJPEG形式で送れるように準備
-            ByteArrayOutputStream png = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG,100,png);
             //URLクラス宣言
             URL url = new URL(url_text);
             //コネクションを開く
@@ -59,8 +56,7 @@ public class GetColor extends AsyncTask<Bitmap,Void, String>{
             con.connect();
             Malt_part_post malt = new Malt_part_post();
             PrintStream printStream = new PrintStream(con.getOutputStream(),false, Xml.Encoding.UTF_8.name());
-            malt.textPost(printStream,"sub",  "tekitou",boundary);
-            malt.bitmapPost(printStream,"img",bitmap,boundary);
+            malt.textPost(printStream,"path",  "path",boundary);
             printStream.print("--" + boundary + "--");
             if (printStream != null) {
                 printStream.close();

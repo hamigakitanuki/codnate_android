@@ -18,16 +18,17 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.UUID;
 
-public class GetSub extends AsyncTask<Bitmap_cate_set,Void, String[]>{
+public class GetSub extends AsyncTask<String[],Void, String[]>{
 
     //リスナー
     private Listener listener;
     //改行文字列
     @Override
-    protected String[] doInBackground(Bitmap_cate_set... bitmaps) {
+    protected String[] doInBackground(String[] ...cate_path) {
 
         //受け取ったParamを格納
-        Bitmap bitmap = bitmaps[0].bmp;
+        String cate = cate_path[0][0];
+        String path = cate_path[0][1];
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
         String readline = "";
@@ -35,9 +36,6 @@ public class GetSub extends AsyncTask<Bitmap_cate_set,Void, String[]>{
         String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI +"/tanuki/get_subCate";
 
         try {
-            //画像をJPEG形式で送れるように準備
-            ByteArrayOutputStream png = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG,100,png);
             //URLクラス宣言
             URL url = new URL(url_text);
             //コネクションを開く
@@ -60,8 +58,8 @@ public class GetSub extends AsyncTask<Bitmap_cate_set,Void, String[]>{
             con.connect();
             Malt_part_post malt = new Malt_part_post();
             PrintStream printStream = new PrintStream(con.getOutputStream(),false, Xml.Encoding.UTF_8.name());
-            malt.textPost(printStream,"sub",  bitmaps[0].cate,boundary);
-            malt.bitmapPost(printStream,"img",bitmap,boundary);
+            malt.textPost(printStream,"cate",cate,boundary);
+            malt.textPost(printStream,"path",path,boundary);
             printStream.print("--" + boundary + "--");
             if (printStream != null) {
                 printStream.close();

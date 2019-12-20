@@ -18,13 +18,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.UUID;
 
-public class GetCate extends AsyncTask<Bitmap,Void, String>{
+public class GetCate extends AsyncTask<Bitmap,Void, String[]>{
 
     //リスナー
     private Listener listener;
     //改行文字列
     @Override
-    protected String doInBackground(Bitmap... bitmaps) {
+    protected String[] doInBackground(Bitmap... bitmaps) {
 
         //受け取ったParamを格納
         Bitmap bitmap = bitmaps[0];
@@ -90,7 +90,7 @@ public class GetCate extends AsyncTask<Bitmap,Void, String>{
 
 
 
-        return readline;
+        return readline.split(",");
 
 
     }
@@ -100,13 +100,13 @@ public class GetCate extends AsyncTask<Bitmap,Void, String>{
         this.listener = listener;
     }
     @Override
-    public void onPostExecute(String cate){
+    public void onPostExecute(String[] cate){
         if(listener != null){
             listener.onSuccess(cate);
         }
     }
     public interface Listener{
-        void onSuccess(String cate);
+        void onSuccess(String[] cate);
     }
 
 }

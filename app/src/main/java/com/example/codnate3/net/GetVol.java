@@ -17,16 +17,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.UUID;
 
-public class GetVol extends AsyncTask<Bitmap,Void, int[]>{
+public class GetVol extends AsyncTask<String,Void, int[]>{
 
     //リスナー
     private Listener listener;
     //改行文字列
     @Override
-    protected int[] doInBackground(Bitmap... bitmaps) {
+    protected int[] doInBackground(String... paths) {
 
-        //受け取ったParamを格納
-        Bitmap bitmap = bitmaps[0];
+        String path = paths[0];
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
         String readline = "";
@@ -34,9 +33,6 @@ public class GetVol extends AsyncTask<Bitmap,Void, int[]>{
         String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_Vol";
 
         try {
-            //画像をJPEG形式で送れるように準備
-            ByteArrayOutputStream png = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG,100,png);
             //URLクラス宣言
             URL url = new URL(url_text);
             //コネクションを開く
@@ -59,8 +55,7 @@ public class GetVol extends AsyncTask<Bitmap,Void, int[]>{
             con.connect();
             Malt_part_post malt = new Malt_part_post();
             PrintStream printStream = new PrintStream(con.getOutputStream(),false, Xml.Encoding.UTF_8.name());
-            malt.textPost(printStream,"sub",  "tekitou",boundary);
-            malt.bitmapPost(printStream,"img",bitmap,boundary);
+            malt.textPost(printStream,"path",  path,boundary);
             printStream.print("--" + boundary + "--");
             if (printStream != null) {
                 printStream.close();

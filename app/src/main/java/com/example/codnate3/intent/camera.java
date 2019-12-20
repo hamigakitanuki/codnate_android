@@ -313,35 +313,35 @@ public class camera extends Activity {
     private GetCate.Listener createListener_POST_getcate(){
         return new GetCate.Listener() {
             @Override
-            public void onSuccess(String cate) {
+            public void onSuccess(String[] cate) {
                 if(cate.equals("conection error")){
                     finish();
                 }
-                cate_text = cate;
-                cate_sp.setSelection(huku_chager.cate_get_idx(cate)+1);
+                cate_text = cate[0];
+                cate_sp.setSelection(huku_chager.cate_get_idx(cate[0])+1);
 
-                System.out.println("camera 258->cate_get:"+cate);
+                System.out.println("camera 258->cate_get:"+cate[0]);
 
                 Bitmap_cate_set bitmap_cate_set = new Bitmap_cate_set(capImage,cate_text);
                 GetSub getSub_task = new GetSub();
                 getSub_task.setListener(createListener_POST_getsub());
-                getSub_task.execute(bitmap_cate_set);
+                getSub_task.execute(cate);
 
                 GetColor getColor_task = new GetColor();
                 getColor_task.setListener(createListener_POST_getcolor());
-                getColor_task.execute(capImage);
+                getColor_task.execute(cate[0]);
 
                 GetType getType_task = new GetType();
                 getType_task.setListener(createListener_POST_gettype());
-                getType_task.execute(capImage);
+                getType_task.execute(cate[0]);
 
                 GetTag getTag_task = new GetTag();
                 getTag_task.setListener(createListener_POST_gettag());
-                getTag_task.execute(capImage);
+                getTag_task.execute(cate[0]);
 
                 GetVol getVol_task = new GetVol();
                 getVol_task.setListener(createListene_POST_getvol());
-                getVol_task.execute(capImage);
+                getVol_task.execute(cate[0]);
                 cate_frame.startAnimation(open_cate_horizon);
 
 
