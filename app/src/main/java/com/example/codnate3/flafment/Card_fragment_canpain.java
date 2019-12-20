@@ -27,7 +27,7 @@ public class Card_fragment_canpain extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.kyanpage,container,false);
-        Button campain_button = mView.findViewById(R.id.cameraButton);
+        Button campain_button = mView.findViewById(R.id.canpain_button);
         campain_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

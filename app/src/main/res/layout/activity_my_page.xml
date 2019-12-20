@@ -7,18 +7,19 @@
     tools:context="intent.MyPage">
 
 
-
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:gravity="center"
-            android:background="@drawable/frame_style5">
+            android:background="@color/primaryColor"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/back_button"
@@ -28,6 +29,7 @@
                 android:background="@drawable/frame_style4"
                 android:text="↩"
                 android:textSize="18sp" />
+
             <TextView
                 android:layout_width="179dp"
                 android:layout_height="wrap_content"
@@ -52,11 +54,9 @@
             android:layout_height="match_parent"
             android:layout_below="@id/appbar">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ECE8E8"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -65,8 +65,9 @@
 
                     <FrameLayout
                         android:layout_width="367dp"
-                        android:layout_height="623dp"
-                        android:background="#ffff">
+                        android:layout_height="match_parent"
+                        android:background="#ffff"
+                        android:padding="16dp">
 
                         <ImageView
                             android:id="@+id/mypage_image"
@@ -77,23 +78,25 @@
                             android:elevation="10dp"
                             app:srcCompat="@drawable/touka" />
 
-                        <FrameLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="300dp"
+                            android:layout_height="450dp"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="300dp"
                             android:layout_marginEnd="20dp">
 
+
                             <TextView
                                 android:id="@+id/textView25"
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp"
+                                android:layout_height="wrap_content"
                                 android:text="@string/name" />
 
                             <EditText
                                 android:id="@+id/mypage_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
+                                android:layout_below="@id/textView25"
                                 android:ems="10"
                                 android:inputType="textPersonName" />
 
@@ -101,50 +104,50 @@
                                 android:id="@+id/textView26"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:layout_marginTop="50dp"
+                                android:layout_below="@id/mypage_name"
                                 android:text="@string/jiko" />
 
                             <EditText
                                 android:id="@+id/mypage_jiko"
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
-                                android:layout_marginTop="100dp"
+                                android:layout_below="@id/textView26"
+                                android:lines="5"
                                 android:ems="10"
-                                android:inputType="textPersonName" />
+                                android:inputType="textMultiLine" />
 
                             <TextView
                                 android:id="@+id/textView28"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:layout_marginTop="200dp"
+                                android:layout_below="@id/mypage_jiko"
                                 android:text="@string/age" />
 
                             <Spinner
                                 android:id="@+id/mypage_age"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:layout_marginTop="200dp"
+                                android:layout_below="@id/textView28"
                                 android:entries="@array/age" />
 
                             <TextView
                                 android:id="@+id/textView29"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:layout_marginTop="250dp"
+                                android:layout_below="@id/mypage_age"
                                 android:text="@string/type" />
 
                             <Spinner
                                 android:id="@+id/mypage_type"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:layout_marginTop="250dp" />
+                                android:layout_below="@id/textView29" />
 
-                        </FrameLayout>
+                        </RelativeLayout>
 
                     </FrameLayout>
                 </FrameLayout>
-
-            </LinearLayout>
+            </RelativeLayout>
         </ScrollView>
 
     </RelativeLayout>

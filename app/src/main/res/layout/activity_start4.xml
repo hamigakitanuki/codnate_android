@@ -19,7 +19,7 @@
             android:layout_height="60dp"
             android:background="@drawable/frame_style5"
             android:gravity="center"
-            android:text="@string/start3_bar"
+            android:text="@string/start4_bar"
             android:textSize="18sp" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:text="@string/start4_setumei" />
 
         <LinearLayout
-            android:layout_width="399dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"

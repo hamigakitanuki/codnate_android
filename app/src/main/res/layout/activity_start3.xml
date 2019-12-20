@@ -19,7 +19,7 @@
             android:layout_height="60dp"
             android:background="@drawable/frame_style5"
             android:gravity="center"
-            android:text="@string/start2_bar"
+            android:text="@string/start3_bar"
             android:textSize="18sp" />
 
         <TextView
@@ -28,13 +28,14 @@
             android:layout_height="30dp"
             android:background="@drawable/frame_style6"
             android:gravity="center"
-            android:text="@string/start2_setumei" />
+            android:text="@string/start3_setumei" />
 
         <LinearLayout
-            android:layout_width="399dp"
+            android:layout_width="297dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
             android:layout_marginTop="100dp"
-            android:background="#ffff"
+            android:background="@drawable/frame_style"
             android:orientation="horizontal">
 
             <TextView
@@ -49,6 +50,7 @@
                 android:layout_width="108dp"
                 android:layout_height="50dp"
                 android:entries="@array/age"
+                android:paddingStart="12sp"
                 android:textSize="50sp" />
         </LinearLayout>
 
