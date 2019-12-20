@@ -4,7 +4,8 @@
     <domain-config cleartextTrafficPermitted="true">
 
         <domain includeSubdomains="true">3.16.214.118</domain>
-        <domain includeSubdomains="true">3.18.223.66</domain>
+        <domain includeSubdomains="true">18.191.152.61</domain>
+        <domain includeSubdomains="true">18.221.206.29</domain>
         <domain includeSubdomains="true">127.0.0.1</domain>
 
 

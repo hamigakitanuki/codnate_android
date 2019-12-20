@@ -15,6 +15,10 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public class GetVol extends AsyncTask<String,Void, int[]>{
@@ -25,12 +29,23 @@ public class GetVol extends AsyncTask<String,Void, int[]>{
     @Override
     protected int[] doInBackground(String... paths) {
 
+        List<String> color_select =  new ArrayList<>(Arrays.asList("black","blue", "brown","gray","green","orange","pink","purple","red", "white","yellow","other"));
+        int[] hikaeme_max = {20,20,20,20,20,20,20,30,20,20,10};
+        int[] hikaeme_min = {70,70,70,70,60,20,0,0,0,0,0};
+        System.out.println(paths[0]);
+        int color_idx = color_select.indexOf(paths[0]);
+        Random ran = new Random();
+        int hikaeme = ran.nextInt(hikaeme_max[color_idx]) + hikaeme_min[color_idx];
+        int hade = 100 -hikaeme;
+        int[] res_vol = {hikaeme,hade};
+        return res_vol;
+        /*
         String path = paths[0];
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
         String readline = "";
 
-        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_Vol";
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI3 +"/tanuki/get_Vol";
 
         try {
             //URLクラス宣言
@@ -85,6 +100,8 @@ public class GetVol extends AsyncTask<String,Void, int[]>{
         return String_array_to_int(readline.split(","));
 
 
+
+         */
     }
 
 

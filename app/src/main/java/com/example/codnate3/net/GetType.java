@@ -32,7 +32,7 @@ public class GetType extends AsyncTask<String,Void, int[]>{
         String readline = "";
         String type_value_text[] = new String[3];
 
-        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI+"/tanuki/get_Type";
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI3+"/tanuki/get_Type";
 
         try {
             //URLクラス宣言
@@ -67,6 +67,8 @@ public class GetType extends AsyncTask<String,Void, int[]>{
                 InputStream in = con.getInputStream();
                 BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
                 readline = br.readLine();
+                in.close();
+                br.close();
                 type_value_text = readline.split(",");
             }else {
                 readline = "Gettype 77->type conection error";

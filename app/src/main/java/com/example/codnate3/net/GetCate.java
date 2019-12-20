@@ -32,7 +32,7 @@ public class GetCate extends AsyncTask<Bitmap,Void, String[]>{
         HttpURLConnection con = null;
         String readline = "";
 
-        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI +"/tanuki/get_Cate";
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI2 +"/tanuki/get_Cate";
         System.out.println(url_text);
 
         try {
@@ -72,6 +72,8 @@ public class GetCate extends AsyncTask<Bitmap,Void, String[]>{
                 InputStream in = con.getInputStream();
                 BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
                 readline = br.readLine();
+                in.close();
+                br.close();
             }else {
                 readline = "tops conection error";
             }

@@ -81,7 +81,7 @@ public class camera extends Activity {
     private int dress_value,casual_value,simple_value;
     private Huku_Chager huku_chager;
     private boolean sw = true;
-
+    private String path,path2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -318,30 +318,19 @@ public class camera extends Activity {
                     finish();
                 }
                 cate_text = cate[0];
+                path = cate[1];
                 cate_sp.setSelection(huku_chager.cate_get_idx(cate[0])+1);
 
                 System.out.println("camera 258->cate_get:"+cate[0]);
 
                 Bitmap_cate_set bitmap_cate_set = new Bitmap_cate_set(capImage,cate_text);
+
                 GetSub getSub_task = new GetSub();
                 getSub_task.setListener(createListener_POST_getsub());
                 getSub_task.execute(cate);
 
-                GetColor getColor_task = new GetColor();
-                getColor_task.setListener(createListener_POST_getcolor());
-                getColor_task.execute(cate[0]);
 
-                GetType getType_task = new GetType();
-                getType_task.setListener(createListener_POST_gettype());
-                getType_task.execute(cate[0]);
 
-                GetTag getTag_task = new GetTag();
-                getTag_task.setListener(createListener_POST_gettag());
-                getTag_task.execute(cate[0]);
-
-                GetVol getVol_task = new GetVol();
-                getVol_task.setListener(createListene_POST_getvol());
-                getVol_task.execute(cate[0]);
                 cate_frame.startAnimation(open_cate_horizon);
 
 
@@ -352,6 +341,8 @@ public class camera extends Activity {
         return new GetSub.Listener() {
             @Override
             public void onSuccess(final String[] sub) {
+
+
                 sub_text = sub[0];
                 sub_sp.setSelection(huku_chager.sub_get_idx(cate_text,sub[0])+1);
                 LinearLayout linearLayout = findViewById(R.id.sub_cate_button_frame);
@@ -390,9 +381,18 @@ public class camera extends Activity {
     private GetColor.Listener createListener_POST_getcolor(){
         return new GetColor.Listener() {
             @Override
-            public void onSuccess(String color) {
-                color_text = color;
-                color_sp.setSelection(huku_chager.color_get_idx(color)+1);
+            public void onSuccess(String[] color) {
+
+                GetType getType_task = new GetType();
+                getType_task.setListener(createListener_POST_gettype());
+                getType_task.execute(color[1]);
+
+                GetVol getVol_task = new GetVol();
+                getVol_task.setListener(createListene_POST_getvol());
+                getVol_task.execute(color[0]);
+
+                color_text = color[0];
+                color_sp.setSelection(huku_chager.color_get_idx(color[0])+1);
                 System.out.println("camera 302->color get:"+color);
                 color_frame.setAnimation(open_color_horizon);
             }
@@ -402,6 +402,9 @@ public class camera extends Activity {
         return new GetType.Listener() {
             @Override
             public void onSuccess(int[] value) {
+
+
+
                 List<PieEntry> pieEntry = new ArrayList<PieEntry>();
                 pieEntry.add(new PieEntry(value[0],"シンプル度"));
                 pieEntry.add(new PieEntry(value[2],"カジュアル度"));
@@ -430,6 +433,8 @@ public class camera extends Activity {
         return new GetTag.Listener() {
             @Override
             public void onSuccess(String[] tag_list) {
+
+
                 tag1 = tag_list[0];
                 tag2 = tag_list[1];
                 tag3 = tag_list[2];
@@ -462,7 +467,7 @@ public class camera extends Activity {
                 Legend label = pieChart.getLegend();
                 label.setEnabled(false);
                 pieChart.invalidate();
-                String[] vol_name = {"hade","hikaeme"};
+                String[] vol_name = {"hikaeme","hade"};
                 vol = vol_name[Array_MAX_Get_idx(vol_value_list)];
                 TextView vol_text = findViewById(R.id.vol_text);
                 vol_text.setText("この服は"+huku_chager.vol_to_text(vol)+"です");
@@ -529,6 +534,14 @@ public class camera extends Activity {
             GetCate getCate_task = new GetCate();
             getCate_task.setListener(createListener_POST_getcate());
             getCate_task.execute(capImage_after);
+
+            GetColor getColor_task = new GetColor();
+            getColor_task.setListener(createListener_POST_getcolor());
+            getColor_task.execute(capImage);
+
+            GetTag getTag_task = new GetTag();
+            getTag_task.setListener(createListener_POST_gettag());
+            getTag_task.execute(capImage);
 
             TranslateAnimation translateAnimation = new TranslateAnimation(
                     Animation.ABSOLUTE,0,

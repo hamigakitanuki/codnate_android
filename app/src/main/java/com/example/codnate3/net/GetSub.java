@@ -33,7 +33,7 @@ public class GetSub extends AsyncTask<String[],Void, String[]>{
         HttpURLConnection con = null;
         String readline = "";
 
-        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI +"/tanuki/get_subCate";
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI2 +"/tanuki/get_subCate";
 
         try {
             //URLクラス宣言
@@ -69,6 +69,8 @@ public class GetSub extends AsyncTask<String[],Void, String[]>{
                 InputStream in = con.getInputStream();
                 BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
                 readline = br.readLine();
+                br.close();
+                in.close();
             }else {
                 readline = "sub conection error";
             }
