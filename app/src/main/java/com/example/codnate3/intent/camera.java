@@ -199,6 +199,8 @@ public class camera extends Activity {
             final int REQUEST_CODE = 1;
             ActivityCompat.requestPermissions(camera.this,new String[]{Manifest.permission.CAMERA},REQUEST_CODE);
         }
+
+
         //カメラ起動のリスナー
         cameraButton.setOnClickListener(
                 new View.OnClickListener() {
@@ -247,6 +249,9 @@ public class camera extends Activity {
                 task.setListener(createListener_POST());
                 task.execute(param);
 
+                Intent intent = new Intent();
+                setResult(RESULT_OK,intent);
+                finish();
 
 
             }
@@ -306,7 +311,7 @@ public class camera extends Activity {
             @Override
             public void onSuccess(String result) {
                 ToastMake("登録完了！",0,-200);
-                finish();
+
             }
         };
     }

@@ -1,11 +1,15 @@
 package com.example.codnate3.flafment;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -25,8 +29,21 @@ public class Card_fragment_osusume extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.hokanimo,container,false);
-        
+        mView = inflater.inflate(R.layout.osusume,container,false);
+        Button osusumeButton = mView.findViewById(R.id.recomend_link_button);
+        Button osusumeButton2 = mView.findViewById(R.id.recomend_link_button2);
+        osusumeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastMake("ぐーぐー、作業に疲れたぬき～",0,-300);
+            }
+        });
+        osusumeButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastMake("ぐーぐー、作業に疲れたぬき～",0,-300);
+            }
+        });
         return mView;
     }
 
@@ -54,5 +71,14 @@ public class Card_fragment_osusume extends Fragment {
             public void onSuccess(Bitmap_set bmp) {
             }
         };
+    }
+    public void ToastMake(String message,int x,int y){
+        //トーストの宣言
+        Context context = getActivity().getApplicationContext();
+        Toast toast = Toast.makeText(getActivity(),message,Toast.LENGTH_LONG);
+        //位置調整
+        toast.setGravity(Gravity.CENTER,x,y);
+        toast.show();
+
     }
 }

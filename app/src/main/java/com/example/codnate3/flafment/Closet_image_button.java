@@ -9,12 +9,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -62,25 +64,26 @@ public class Closet_image_button extends Fragment {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
+
                 ImageDelete imageDelete = new ImageDelete();
                 imageDelete.setListener(create_ImageDelete_task());
                 imageDelete.execute(path);
 
-                */
-                Intent intent = new Intent(getActivity(), Image_detail.class);
-                //Bundle b = new Bundle();
-                //b.putString("path",path);
-                //intent.putExtras(b);
-                startActivity(intent);
+
+                /*
+                Image_detail image_detail = new Image_detail(path);
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.add(R.id.detail_frame,image_detail);
+                fragmentTransaction.commit();
 
 
-
-
+                 */
             }
         });
         return view;
     }
+
+
     public ImageDelete.Listener create_ImageDelete_task(){
         return new ImageDelete.Listener() {
             @Override

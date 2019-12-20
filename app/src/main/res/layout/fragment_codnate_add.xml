@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="360dp"
-    android:layout_height="546dp"
+    android:layout_height="600dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="24dp"
+    android:layout_marginRight="36dp"
     android:clipToPadding="false"
     android:layout_marginBottom="46dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -25,106 +26,110 @@
         android:layout_height="180dp"
         android:background="@drawable/botom_left_maru"
         android:elevation="6dp" />
-
-    <RelativeLayout
-        android:id="@+id/codnate_frame_relative"
-        android:layout_width="match_parent"
-        android:layout_height="480dp"
-        android:layout_marginStart="32dp"
-        android:padding="24dp"
-        android:background="@drawable/codnate_frame"
-        android:clipToPadding="false"
-        android:elevation="10dp">
-
-
-        <LinearLayout
-            android:id="@+id/tops_frame"
-            android:layout_width="100dp"
-            android:layout_height="140dp"
-            android:orientation="vertical"
-            android:clipToPadding="false">
-
-            <TextView
-                android:id="@+id/codnate_tops_text"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:textSize="12dp"/>
-
-            <ImageView
-                android:id="@+id/main_tops_1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/botoms_frame"
-            android:layout_width="100dp"
-            android:layout_height="160dp"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical"
-            android:clipToPadding="false"
-            android:layout_below="@id/tops_frame">
-
-            <TextView
-                android:id="@+id/codnate_botoms_text"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:textSize="12dp"
-                />
-
-            <ImageView
-                android:id="@+id/main_botoms1"
-                android:layout_width="100dp"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_below="@id/botoms_frame"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/codnate_shoese_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12dp"
-                android:text="" />
-
-            <ImageView
-                android:id="@+id/main_shoese1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                 />
-        </LinearLayout>
-
-
-        <LinearLayout
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/codnate_frame_relative"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toEndOf="@id/tops_frame"
-            android:layout_marginLeft="24dp"
-            android:orientation="vertical">
+            android:layout_height="480dp"
+            android:layout_marginStart="32dp"
+            android:padding="24dp"
+            android:background="@drawable/codnate_frame"
+            android:clipToPadding="false"
+            android:elevation="10dp">
 
-            <TextView
-                android:id="@+id/codnate_sample_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12dp"
-                android:text="" />
 
-            <ImageView
-                android:id="@+id/codnate_sample_image"
+            <LinearLayout
+                android:id="@+id/tops_frame"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:orientation="vertical"
+                android:clipToPadding="false">
+
+                <TextView
+                    android:id="@+id/codnate_tops_text"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"/>
+
+                <ImageView
+                    android:id="@+id/main_tops_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/botoms_frame"
+                android:layout_width="100dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:clipToPadding="false"
+                android:layout_below="@id/tops_frame">
+
+                <TextView
+                    android:id="@+id/codnate_botoms_text"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/main_botoms1"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_below="@id/botoms_frame"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/codnate_shoese_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/main_shoese1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                 />
-        </LinearLayout>
+                android:layout_toEndOf="@id/tops_frame"
+                android:layout_marginLeft="24dp"
+                android:orientation="vertical">
 
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/codnate_sample_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/codnate_sample_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
 
 
 
@@ -132,17 +137,35 @@
         android:id="@+id/good_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginTop="480dp"
         android:layout_weight="1"
         android:layout_marginLeft="120dp"
         android:background="@drawable/back_invisivle"
-        android:layout_below="@id/codnate_frame_relative"
         android:src="@drawable/good" />
-    <ImageButton
-        android:id="@+id/bad_button"
+    <ImageView
+        android:id="@+id/good_button2"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginTop="480dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="120dp"
         android:background="@drawable/back_invisivle"
-        android:layout_below="@id/codnate_frame_relative"
+        android:src="@drawable/good" />
+    <ImageButton
+    android:id="@+id/bad_button"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+        android:layout_marginTop="480dp"
+    android:background="@drawable/back_invisivle"
+    android:layout_toEndOf="@id/good_button"
+    android:layout_marginLeft="20dp"
+    app:srcCompat="@drawable/bad" />
+    <ImageView
+        android:id="@+id/bad_button2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="480dp"
+        android:background="@drawable/back_invisivle"
         android:layout_toEndOf="@id/good_button"
         android:layout_marginLeft="20dp"
         app:srcCompat="@drawable/bad" />

@@ -1,17 +1,23 @@
 package com.example.codnate3.flafment;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BlendMode;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -36,8 +42,11 @@ public class Codnate_add extends Fragment {
     private final String[] sub;
     private ImageButton goodButton;
     private ImageButton badButton;
+    private ImageView goodButton2,badButton2;
     private int codnate_idx;
     private boolean good_bad_sw = true ;
+    private boolean good_good = false ;
+    private boolean good_bad = false ;
     private ImageView codnate[] = new ImageView[4];
     private String sample;
 
@@ -57,6 +66,8 @@ public class Codnate_add extends Fragment {
         View view = inflater.inflate(R.layout.fragment_codnate_add, container, false);
         goodButton = view.findViewById(R.id.good_button);
         badButton = view.findViewById(R.id.bad_button);
+        goodButton2 = view.findViewById(R.id.good_button2);
+        badButton2 = view.findViewById(R.id.bad_button2);
 
         //いいねボタン
         goodButton.setOnClickListener(new View.OnClickListener() {
@@ -70,9 +81,24 @@ public class Codnate_add extends Fragment {
                     Codnate_user_set codnate = new Codnate_user_set(path[0],path[1],path[2],userNo);
                     goodCodnate_post.execute(codnate);
                     good_bad_sw = false;
+                    good_good = true;
+                    ToastMake("高評価ありがとうございます！",0,-300);
+
                     goodButton.setImageResource(R.drawable.gooded);
                 }
-
+                if(good_good){
+                    int time = 800;
+                    AnimationSet set = new AnimationSet(true);
+                    TranslateAnimation translateAnimation = new TranslateAnimation(0,0,0,-200);
+                    translateAnimation.setDuration(time);
+                    translateAnimation.setRepeatCount(0);
+                    set.addAnimation(translateAnimation);
+                    AlphaAnimation alphaAnimation = new AlphaAnimation(1,0.1f);
+                    alphaAnimation.setDuration(time);
+                    set.addAnimation(alphaAnimation);
+                    goodButton2.setImageResource(R.drawable.gooded);
+                    goodButton2.startAnimation(set);
+                }
             }
         });
         //わるいねボタン
@@ -87,7 +113,22 @@ public class Codnate_add extends Fragment {
                     Codnate_user_set codnate = new Codnate_user_set(path[0],path[1],path[2],userNo);
                     badCodnate_post.execute(codnate);
                     good_bad_sw = false;
+                    good_bad = true;
                     badButton.setImageResource(R.drawable.baded);
+                    ToastMake("精進します…！",0,-300);
+                }
+                if (good_bad){
+                    int time = 800;
+                    AnimationSet set = new AnimationSet(true);
+                    TranslateAnimation translateAnimation = new TranslateAnimation(0,0,0,200);
+                    translateAnimation.setDuration(time);
+                    translateAnimation.setRepeatCount(0);
+                    set.addAnimation(translateAnimation);
+                    AlphaAnimation alphaAnimation = new AlphaAnimation(1,0.1f);
+                    alphaAnimation.setDuration(time);
+                    set.addAnimation(alphaAnimation);
+                    badButton2.setImageResource(R.drawable.baded);
+                    badButton2.startAnimation(set);
                 }
             }
         });
@@ -153,7 +194,15 @@ public class Codnate_add extends Fragment {
             }
         };
     }
+    public void ToastMake(String message,int x,int y){
+        //トーストの宣言
+        Context context = getActivity().getApplicationContext();
+        Toast toast = Toast.makeText(getActivity(),message,Toast.LENGTH_LONG);
+        //位置調整
+        toast.setGravity(Gravity.CENTER,x,y);
+        toast.show();
 
+    }
     private GoodCodnate_post.Listener good_task(){
         return new GoodCodnate_post.Listener() {
             @Override

@@ -3,43 +3,63 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="360dp"
-    android:background="@color/gray_back"
+    android:background="@drawable/frame_style"
+    android:elevation="4dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/recomend_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="タイトル"
+        android:text="パジャマでぐっすり"
         android:textSize="24dp" />
 
-    <ImageButton
+    <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
         android:id="@+id/recomend_image"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:layout_below="@id/recomend_title"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@drawable/tanuki_oyasumi" />
+
+        android:src="@drawable/tanuki_oyasumi"
+        app:siShape="@drawable/shape_closet_image"/>
+
 
     <TextView
+        android:layout_marginTop="8dp"
         android:id="@+id/recomend_subtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/recomend_image"
-        android:text="サブタイトル"
+        android:text="あなたも狸寝入りするように寝よう"
         android:textSize="16dp" />
 
     <Button
         android:id="@+id/recomend_link_button"
-        android:layout_width="wrap_content"
+        android:layout_width="340dp"
         android:layout_height="20dp"
+        android:layout_marginRight="8dp"
         android:layout_below="@id/recomend_subtitle"
         android:layout_gravity="center"
         android:background="@drawable/back_invisivle"
-        android:text="Button"
-        android:textSize="16dp" />
+        android:textColor="@color/blue"
+        android:text="商品一覧はこちら"
+        android:gravity="left"
+        android:textSize="12dp" />
+    <Button
+        android:id="@+id/recomend_link_button2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginRight="8dp"
+        android:layout_below="@id/recomend_subtitle"
+        android:layout_toRightOf="@id/recomend_link_button"
+        android:layout_gravity="center"
+        android:background="@drawable/back_invisivle"
+        android:textColor="@color/blue"
+        android:text="> "
+        android:gravity="right"
+        android:textSize="12dp" />
 
 </RelativeLayout>

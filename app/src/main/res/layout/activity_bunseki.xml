@@ -7,15 +7,23 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/gray_back">
 
         <LinearLayout
             android:id="@+id/market_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@drawable/gray_back">
 
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:hint="何かお探しですか？"
+                android:textSize="12dp"
+                android:background="@drawable/frame_style4"/>
 
         </LinearLayout>
 

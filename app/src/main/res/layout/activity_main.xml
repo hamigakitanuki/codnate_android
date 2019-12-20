@@ -10,7 +10,8 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/fragment_swip_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="600dp">
+
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -30,8 +31,9 @@
             </LinearLayout>
         </HorizontalScrollView>
 
-
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
 
 

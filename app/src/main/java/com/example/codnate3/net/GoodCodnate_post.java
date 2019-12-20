@@ -68,6 +68,8 @@ public class GoodCodnate_post extends AsyncTask<Codnate_user_set,Void,String>{
             InputStream in = con.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8"));
             readline = br.readLine();
+            in.close();
+            br.close();
             System.out.println(readline);
         } catch (Exception e) {
             e.printStackTrace();

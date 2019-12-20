@@ -26,14 +26,15 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
-    private final int OPENING_RESULT_CODE = 1;
+    private final int OPENING_RESULT_CODE = 11;
     private boolean sw = false;
     private ImageButton addButton;
+    int userNo;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences data = getSharedPreferences("DATA", MODE_PRIVATE);
-        int userNo = data.getInt("userNo", 0);
+        userNo = data.getInt("userNo", 0);
         //新規に始めた場合はusernoが0状態
         if (userNo == 0) {
             Intent intent = new Intent(getApplication(), Start1.class);
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getApplication(), com.example.codnate3.intent.camera.class);
-                    startActivity(intent);
+                    startActivityForResult(intent,123);
                 }
             });
             Get_count get_count = new Get_count();
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onActivityResult ( int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
@@ -91,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
                 requestCode == Fragment1.DETAIL_RESULT_CODE) {
             onDestroy();
             onRestart();
+        }
+        if(resultCode == RESULT_OK && requestCode == 123){
+            Get_count get_count = new Get_count();
+            get_count.setListener(get_count_task());
+            get_count.execute(String.valueOf(userNo));
+
         }
     }
 
@@ -138,6 +146,9 @@ public class MainActivity extends AppCompatActivity {
                     hukidasi.setVisibility(View.INVISIBLE);
                     TextView blackback = findViewById(R.id.balck_back);
                     blackback.setVisibility(View.INVISIBLE);
+                    viewPager.setAdapter(new MyFragmentStatePagerAdapter(getSupportFragmentManager(), 0));
+
+
                 }
             }
         };
