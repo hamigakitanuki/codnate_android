@@ -31,7 +31,7 @@ public class GetVol extends AsyncTask<Bitmap,Void, int[]>{
         HttpURLConnection con = null;
         String readline = "";
 
-        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_Vol";
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI +"/tanuki/get_Vol";
 
         try {
             //画像をJPEG形式で送れるように準備

@@ -18,7 +18,7 @@
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="@drawable/frame_style5"
+            android:background="@color/primaryColor"
             android:gravity="center">
 
             <Button
@@ -89,7 +89,7 @@
                             <TextView
                                 android:id="@+id/textView25"
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp"
+                                android:layout_height="wrap_content"
                                 android:text="@string/name" />
 
                             <EditText
@@ -112,8 +112,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:layout_below="@id/textView26"
+                                android:lines="5"
                                 android:ems="10"
-                                android:inputType="textPersonName" />
+                                android:inputType="textMultiLine" />
 
                             <TextView
                                 android:id="@+id/textView28"

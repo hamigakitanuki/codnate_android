@@ -26,7 +26,7 @@ public class GetCodenate extends AsyncTask<String,Void, Codenate_path_list>{
     protected Codenate_path_list doInBackground(String... userNos) {
         String userNo = userNos[0];
         //POST先のURL
-        String GetURL = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/getCodenate?UserNo="+userNo;
+        String GetURL = "http://"+ AWS_INTERFACE.IPADDRESS_AI +"/tanuki/getCodenate?UserNo="+userNo;
         //接続するためのクラスを宣言
         int rescode = -1;
         String result = "";

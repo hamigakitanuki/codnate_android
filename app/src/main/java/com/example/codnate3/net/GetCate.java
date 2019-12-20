@@ -32,7 +32,7 @@ public class GetCate extends AsyncTask<Bitmap,Void, String>{
         HttpURLConnection con = null;
         String readline = "";
 
-        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_Cate";
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI +"/tanuki/get_Cate";
 
         try {
             //画像をJPEG形式で送れるように準備

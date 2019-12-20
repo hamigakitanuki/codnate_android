@@ -33,7 +33,7 @@ public class GetType extends AsyncTask<Bitmap,Void, int[]>{
         String readline = "";
         String type_value_text[] = new String[3];
 
-        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_Type";
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI +"/tanuki/get_Type";
 
         try {
             //画像をJPEG形式で送れるように準備
