@@ -14,7 +14,6 @@
         android:id="@+id/closet_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_1"
         app:siShape="@drawable/shape_closet_image"
         app:siSquare="true" />
 

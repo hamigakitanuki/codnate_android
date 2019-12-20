@@ -32,7 +32,7 @@ public class GetSub extends AsyncTask<Bitmap_cate_set,Void, String[]>{
         HttpURLConnection con = null;
         String readline = "";
 
-        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_subCate";
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI +"/tanuki/get_subCate";
 
         try {
             //画像をJPEG形式で送れるように準備

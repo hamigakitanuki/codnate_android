@@ -31,7 +31,7 @@ public class GetColor extends AsyncTask<Bitmap,Void, String>{
         HttpURLConnection con = null;
         String readline = "";
 
-        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_Color";
+        String url_text = "http://"+ AWS_INTERFACE.IPADDRESS_AI +"/tanuki/get_Color";
 
         try {
             //画像をJPEG形式で送れるように準備

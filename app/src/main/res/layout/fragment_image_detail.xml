@@ -21,7 +21,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/ic_1"
         app:siShape="@drawable/shape_closet_image"
         app:siSquare="true"
         />
