@@ -5,10 +5,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class MyFragmentStatePagerAdapter extends FragmentPagerAdapter {
+public class Recomend_statement extends FragmentPagerAdapter {
 
 
-    public MyFragmentStatePagerAdapter(@NonNull FragmentManager fm, int behavior) {
+    public Recomend_statement(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }
 
@@ -17,33 +17,29 @@ public class MyFragmentStatePagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new Codnate_fragment();
+                return new Card_fragment_codnate_item_recomend("tops");
             case 1:
-                return new Closet_fragment();
+                return new Card_fragment_codnate_item_recomend("botoms");
             case 2:
-                return new Local_recomend();
-            case 3:
-                return new Web_recomend();
+                return new Card_fragment_codnate_item_recomend("shoese");
         }
         return  null;
     }
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
     @Override
     public CharSequence getPageTitle(int postion){
         switch (postion){
             case 0:
-                return "今日のコーデ";
+                return "トップスおすすめ";
             case 1:
-                return "クローゼット";
+                return "ボトムスおすすめ";
             case 2:
-                return "近くのお店のおすすめ商品";
-            case 3:
-                return "オンラインストアのおすすめ商品";
+                return "シューズおすすめ";
         }
         return null;
     }

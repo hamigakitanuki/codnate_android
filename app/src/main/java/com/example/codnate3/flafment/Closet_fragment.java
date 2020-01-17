@@ -30,7 +30,7 @@ import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class Fragment1 extends Fragment {
+public class Closet_fragment extends Fragment {
     View rootView;
     private String path;
     private float dress = 0;

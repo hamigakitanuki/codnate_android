@@ -15,19 +15,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.codnate3.R;
 
-public class Fragment2 extends Fragment {
+public class Local_recomend extends Fragment {
     View rootView;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.activity_bunseki,container,false);
-        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-        Card_fragment_canpain canpain = new Card_fragment_canpain(0);
-        fragmentTransaction.add(R.id.market_layout,canpain);
-        Card_fragment_osusume osusume = new Card_fragment_osusume();
-        fragmentTransaction.add(R.id.market_layout,osusume);
-        Card_fragment_hokanimo hokanimo = new Card_fragment_hokanimo();
-        fragmentTransaction.add(R.id.market_layout,hokanimo);
-        fragmentTransaction.commit();
+        rootView = inflater.inflate(R.layout.fragment_local,container,false);
+
         return rootView;
 
     }

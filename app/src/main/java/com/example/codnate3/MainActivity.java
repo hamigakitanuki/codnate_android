@@ -1,28 +1,20 @@
 package com.example.codnate3;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.codnate3.flafment.Fragment1;
+import com.example.codnate3.flafment.Closet_fragment;
 import com.example.codnate3.flafment.MyFragmentStatePagerAdapter;
 import com.example.codnate3.intent.Start1;
 import com.example.codnate3.net.Get_count;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
@@ -90,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         if (resultCode == RESULT_OK &&
-                requestCode == Fragment1.DETAIL_RESULT_CODE) {
+                requestCode == Closet_fragment.DETAIL_RESULT_CODE) {
             onDestroy();
             onRestart();
         }

@@ -21,7 +21,7 @@ import com.example.codnate3.object.Codenate_path_list;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class Fragment0 extends Fragment {
+public class Codnate_fragment extends Fragment {
     boolean sw = true;
     View view;
     int userNo;

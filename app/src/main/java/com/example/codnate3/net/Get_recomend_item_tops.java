@@ -5,7 +5,8 @@ package com.example.codnate3.net;
 import android.os.AsyncTask;
 
 import com.example.codnate3.AWS_INTERFACE;
-import com.example.codnate3.object.Recomend_item;
+import com.example.codnate3.object.Codenate_path_list;
+import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -14,7 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Locale;
 
-public class Get_recomend_item extends AsyncTask<String,Void, Recomend_item>{
+public class Get_recomend_item_tops extends AsyncTask<String,Void, Codenate_path_list>{
 
     //リスナー
     private Listener listener;
@@ -22,10 +23,10 @@ public class Get_recomend_item extends AsyncTask<String,Void, Recomend_item>{
     private HttpURLConnection con = null;
 
     @Override
-    protected Recomend_item doInBackground(String... userNos) {
-
-        int userNo = Integer.parseInt(userNos[0]);
-        String GetURL = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_recomend_item?userNo="+userNo;
+    protected Codenate_path_list doInBackground(String... userNos) {
+        String userNo = userNos[0];
+        //POST先のURL
+        String GetURL = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/getrecomend_web_item_tops?UserNo="+userNo;
         //接続するためのクラスを宣言
         int rescode = -1;
         String result = "";
@@ -34,9 +35,9 @@ public class Get_recomend_item extends AsyncTask<String,Void, Recomend_item>{
             //コネクションの変数にHttpURLConnection型でurlを開いて入れる
             con = (HttpURLConnection) url.openConnection();
             //接続タイムアウトの時間を設定する
-            con.setConnectTimeout(100000);
+            con.setConnectTimeout(10000);
             //レスポンスデータ読み取りタイムアウトを設定する
-            con.setReadTimeout(100000);
+            con.setReadTimeout(10000);
             //ヘッダーにuser-Agentを設定する
             con.setRequestProperty("User-Agent", "Android");
             //ヘッダーにAccept-Languageを設定する
@@ -57,9 +58,10 @@ public class Get_recomend_item extends AsyncTask<String,Void, Recomend_item>{
                 //エンコードするクラスを作成
                 String encoding = con.getContentEncoding();
 
-                //ないなら指定の文字コード
-                encoding = "UTF-8";
-
+                if(null == encoding) {
+                    //ないなら指定の文字コード
+                    encoding = "UTF-8";
+                }
                 //送られてきた文字列を格納
                 final InputStreamReader inReader = new InputStreamReader(in,encoding);
                 //こちらで処理できるように格納
@@ -81,27 +83,35 @@ public class Get_recomend_item extends AsyncTask<String,Void, Recomend_item>{
                 con.disconnect();
             }
         }
-        if (result.equals("")){
+        System.out.println("result:"+result);
+        if (result.equals("tops no item")){
             return null;
-        }else{
-            String[] r_split = result.split(",");
-            return new Recomend_item(r_split[0],"http://"+AWS_INTERFACE.IPADDRESS +"/media/" +r_split[1],r_split[2]);
-
+        }else if(result.equals("botoms no item")) {
+            return null;
+        }else if(result.equals("shoese no item")){
+            return null;
         }
+        Codenate_path_list path_list;
+
+        //jsonで読み込めるようにGSON宣言
+        Gson gson = new Gson();
+        //クラス変数に格納
+
+        path_list = gson.fromJson(result, Codenate_path_list.class);
+        System.out.println(result);
+        return path_list;
     }
     @Override
-    public void onPostExecute(Recomend_item item){
+    public void onPostExecute(Codenate_path_list pathlist){
         if(listener != null){
-            if(item != null){
-                listener.onSuccess(item);
-            }
+            listener.onSuccess(pathlist);
         }
     }
     public void setListener(Listener listener) {
         this.listener = listener;
     }
     public interface Listener{
-        void onSuccess(Recomend_item item);
+        void onSuccess(Codenate_path_list pathlist);
     }
 
 }
