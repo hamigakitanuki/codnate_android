@@ -15,18 +15,22 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Locale;
 
-public class Get_recomend_item_tops extends AsyncTask<String,Void, Codenate_path_list>{
+public class Get_recomend_item extends AsyncTask<String,Void, Codenate_path_list>{
 
     //リスナー
     private Listener listener;
 
     private HttpURLConnection con = null;
+    private int userNo;
+    public Get_recomend_item(int userNo){
+        this.userNo = userNo;
+    }
 
     @Override
-    protected Codenate_path_list doInBackground(String... userNos) {
-        String userNo = userNos[0];
+    protected Codenate_path_list doInBackground(String... param) {
+        String cate = param[0];
         //POST先のURL
-        String GetURL = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/getrecomend_web_item_tops?UserNo="+userNo;
+        String GetURL = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_recomend_web_item_"+cate+"?UserNo="+Integer.toString(userNo);
         //接続するためのクラスを宣言
         int rescode = -1;
         String result = "";
@@ -96,7 +100,6 @@ public class Get_recomend_item_tops extends AsyncTask<String,Void, Codenate_path
         //jsonで読み込めるようにGSON宣言
         Gson gson = new Gson();
         //クラス変数に格納
-
         path_list = gson.fromJson(result, Codenate_path_list.class);
         System.out.println(result);
         return path_list;

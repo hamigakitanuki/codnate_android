@@ -8,7 +8,7 @@
     android:layout_marginTop="8dp"
     android:background="@drawable/back_invisivle"
     android:elevation="8dp"
-    tools:context=".flafment.Closet_image_button">
+    tools:context=".fragment.Card_closet_image">
 
     <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
         android:id="@+id/closet_image"

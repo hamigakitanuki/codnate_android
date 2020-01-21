@@ -3,9 +3,11 @@ package com.example.codnate3.net;
 
 
 import android.os.AsyncTask;
+import android.widget.ListView;
 
 import com.example.codnate3.AWS_INTERFACE;
 import com.example.codnate3.object.Codenate_path_list;
+import com.example.codnate3.object.Recomend_item_list;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -15,18 +17,22 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Locale;
 
-public class Get_recomend_item_botoms extends AsyncTask<String,Void, Codenate_path_list>{
+public class Get_recomend_item_list extends AsyncTask<String,Void, Recomend_item_list>{
 
     //リスナー
     private Listener listener;
 
     private HttpURLConnection con = null;
+    private int userNo;
+    public Get_recomend_item_list(int userNo){
+        this.userNo = userNo;
+    }
 
     @Override
-    protected Codenate_path_list doInBackground(String... userNos) {
-        String userNo = userNos[0];
+    protected Recomend_item_list doInBackground(String... param) {
+        String cate = param[0];
         //POST先のURL
-        String GetURL = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_recomend_web_item_botoms?UserNo="+userNo;
+        String GetURL = "http://"+ AWS_INTERFACE.IPADDRESS +"/tanuki/get_recomend_list?UserNo="+Integer.toString(userNo);
         //接続するためのクラスを宣言
         int rescode = -1;
         String result = "";
@@ -84,34 +90,25 @@ public class Get_recomend_item_botoms extends AsyncTask<String,Void, Codenate_pa
             }
         }
         System.out.println("result:"+result);
-        if (result.equals("tops no item")){
-            return null;
-        }else if(result.equals("botoms no item")) {
-            return null;
-        }else if(result.equals("shoese no item")){
-            return null;
-        }
-        Codenate_path_list path_list;
 
         //jsonで読み込めるようにGSON宣言
         Gson gson = new Gson();
         //クラス変数に格納
-
-        path_list = gson.fromJson(result, Codenate_path_list.class);
+        Recomend_item_list recomend_item_list = gson.fromJson(result, Recomend_item_list.class);
         System.out.println(result);
-        return path_list;
+        return recomend_item_list;
     }
     @Override
-    public void onPostExecute(Codenate_path_list pathlist){
+    public void onPostExecute(Recomend_item_list recomend_item_list){
         if(listener != null){
-            listener.onSuccess(pathlist);
+            listener.onSuccess(recomend_item_list);
         }
     }
     public void setListener(Listener listener) {
         this.listener = listener;
     }
     public interface Listener{
-        void onSuccess(Codenate_path_list pathlist);
+        void onSuccess(Recomend_item_list recomend_item_list);
     }
 
 }

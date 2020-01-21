@@ -1,4 +1,4 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,11 +12,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.codnate3.R;
 
-public class Web_recomend extends Fragment {
+public class Fragment_Web_recomend extends Fragment {
     View rootView;
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.activity_bunseki,container,false);
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container,
+                             Bundle savedInstanceState) {
+        rootView = inflater.inflate(R.layout.fragment_online_shop,container,false);
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 
         Card_fragment_canpain canpain = new Card_fragment_canpain(0);

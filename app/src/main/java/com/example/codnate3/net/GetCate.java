@@ -26,6 +26,9 @@ public class GetCate extends AsyncTask<Bitmap,Void, String[]>{
     @Override
     protected String[] doInBackground(Bitmap... bitmaps) {
 
+        String[] test = {"tops",""};
+        return test;
+        /*
         //受け取ったParamを格納
         Bitmap bitmap = bitmaps[0];
         //接続するためのクラスを宣言
@@ -95,6 +98,8 @@ public class GetCate extends AsyncTask<Bitmap,Void, String[]>{
         return readline.split(",");
 
 
+
+         */
     }
 
 

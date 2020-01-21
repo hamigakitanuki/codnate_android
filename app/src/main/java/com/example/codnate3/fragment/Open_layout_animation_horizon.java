@@ -1,4 +1,4 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import android.view.View;
 import android.view.animation.Animation;

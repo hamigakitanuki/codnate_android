@@ -7,12 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.codnate3.flafment.Closet_fragment;
-import com.example.codnate3.flafment.MyFragmentStatePagerAdapter;
+import com.example.codnate3.fragment.Fragment_closet;
+import com.example.codnate3.fragment.MyFragmentStatePagerAdapter;
 import com.example.codnate3.intent.Start1;
 import com.example.codnate3.net.Get_count;
 
@@ -57,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivityForResult(intent,123);
                 }
             });
+            TextView hukidasi = findViewById(R.id.add_reco_hukidasi);
+            hukidasi.setVisibility(View.INVISIBLE);
+            TextView blackback = findViewById(R.id.balck_back);
+            blackback.setVisibility(View.INVISIBLE);
+
             Get_count get_count = new Get_count();
             get_count.setListener(get_count_task());
             get_count.execute(String.valueOf(userNo));
@@ -74,23 +80,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult ( int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK &&
-                requestCode == OPENING_RESULT_CODE &&
-                data != null) {
-            Intent intent = new Intent(getApplication(), com.example.codnate3.MainActivity.class);
-            startActivity(intent);
+        if (requestCode == OPENING_RESULT_CODE) {
+            Boolean sw = true;
+            if(resultCode == RESULT_OK){
+                sw = false;
+                Get_count get_count = new Get_count();
+                get_count.setListener(get_count_task());
+                get_count.execute(String.valueOf(userNo));
+            }
+        }
+        if (sw){
             finish();
         }
         if (resultCode == RESULT_OK &&
-                requestCode == Closet_fragment.DETAIL_RESULT_CODE) {
+                requestCode == Fragment_closet.DETAIL_RESULT_CODE) {
             onDestroy();
             onRestart();
-        }
-        if(resultCode == RESULT_OK && requestCode == 123){
-            Get_count get_count = new Get_count();
-            get_count.setListener(get_count_task());
-            get_count.execute(String.valueOf(userNo));
-
         }
     }
 
@@ -110,37 +115,42 @@ public class MainActivity extends AppCompatActivity {
             boolean sw = false;
             @Override
             public void onSuccess(int[] count_list) {
-                if(count_list[0] < 1){
-                    sw = true;
-                    hukidasi_text = hukidasi_text +"トップス";
-                }
-                if(count_list[1] < 1){
-                    if(sw){
-                        hukidasi_text = hukidasi_text +"、ボトムス";
-                    }else {
-                        sw = true;
-                        hukidasi_text = hukidasi_text + "ボトムス";
+                try {
+                    if (count_list[0] == -1) {
+                        throw new Exception("サーバーに繋がっていません");
                     }
-                }
-                if(count_list[2] < 1){
-                    if(sw){
-                        hukidasi_text = hukidasi_text +"、シューズ";
-                    }else {
+
+                    if (count_list[0] < 1) {
                         sw = true;
-                        hukidasi_text = hukidasi_text + "シューズ";
+                        hukidasi_text = hukidasi_text + "トップス";
                     }
-                }
-                TextView hukidasi = findViewById(R.id.add_reco_hukidasi);
-
-                if(sw){
-                    hukidasi.setText(hukidasi_text + "です。");
-                }else{
-                    hukidasi.setVisibility(View.INVISIBLE);
-                    TextView blackback = findViewById(R.id.balck_back);
-                    blackback.setVisibility(View.INVISIBLE);
-                    viewPager.setAdapter(new MyFragmentStatePagerAdapter(getSupportFragmentManager(), 0));
-
-
+                    if (count_list[1] < 1) {
+                        if (sw) {
+                            hukidasi_text = hukidasi_text + "、ボトムス";
+                        } else {
+                            sw = true;
+                            hukidasi_text = hukidasi_text + "ボトムス";
+                        }
+                    }
+                    if (count_list[2] < 1) {
+                        if (sw) {
+                            hukidasi_text = hukidasi_text + "、シューズ";
+                        } else {
+                            sw = true;
+                            hukidasi_text = hukidasi_text + "シューズ";
+                        }
+                    }
+                    if (sw) {
+                        TextView hukidasi = findViewById(R.id.add_reco_hukidasi);
+                        hukidasi.setVisibility(View.VISIBLE);
+                        TextView blackback = findViewById(R.id.balck_back);
+                        blackback.setVisibility(View.VISIBLE);
+                        hukidasi.setText(hukidasi_text + "です。");
+                    } else {
+                        viewPager.setAdapter(new MyFragmentStatePagerAdapter(getSupportFragmentManager(), 0));
+                    }
+                }catch (Exception e){
+                    Toast.makeText(MainActivity.this, "サーバーに接続できませんでした。", Toast.LENGTH_SHORT).show();
                 }
             }
         };

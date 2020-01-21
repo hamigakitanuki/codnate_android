@@ -1,4 +1,4 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

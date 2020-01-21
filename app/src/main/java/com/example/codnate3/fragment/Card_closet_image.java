@@ -1,38 +1,28 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.codnate3.Huku_Chager;
 import com.example.codnate3.R;
-import com.example.codnate3.intent.Image_detail;
-import com.example.codnate3.net.Get_image;
 import com.example.codnate3.net.ImageDelete;
-import com.example.codnate3.object.Bitmap_set;
-import com.example.codnate3.object.Path_set;
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 
 
-public class Closet_image_button extends Fragment {
+public class Card_closet_image extends Fragment {
     Bitmap bmp;
     String sub;
     String color;
@@ -40,7 +30,7 @@ public class Closet_image_button extends Fragment {
     String path;
 
     View view;
-    public Closet_image_button(Bitmap bmp,String sub,String cate,String color,String path){
+    public Card_closet_image(Bitmap bmp, String sub, String cate, String color, String path){
         this.sub = sub;
         this.color = color;
         this.bmp = bmp;
@@ -70,14 +60,7 @@ public class Closet_image_button extends Fragment {
                 imageDelete.execute(path);
 
 
-                /*
-                Image_detail image_detail = new Image_detail(path);
-                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.add(R.id.detail_frame,image_detail);
-                fragmentTransaction.commit();
 
-
-                 */
             }
         });
         return view;

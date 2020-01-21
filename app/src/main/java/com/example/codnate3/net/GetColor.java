@@ -24,7 +24,9 @@ public class GetColor extends AsyncTask<Bitmap,Void, String[]>{
     //改行文字列
     @Override
     protected String[] doInBackground(Bitmap... bitmaps) {
-
+        String[] test = {"black",""};
+        return test;
+        /*
         //受け取ったParamを格納
         Bitmap bitmap = bitmaps[0];
         //接続するためのクラスを宣言
@@ -90,6 +92,8 @@ public class GetColor extends AsyncTask<Bitmap,Void, String[]>{
 
 
         return readline.split(",");
+
+         */
     }
 
 

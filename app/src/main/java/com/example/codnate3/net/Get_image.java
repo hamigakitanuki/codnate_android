@@ -39,7 +39,6 @@ public class Get_image extends AsyncTask<Path_set,Void, Bitmap_set>{
             e.printStackTrace();
             System.out.println(e);
         }
-
         return bmp_set;
     }
     @Override

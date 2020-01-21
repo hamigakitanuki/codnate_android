@@ -32,7 +32,7 @@
             android:layout_marginRight="8dp">
 
             <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
-                android:id="@+id/closet_image_1"
+                android:id="@+id/hokanimo_image_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_2"
@@ -50,12 +50,12 @@
                 android:id="@+id/hokanimo_text1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/closet_image_1"
+                android:layout_below="@id/hokanimo_image_1"
                 android:text="ブラックのインナー"
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/hokanimo_text2"
+                android:id="@+id/hokanimo_price1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/hokanimo_text1"
@@ -70,7 +70,7 @@
             android:layout_marginLeft="8dp">
 
             <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
-                android:id="@+id/closet_image_2"
+                android:id="@+id/hokanimo_image_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_3"
@@ -85,18 +85,18 @@
                  />
 
             <TextView
-                android:id="@+id/hokanimo_text3"
+                android:id="@+id/hokanimo_text2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/closet_image_2"
+                android:layout_below="@id/hokanimo_image_2"
                 android:text="ブルーのジーンス"
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/hokanimo_text4"
+                android:id="@+id/hokanimo_price2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/hokanimo_text3"
+                android:layout_below="@id/hokanimo_text2"
                 android:text="3,200\"
                 android:textSize="12dp" />
         </RelativeLayout>
@@ -118,7 +118,7 @@
             android:layout_marginRight="8dp">
 
             <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
-                android:id="@+id/closet_image_3"
+                android:id="@+id/hokanimo_image_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_4"
@@ -133,18 +133,18 @@
                  />
 
             <TextView
-                android:id="@+id/hokanimo_text5"
+                android:id="@+id/hokanimo_text3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/closet_image_3"
+                android:layout_below="@id/hokanimo_image_3"
                 android:text="ホワイトのニット"
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/hokanimo_text6"
+                android:id="@+id/hokanimo_price3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/hokanimo_text5"
+                android:layout_below="@id/hokanimo_text3"
                 android:text="900\"
                 android:textSize="12dp" />
         </RelativeLayout>
@@ -156,7 +156,7 @@
             android:layout_marginLeft="8dp">
 
             <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
-                android:id="@+id/closet_image_4"
+                android:id="@+id/hokanimo_image_4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_6"
@@ -171,18 +171,18 @@
                  />
 
             <TextView
-                android:id="@+id/hokanimo_text7"
+                android:id="@+id/hokanimo_text4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/closet_image_4"
+                android:layout_below="@id/hokanimo_image_4"
                 android:text="グレーのワイドパンツ"
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/hokanimo_text8"
+                android:id="@+id/hokanimo_price4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/hokanimo_text7"
+                android:layout_below="@id/hokanimo_text4"
                 android:text="4,500\"
                 android:textSize="12dp" />
         </RelativeLayout>

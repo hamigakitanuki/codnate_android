@@ -1,8 +1,7 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.Path;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.example.codnate3.AWS_INTERFACE;
 import com.example.codnate3.R;
 import com.example.codnate3.net.Get_closet_image;
 import com.example.codnate3.net.Get_image_list;
 import com.example.codnate3.object.Path_List;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -30,7 +27,7 @@ import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class Closet_fragment extends Fragment {
+public class Fragment_closet extends Fragment {
     View rootView;
     private String path;
     private float dress = 0;
@@ -109,11 +106,11 @@ public class Closet_fragment extends Fragment {
                         break;
                     }
                     if((j+1)% 2 == 0){
-                        Closet_image_button closet_image_button  = new Closet_image_button(bmp[j],mpathlist.sub_list[j],mpathlist.cate_list[j],mpathlist.color_list[j],mpathlist.path_list[j]);
-                        fragmentTransaction.add(R.id.closet_vertical_right,closet_image_button);
+                        Card_closet_image cardcloset_image_ = new Card_closet_image(bmp[j],mpathlist.sub_list[j],mpathlist.cate_list[j],mpathlist.color_list[j],mpathlist.path_list[j]);
+                        fragmentTransaction.add(R.id.closet_vertical_right, cardcloset_image_);
                     }else {
-                        Closet_image_button closet_image_button = new Closet_image_button(bmp[j], mpathlist.sub_list[j], mpathlist.cate_list[j], mpathlist.color_list[j],mpathlist.path_list[j]);
-                        fragmentTransaction.add(R.id.closet_vertical_left, closet_image_button);
+                        Card_closet_image cardcloset_image_ = new Card_closet_image(bmp[j], mpathlist.sub_list[j], mpathlist.cate_list[j], mpathlist.color_list[j],mpathlist.path_list[j]);
+                        fragmentTransaction.add(R.id.closet_vertical_left, cardcloset_image_);
                     }
                 }
                 int i = 0;
@@ -121,7 +118,7 @@ public class Closet_fragment extends Fragment {
                     if(bmp[i] == null){
                         break;
                     }
-                    add fragment = new add(bmp[i]);
+                    Card_tag_add fragment = new Card_tag_add(bmp[i]);
                     fragmentTransaction.add(R.id.tag_add_list_layout,fragment);
                 }
                 if(i > 1 && isResumed()){

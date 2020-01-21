@@ -82,6 +82,10 @@ public class Get_count extends AsyncTask<String,Void, int[]>{
                 con.disconnect();
             }
         }
+        if(result.isEmpty()){
+            int[] error = {-1};
+            return error;
+        }
         System.out.println("result:"+result);
         String[] befor_count_list = result.split(",");
         int [] count_list = new int[befor_count_list.length];

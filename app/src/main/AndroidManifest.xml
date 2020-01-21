@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".flafment.Bad_Codnate_view" />
+        <activity android:name=".fragment.Bad_Codnate_view" />
         <activity android:name=".tuuti" />
         <activity android:name=".intent.MyPage" />
         <activity android:name=".intent.Start_Mens" />

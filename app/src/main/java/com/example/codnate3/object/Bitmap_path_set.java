@@ -1,4 +1,4 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.object;
 
 import android.graphics.Bitmap;
 

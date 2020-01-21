@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".flafment.Bad_Codnate_view">
+    tools:context=".fragment.Bad_Codnate_view">
 
 
     <HorizontalScrollView

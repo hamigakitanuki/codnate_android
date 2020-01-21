@@ -26,6 +26,9 @@ public class GetSub extends AsyncTask<String[],Void, String[]>{
     @Override
     protected String[] doInBackground(String[] ...cate_path) {
 
+        String[] test = {"blouse","blouse","blouse"};
+        return test;
+        /*
         //受け取ったParamを格納
         String cate = cate_path[0][0];
         String path = cate_path[0][1];
@@ -98,6 +101,8 @@ public class GetSub extends AsyncTask<String[],Void, String[]>{
         return sub;
 
 
+
+         */
     }
 
 

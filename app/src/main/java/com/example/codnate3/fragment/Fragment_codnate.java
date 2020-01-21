@@ -1,4 +1,4 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -21,7 +20,7 @@ import com.example.codnate3.object.Codenate_path_list;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class Codnate_fragment extends Fragment {
+public class Fragment_codnate extends Fragment {
     boolean sw = true;
     View view;
     int userNo;
@@ -41,7 +40,7 @@ public class Codnate_fragment extends Fragment {
             LinearLayout linearLayout = getActivity().findViewById(R.id.fragment_codnate_liner);
             linearLayout.setVisibility(View.INVISIBLE);
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.load_tanuki, Load_Flagment.newInstance()).commit();
+            fragmentManager.beginTransaction().replace(R.id.load_tanuki, Fragment_load.newInstance()).commit();
 
             SwipeRefreshLayout swipeRefreshLayout = view.findViewById(R.id.fragment_swip_layout);
             swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -82,8 +81,8 @@ public class Codnate_fragment extends Fragment {
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     for(int i = 0;i<pathlist.tops_sub.length;i++){
                         if(pathlist.codnate_file_check(i)){
-                            Codnate_add codnate_add = new Codnate_add(pathlist.get_path(i),pathlist.get_color(i),pathlist.get_sub(i),pathlist.get_codnate_sample(i));
-                            fragmentTransaction.add(R.id.codnate_liner_list,codnate_add);
+                            Card_codnate_item fragmentcodnateitem = new Card_codnate_item(pathlist.get_path(i),pathlist.get_color(i),pathlist.get_sub(i),pathlist.get_codnate_sample(i));
+                            fragmentTransaction.add(R.id.codnate_liner_list, fragmentcodnateitem);
                         }else{
                             break;
                         }

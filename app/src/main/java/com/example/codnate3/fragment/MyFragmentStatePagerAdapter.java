@@ -1,4 +1,4 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,15 +17,16 @@ public class MyFragmentStatePagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new Codnate_fragment();
+                return new Fragment_codnate();
             case 1:
-                return new Closet_fragment();
+                return new Fragment_closet();
             case 2:
-                return new Local_recomend();
+                return new Fragment_Web_recomend();
             case 3:
-                return new Web_recomend();
+                return new Fragment_local_recomend();
+            default:
+                return new Fragment_codnate();
         }
-        return  null;
     }
 
     @Override
@@ -44,7 +45,9 @@ public class MyFragmentStatePagerAdapter extends FragmentPagerAdapter {
                 return "近くのお店のおすすめ商品";
             case 3:
                 return "オンラインストアのおすすめ商品";
+            default:
+                return "ああああ";
         }
-        return null;
+
     }
 }

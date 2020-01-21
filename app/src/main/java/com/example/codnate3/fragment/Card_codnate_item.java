@@ -1,11 +1,7 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
-import android.graphics.BlendMode;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -19,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.codnate3.Huku_Chager;
@@ -34,7 +29,7 @@ import com.example.codnate3.object.Path_set;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class Codnate_add extends Fragment {
+public class Card_codnate_item extends Fragment {
 
 
     private final String[] path;
@@ -54,7 +49,7 @@ public class Codnate_add extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-    public Codnate_add(String path[],String color[],String sub[],String sample){
+    public Card_codnate_item(String path[], String color[], String sub[], String sample){
         this.path = path;
         this.color = color;
         this.sub = sub;

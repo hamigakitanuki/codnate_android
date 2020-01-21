@@ -1,7 +1,5 @@
 package com.example.codnate3.object;
 
-import com.example.codnate3.flafment.Codnate_add;
-
 public class Codnate_user_set {
     public String tops_path;
     public String botoms_path;

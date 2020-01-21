@@ -1,4 +1,4 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -26,7 +26,7 @@ public class Card_fragment_canpain extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.kyanpage,container,false);
+        mView = inflater.inflate(R.layout.fragment_kyanpage,container,false);
         Button campain_button = mView.findViewById(R.id.canpain_button);
         campain_button.setOnClickListener(new View.OnClickListener() {
             @Override

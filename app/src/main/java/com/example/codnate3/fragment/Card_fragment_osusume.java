@@ -1,23 +1,19 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.codnate3.R;
 import com.example.codnate3.net.Get_image;
-import com.example.codnate3.net.Get_recomend_item_tops;
+import com.example.codnate3.net.Get_recomend_item;
 import com.example.codnate3.object.Bitmap_set;
 import com.example.codnate3.object.Codenate_path_list;
-import com.example.codnate3.object.Recomend_item;
 
 
 public class Card_fragment_osusume extends Fragment {
@@ -29,7 +25,7 @@ public class Card_fragment_osusume extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.osusume,container,false);
+        mView = inflater.inflate(R.layout.fragment_osusume,container,false);
         Button osusumeButton = mView.findViewById(R.id.recomend_link_button);
         Button osusumeButton2 = mView.findViewById(R.id.recomend_link_button2);
 
@@ -45,8 +41,8 @@ public class Card_fragment_osusume extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    Get_recomend_item_tops.Listener get_reco_task(){
-        return new Get_recomend_item_tops.Listener() {
+    Get_recomend_item.Listener get_reco_task(){
+        return new Get_recomend_item.Listener() {
             @Override
             public void onSuccess(Codenate_path_list pathlist) {
 

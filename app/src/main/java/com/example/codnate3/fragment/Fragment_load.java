@@ -1,4 +1,4 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,15 +14,15 @@ import androidx.fragment.app.Fragment;
 
 import com.example.codnate3.R;
 
-public class Load_Flagment extends Fragment {
+public class Fragment_load extends Fragment {
 
-    public Load_Flagment() {
+    public Fragment_load() {
         // Required empty public constructor
     }
 
 
-    public static Load_Flagment newInstance() {
-        Load_Flagment fragment = new Load_Flagment();
+    public static Fragment_load newInstance() {
+        Fragment_load fragment = new Fragment_load();
 
         return fragment;
     }

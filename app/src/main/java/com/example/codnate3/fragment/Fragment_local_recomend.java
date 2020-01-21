@@ -1,25 +1,21 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.codnate3.R;
 
-public class Local_recomend extends Fragment {
+public class Fragment_local_recomend extends Fragment {
     View rootView;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_local,container,false);
+        rootView = inflater.inflate(R.layout.fragment_local_shop,container,false);
 
         return rootView;
 

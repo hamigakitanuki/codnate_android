@@ -26,6 +26,11 @@ public class GetType extends AsyncTask<String,Void, int[]>{
     @Override
     protected int[] doInBackground(String... paths) {
 
+        int[] test = {30,30,40};
+        return test;
+        /*
+
+
         String path = paths[0];
         //接続するためのクラスを宣言
         HttpURLConnection con = null;
@@ -89,6 +94,8 @@ public class GetType extends AsyncTask<String,Void, int[]>{
 
         return  String_array_to_int(type_value_text);
 
+
+         */
 
 
 

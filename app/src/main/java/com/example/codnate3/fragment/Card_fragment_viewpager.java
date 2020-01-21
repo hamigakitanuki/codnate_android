@@ -1,4 +1,4 @@
-package com.example.codnate3.flafment;
+package com.example.codnate3.fragment;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.codnate3.R;
 import com.example.codnate3.net.Get_image;
-import com.example.codnate3.net.Get_recomend_item_tops;
+import com.example.codnate3.net.Get_recomend_item;
 import com.example.codnate3.object.Bitmap_set;
 import com.example.codnate3.object.Codenate_path_list;
 
@@ -25,7 +25,7 @@ public class Card_fragment_viewpager extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.recomend_viewpager,container,false);
+        mView = inflater.inflate(R.layout.fragment_recomend_viewpager,container,false);
         ViewPager viewPager = mView.findViewById(R.id.recomend_viewpager);
         viewPager.setAdapter(new Recomend_statement(getActivity().getSupportFragmentManager(),0));
         return mView;
@@ -40,8 +40,8 @@ public class Card_fragment_viewpager extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    Get_recomend_item_tops.Listener get_reco_task(){
-        return new Get_recomend_item_tops.Listener() {
+    Get_recomend_item.Listener get_reco_task(){
+        return new Get_recomend_item.Listener() {
             @Override
             public void onSuccess(Codenate_path_list pathlist) {
 
