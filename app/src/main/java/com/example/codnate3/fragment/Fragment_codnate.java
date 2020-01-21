@@ -17,6 +17,9 @@ import com.example.codnate3.R;
 import com.example.codnate3.net.GetCodenate;
 import com.example.codnate3.object.Codenate_path_list;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static android.content.Context.MODE_PRIVATE;
 
 
@@ -30,7 +33,7 @@ public class Fragment_codnate extends Fragment {
                              Bundle saveInstanceState){
 
 
-        view = inflater.inflate(R.layout.activity_main,container,false);
+        view = inflater.inflate(R.layout.fragment_codnate_list,container,false);
         if(sw){
             SharedPreferences data = this.getActivity().getSharedPreferences("DATA", MODE_PRIVATE);
             userNo = data.getInt("userNo", 0);
@@ -39,15 +42,13 @@ public class Fragment_codnate extends Fragment {
 
             LinearLayout linearLayout = getActivity().findViewById(R.id.fragment_codnate_liner);
             linearLayout.setVisibility(View.INVISIBLE);
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.load_tanuki, Fragment_load.newInstance()).commit();
+            //FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            //fragmentManager.beginTransaction().replace(R.id.load_tanuki, Fragment_load.newInstance()).commit();
 
             SwipeRefreshLayout swipeRefreshLayout = view.findViewById(R.id.fragment_swip_layout);
             swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                 @Override
                 public void onRefresh() {
-                    LinearLayout codnate_liner = view.findViewById(R.id.codnate_liner_list);
-                    codnate_liner.removeAllViews();
                     GetCodenate getCodenate = new GetCodenate();
                     getCodenate.setListener(create_codnate_task());
                     getCodenate.execute(String.valueOf(userNo));
@@ -82,12 +83,16 @@ public class Fragment_codnate extends Fragment {
                     for(int i = 0;i<pathlist.tops_sub.length;i++){
                         if(pathlist.codnate_file_check(i)){
                             Card_codnate_item fragmentcodnateitem = new Card_codnate_item(pathlist.get_path(i),pathlist.get_color(i),pathlist.get_sub(i),pathlist.get_codnate_sample(i));
-                            fragmentTransaction.add(R.id.codnate_liner_list, fragmentcodnateitem);
+                            Set<String> path_set = new HashSet<>();
+
                         }else{
                             break;
                         }
                     }
                     if(isResumed()){
+                        SharedPreferences data = getActivity().getSharedPreferences("DATA",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = data.edit();
+
                         fragmentTransaction.commit();
                     }
                 }else{

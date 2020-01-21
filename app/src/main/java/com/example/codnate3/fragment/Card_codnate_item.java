@@ -35,6 +35,7 @@ public class Card_codnate_item extends Fragment {
     private final String[] path;
     private final String[] color;
     private final String[] sub;
+    private final String sample;
     private ImageButton goodButton;
     private ImageButton badButton;
     private ImageView goodButton2,badButton2;
@@ -43,7 +44,6 @@ public class Card_codnate_item extends Fragment {
     private boolean good_good = false ;
     private boolean good_bad = false ;
     private ImageView codnate[] = new ImageView[4];
-    private String sample;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

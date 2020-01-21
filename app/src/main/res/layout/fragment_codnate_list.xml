@@ -13,23 +13,13 @@
         android:layout_height="600dp">
 
 
-        <HorizontalScrollView
+        <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fadeScrollbars="false"
             android:scrollbarThumbHorizontal="@color/primaryColor">
 
-            <LinearLayout
-                android:id="@+id/codnate_liner_list"
-                android:paddingLeft="24dp"
-                android:paddingRight="24dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-
-            </LinearLayout>
-        </HorizontalScrollView>
+        </androidx.viewpager.widget.ViewPager>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
